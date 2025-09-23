@@ -1,0 +1,118 @@
+.video-intro{
+    background-clip: border-box;
+}
+.reseau-social {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.reseau-social a {
+  font-size: 32px;
+  transition: transform 0.3s, color 0.3s, filter 0.3s;
+}
+
+/* Facebook */
+.reseau-social a.facebook {
+  color: #1877F2;
+}
+.reseau-social a.facebook:hover {
+  color: #0d5cc6;
+  transform: scale(1.2);
+}
+
+/* WhatsApp */
+.reseau-social a.whatsapp {
+  color: #25D366;
+}
+.reseau-social a.whatsapp:hover {
+  color: #128C7E;
+  transform: scale(1.2);
+}
+
+/* Instagram (dégradé simulé) */
+.reseau-social a.instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, 
+              #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.reseau-social a.instagram:hover {
+  transform: scale(1.2);
+  filter: brightness(1.2);
+}
+
+/* TikTok (noir + accent) */
+.reseau-social a.tiktok {
+  color: #000000; /* noir par défaut */
+}
+.reseau-social a.tiktok:hover {
+  transform: scale(1.2);
+  color: #ff0050; /* rose officiel au hover */
+  text-shadow: 1px 1px 2px #00f2ea; /* accent turquoise */
+}
+
+/*============================== */
+/* Section class="video-intro"Vidéo 
+    en arrière-plan de la page paul *
+/*============================== */
+
+/* ==== RESET ==== */
+
+
+/* ==== HEADER ==== */
+.site-header {
+  position: relative;
+  height: 100vh; /* occupe tout l'écran */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Vidéo full screen */
+.video-intro {
+  width: 100%;
+  height: 100vh; /* hauteur = 100% de l’écran */
+  overflow: hidden;
+}
+
+.video-intro video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* recouvre toute la zone sans déformation */
+  display: block;
+}
+
+
+/* ==== SECTION PAUL ANDRÉ ==== */
+.section {
+  padding: 50px 10%;
+  background: white;
+}
+
+.section h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* ==== RESEAUX SOCIAUX ==== */
+.reseau-social {
+  text-align: center;
+  padding: 30px 0;
+  background: #111;
+  color: white;
+}
+
+.reseau-social a {
+  color: white;
+  font-size: 1.8rem;
+  margin: 0 15px;
+  transition: color 0.3s ease;
+}
+
+.reseau-social a:hover {
+  color: #ffd700;
+}

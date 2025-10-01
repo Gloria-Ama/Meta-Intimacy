@@ -1,0 +1,103 @@
+body{
+    background-color: rgb(190, 192, 194);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+}
+body::before{
+    content: "";
+    position: fixed;
+    top: 0;
+    inset: 0;
+    z-index: -1; /* Assure que le pseudo-élément est derrière le contenu */
+    background-image: url("/img/logo.PNG");
+    background-size: 90px auto;
+    background-position: 0 0;
+    animation: bg-pan 20s linear infinite;
+}
+@keyframes bg-pan {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 800px 600px; /* Ajustez cette valeur pour contrôler la vitesse du panoramique */
+    }
+}
+.naissance{
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    padding: 20px;
+    margin: 2px 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.p1{
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 30px;
+    margin: 2px 20px;
+    width: 650px;
+    align-self: flex-start;
+    box-shadow: 40px 40px 60px #000000,
+}
+.p1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -10px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #1962ea;
+}
+
+.p2{
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 30px;
+    margin: 2px 20px;
+    width: 650px;
+    align-self: flex-end;
+}
+.p2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -10px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #0d6efd;
+}
+.p1, .p2 {
+  opacity: 0;                 /* caché au début */
+  transform: translateY(40px); /* décalé vers le bas */
+  animation: floatUp 1s ease-out forwards;
+  box-shadow: 0 20px 60px rgba(7, 27, 247, 0.15);
+  background-color: rgb(115, 171, 235);
+  color: rgb(238, 230, 230);
+  border-radius: 18px;
+}
+
+/* décalage pour que chaque bloc arrive en décalé */
+.p1:nth-of-type(1) { animation-delay: 5s; }
+.p2:nth-of-type(2) { animation-delay: 3s; }
+.p1:nth-of-type(3) { animation-delay: 6s; }
+.p2:nth-of-type(4) { animation-delay: 9s; }
+.p1:nth-of-type(5) { animation-delay: 12s; }
+
+/* animation */
+@keyframes floatUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

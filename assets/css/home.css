@@ -1,45 +1,167 @@
+body{
+    background-color: rgb(20, 35, 51);
+    background: linear-gradient(180deg, #0d1b2a, #000046, #050227,  #1e3c72, #2a5298, #000046, #050227);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+}
+body::before{
+    content: "";
+    position: fixed;
+    top: 0;
+    inset: 0;
+    z-index: -1; /* Assure que le pseudo-élément est derrière le contenu */
+    background-image: url("/img/logo.PNG");
+    filter: brightness(0.1);
+    background-size: 90px auto;
+    background-position: 0 0;
+    animation: bg-pan 20s linear infinite;
+}
+@keyframes bg-pan {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 800px 600px; /* Ajustez cette valeur pour contrôler la vitesse du panoramique */
+    }
+}
 /* ============================= */
 /* Section Paul - Images + Texte */
 /* ============================= */
-.paul {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  height: 450px; /* même hauteur pour image + texte */
-  background-color: rgb(225, 234, 236);
-  overflow: hidden;
-  padding: 10px;
-  box-sizing: border-box;
+.message{
+  text-align: center;
+  font-size: 16px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  padding: 20px ;
+  padding: 40px ;
+  background-color: #276086;
+  border-radius: 8px;
+  box-shadow:2px 0 4px 6px rgba(0, 3, 11, 0.1);
+  margin: 50px 100px;
+}
+.message h3{
+  color: #fefffb;
+  font-weight: 400;
+  line-height: 2;
+  font-size: 20px;
+  padding-bottom: 20px ;
+}
+.message h1{
+  color: #faf8f8;
+  font-weight: 800;
+  line-height: 2;
+  font-size: 34px;
+  padding-bottom: 20px ;
 }
 
 /* ============================= */
 /* Bloc des images en fondu      */
-/* ============================= */
 .photo {
   flex: 1;
-  max-width: 600px;
+  max-width: 50%;
   height: 100%;
   overflow: hidden;
   position: relative;
-  border-radius: 2px;
+  border-radius: 20px;
+  /*box-shadow: 30px 0px 40px 205px rgba(2, 145, 247, 0.2)*/
+}*
+.responsables{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 10px;
+  height: 300px;
+}
+.paul {
+  display: flex;              /* aligne en ligne */
+  justify-content: space-between; /* espace entre texte et images */
+  align-items: flex-start; 
+  padding: 20px 20px;
+  box-sizing: border-box;
+  height: 600px;
+  /*box-shadow: 0px 4px 15px rgba(1, 0, 6, 0.2);*/
+  background-color: #dbeef5;
+  border-color: #dacaca;
+  box-shadow: 0px 40px 15px rgba(1, 0, 6, 0.2);
 }
 
 #photopaul {
   position: relative;
-  width: 100%;
   height: 100%;
+  display: flex;
+  flex-wrap: wrap;            /* images reviennent à la ligne si trop */
+  gap: 10px;                  /* espace entre images */
+  justify-content: center;  
+  padding: auto;
+  background-color: #02021b;
+  border-radius: 20px;
 }
 
+#Biopaul, .photo {
+  width: 50%;                 /* chaque bloc prend 50% */
+  box-sizing: border-box;     /* sécurité pour padding/border */
+  margin:20px;
+}
 #photopaul img {
   position: absolute;
   inset: 0;               /* top:0; right:0; bottom:0; left:0; */
   width: 100%;
   height: 100%;
   object-fit: cover;      /* remplit sans déformation (recadre proprement) */
-  opacity: 0;
+  opacity: 10;
   animation: fade 25s infinite; /* 5 images × 5s */
-  border-radius: 12px;
+  mix-blend-mode: luminosity;
+  border-radius: 30px;
+}
+
+#Biopaul {
+  flex: 2;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;   /* empile texte et bouton */
+  justify-content: flex-start;
+  align-items: center;      /* centre horizontalement le contenu */
+  text-align: left;       /* centre le texte aussi */
+}
+#Biopaul h3 {
+  font-size: 16px;
+  line-height: 2;
+  margin: 0 0 20px 0;  /* espace sous le texte */
+  font-weight: 400;
+  color: #0d0d0d;
+  align-items: start;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+#Biopaul h1 {
+  font-size: 40px;
+  line-height: 2;
+  margin: 0 0 30px 0;  /* espace sous le texte */
+  color: #000000;
+  text-decoration-style: dotted;
+  font-family: fantasy;
+  font-weight: 800;
+}
+#buttonpaul {
+  padding: 10px 24px;
+  color: rgb(253, 248, 248);
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  background-color: #0a0b0b;
+  border: 1px solid #0a0b0b;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#buttonpaul:hover {
+  background: #2ec2dc;
 }
 
 /* chaque image a un délai différent pour apparaître */
@@ -62,30 +184,10 @@
   animation-play-state: paused;
 }
 
-/* ============================= */
-/* Texte à droite (même hauteur) */
-/* ============================= */
-#Biopaul {
-  flex: 2;
-  height: 100%;                 /* même hauteur que l'image */
-  overflow-y: auto;             /* scroll si texte trop long */
-  display: flex;                /* pour centrer verticalement/ajuster */
-  align-items: center;          /* centre verticalement le bloc texte */
-  padding-right: 8px;           /* petite marge contre la scrollbar */
-}
-
-#Biopaul h3 {
-  font-size: 16px;
-  line-height: 2.55;
-  margin: 0;
-  font-weight: 400;
-  color: #0f172a;               /* bleu très sombre élégant */
-}
-
 /* Optionnel : affiner la scrollbar sur Chrome/Edge */
 #Biopaul::-webkit-scrollbar { width: 8px; }
 #Biopaul::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.15);
+  background: rgba(219, 15, 15, 0.15);
   border-radius: 8px;
 }
 
@@ -117,24 +219,49 @@
     line-height: 1.6;
   }
 }
-#Biopaul {
-  flex: 2;
+
+.joseph {
+  display: flex;              /* aligne en ligne */
+  justify-content: space-between; /* espace entre texte et images */
+  align-items: flex-start; 
+  padding: 30px 30px;
+  box-sizing: border-box;
+  margin-top: 10%;
+  height: 550px;
+  border-color: #000000;
+  background-color: #f4f6f1;
+  box-shadow: 0px 40px 15px rgba(1, 0, 6, 0.2);
+}
+
+#photojoseph {
+  position: relative;
   height: 100%;
-  overflow-y: auto;
   display: flex;
-  flex-direction: column; /* texte en haut, bouton en dessous */
-  justify-content: flex-start;
+  flex-wrap: wrap;            /* images reviennent à la ligne si trop */
+  gap: 10px;                  /* espace entre images */
+  justify-content: center;  
+  padding: auto;
+  background-color: #02021b;
+  border-radius: 20px;
 }
 
-#Biopaul h3 {
-  font-size: 16px;
-  line-height: 1.55;
-  margin: 0 0 15px 0; /* espace en bas du texte */
-  font-weight: 400;
-  color: #0f172a;
+#Biojoseph, .photo {
+  width: 50%;                 /* chaque bloc prend 50% */
+  box-sizing: border-box;     /* sécurité pour padding/border */
+}
+#photojoseph img {
+  position: absolute;
+  inset: 0;               /* top:0; right:0; bottom:0; left:0; */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* remplit sans déformation (recadre proprement) */
+  opacity: 10;
+  animation: fade 25s infinite; /* 5 images × 5s */
+  mix-blend-mode: luminosity;
+  border-radius: 30px;
 }
 
-#Biopaul {
+#Biojoseph {
   flex: 2;
   height: 100%;
   overflow-y: auto;
@@ -142,76 +269,265 @@
   flex-direction: column;   /* empile texte et bouton */
   justify-content: flex-start;
   align-items: center;      /* centre horizontalement le contenu */
-  text-align: center;       /* centre le texte aussi */
+  text-align: left;       /* centre le texte aussi */
 }
-
-#Biopaul h3 {
+#Biojoseph h3 {
   font-size: 16px;
   line-height: 2;
   margin: 0 0 20px 0;  /* espace sous le texte */
   font-weight: 400;
-  color: #0f172a;
+  color: #15056e;
+  align-items: start;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
-
-#buttonpaul {
-  padding: 12px 24px;
-  background: #b4c7ef;
-  color: white;
+#Biojoseph h1 {
+  font-size: 40px;
+  line-height: 2;
+  margin: 0 0 30px 0;  /* espace sous le texte */
+  color: #000000;
+  text-decoration-style: dotted;
+  font-family: fantasy;
+  font-weight: 800;
+}
+#buttonjoseph {
+  padding: 10px 24px;
+  color: rgb(253, 248, 248);
   font-family: 'Poppins', sans-serif;
   font-size: 15px;
   font-weight: 500;
-  border: none;
+  background-color: #0a0b0b;
+  border: 1px solid #0a0b0b;
   border-radius: 8px;
   text-decoration: none;
   cursor: pointer;
   transition: background 0.3s;
+  margin-top: 35px;
 }
 
-#buttonpaul:hover {
-  background: #1d4ed8;
+#buttonjoseph:hover {
+  background: #2ec2dc;
+}
+
+/* chaque image a un délai différent pour apparaître */
+#photojoseph img:nth-child(1) { animation-delay: 0s; }
+#photojoseph img:nth-child(2) { animation-delay: 5s; }
+#photojoseph img:nth-child(3) { animation-delay: 10s; }
+#photojoseph img:nth-child(4) { animation-delay: 15s; }
+#photojoseph img:nth-child(5) { animation-delay: 20s; }
+
+@keyframes fade {
+  0%   { opacity: 0; }
+  5%   { opacity: 1; }
+  20%  { opacity: 1; }
+  25%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Pause du diaporama au survol (optionnel) */
+#photojoseph:hover img {
+  animation-play-state: paused;
+}
+
+/* Optionnel : affiner la scrollbar sur Chrome/Edge */
+#Biojoseph::-webkit-scrollbar { width: 8px; }
+#Biojoseph::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.15);
+  border-radius: 8px;
 }
 
 /* ============================= */
-/* page paul   */ 
+/* Version Responsive (mobile)   */
 /* ============================= */
-.social-links {
-  margin-top: 15px;
+@media (max-width: 768px) {
+  .joseph {
+    flex-direction: column;   /* images en haut, texte en bas */
+    height: auto;             /* laisse respirer en vertical */
+  }
+
+  .photo {
+    max-width: 100%;
+    width: 100%;
+    height: 300px;            /* assez grand pour ne pas couper la tête */
+  }
+
+  #Biojoseph {
+    flex: unset;
+    width: 100%;
+    height: auto;             /* pas de contrainte de 450px sur mobile */
+    margin-top: 10px;
+    align-items: flex-start;  /* texte en haut sur mobile */
+  }
+
+  #Biojoseph h3 {
+    font-size: 15px;
+    line-height: 1.6;
+    color:#000000;
+  }
+}
+
+
+/*============================== */
+/*section presentation de meta sur la page d'accueil*/
+/*============================== */
+.presentation{
   display: flex;
-  justify-content: center;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  padding: 100px 50px 50px 50px;
+  /*background:linear-gradient(to bottom, #0A0A23, #1E3C72,#000046,#050227);*/
+  background-color: #f2f1f6;
+  gap: 50px;
+  height: 550px;
+}
+.presentation h3{
+  flex: 1;
+  text-align: center;
+  font-size: 20px;
+  line-height: 2;
+  color: #0d012b;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  margin: 0 0 20px 0;  /* espace sous le texte */
+  align-items: center;
+  text-align: center;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.presentation h1{
+  flex: 1;
+  text-align: center;
+  font-size: 40px;
+  line-height: 2;
+  color: #050118;
+  text-decoration-style: dotted;
+  font-family: fantasy;
+  font-weight: 800;
+  text-align: center;  
+  margin-bottom: 20px ;
+  
+}
+#buttonpresentation {
+  padding: 12px 24px;
+  color: rgb(3, 1, 20);
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  border: 2px solid #ecf0f0;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #0b0694 0%, #2575fc 100%);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: inline-block;
+  margin-top: 20px ;
+}
+
+#buttonpresentation:hover {
+  background: #563ff1;
+}
+
+#buttonmessage {
+  padding: 12px 24px;
+  color: rgb(9, 40, 100);
+  background-color: #e9fafa;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  border: 0px solid #e9fafa;
+  border-radius: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: inline-block;
+  margin-top: 30px ;
+}
+
+#buttonmessage:hover {
+  background: #000d18;
+  color: #ffffff;
+}
+
+/*============================== */
+/* programmes  */  
+/*============================== */
+
+.programmes{
+  background-image: url("/img/Gris\ fleurs\ et\ des\ papillons\ fond\ _\ Vecteur\ Gratuite_files/");
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 50px 50px 100px 50px;
+  margin-bottom: 40px;
+  gap: 50px;
+  width: 100%;
+}
+.programmes h3{
+  flex: 1;
+  text-align: center;
+  font-size: 20px;
+  line-height: 2;
+  color: #fdfcfe;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 400;
+  margin: 0 0 20px 0;  /* espace sous le texte */
+  align-items: center;
+  text-align: center;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.programmes h1{
+  flex: 1;
+  text-align: center;
+  font-size: 40px;
+  line-height: 2;
+  color: #fdfcff;
+  text-decoration-style: dotted;
+  font-family: fantasy;
+  font-weight: 800;
+  text-align: center;  
+  margin-bottom: 20px ;
+  
+}
+.horaires{
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
+  justify-content: center;
+}
+.horaire{
+  background: #276086;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px #0b0694;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  gap: 100px;
+}
+.horaire:hover{
+  transform: translateY(-15px);
+}
+.horaire img {
+  width: 100%;
+  height: 250px;
+  border-radius: 10px;
 }
 
-.social-links a {
-  font-size: 32px;
-  transition: transform 0.3s, color 0.3s;
+.horaire h2 {
+  font-size: 1.5em;
+  color: #f4f7fa;
+  margin-top: 10px;
 }
 
-/* Facebook */
-.social-links a.facebook {
-  color: #1877F2; /* bleu officiel */
-}
-.social-links a.facebook:hover {
-  color: #0d5cc6;
-  transform: scale(1.2);
+.horaire h3 {
+  font-size: 1.2em;
+  color: #fbf9f9;
+  margin-bottom: 10px;
 }
 
-/* WhatsApp */
-.social-links a.whatsapp {
-  color: #25D366; /* vert officiel */
-}
-.social-links a.whatsapp:hover {
-  color: #128C7E;
-  transform: scale(1.2);
-}
-
-/* Instagram (dégradé simulé) */
-.social-links a.instagram {
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, 
-              #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.social-links a.instagram:hover {
-  transform: scale(1.2);
-  filter: brightness(1.2);
+.horaire p {
+  font-size: 1em;
+  color: #f4f2f2;
 }

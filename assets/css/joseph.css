@@ -1,0 +1,91 @@
+body{
+  background-image: url('../img/paul6.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.video-intro{
+  background-clip: border-box;
+  width: 100%;
+  height: 800px ; /* hauteur = 100% de l’écran */
+  overflow: hidden;
+  position: relative;
+}
+.video-intro video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* couvre toute la zone sans déformation */
+  filter: brightness(0.7); /* assombrit légèrement la vidéo pour améliorer la lisibilité */
+}
+.reseau-social {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.reseau-social div {
+  display: flex;
+  gap: 50px; /* es                                                                                                                                                                                                                                                                                                                                                                                              pace entre icônes */
+}
+
+/* Icônes générales */
+.reseau-social a {
+  font-size: 2rem;
+  transition: transform 0.3s ease, filter 0.3s ease, color 0.3s ease;
+}
+
+/* Instagram dégradé */
+.reseau-social a .fa-instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, 
+    #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.reseau-social a:hover .fa-instagram {
+  transform: scale(1.2);
+  filter: brightness(1.2);
+}
+
+/* Facebook bleu */
+.reseau-social a .fa-facebook {
+  color: #1877f2;
+}
+.reseau-social a:hover .fa-facebook {
+  transform: scale(1.2);
+  filter: brightness(1.2);
+}
+
+/* YouTube rouge */
+.reseau-social a .fa-youtube {
+  color: #ff0000;
+}
+.reseau-social a:hover .fa-youtube {
+  transform: scale(1.2);
+  filter: brightness(1.2);
+}
+
+/* ==== SECTION PAUL ANDRÉ: SA biographie et ses reseaux ==== */
+.section1{
+  padding: 50px 10%;
+}
+
+.section h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+
+}
+p {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  margin-bottom: 15px;
+  line-height:2;
+  font-weight: 700;
+  text-align: justify;
+    font-size: 18px;
+}
+
+

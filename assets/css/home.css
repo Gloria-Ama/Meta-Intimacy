@@ -10,11 +10,15 @@ a { text-decoration: none; color: inherit; }
 /* FOND & ANIMATION BG           */
 /* ============================= */
 body {
-  background-color: rgb(20, 35, 51);
-  background: linear-gradient(
+  /*background: linear-gradient(
     180deg,
     #0d1b2a, #5577f4, #000046, #050227,
     #1e3c72, #2a5298, #000046, #050227
+  );*/
+  background: linear-gradient(
+    180deg,
+    #9db8d5, #5577f4, #000046, #50bff6,
+    #1e3c72, #2a5298, #b88d28, #050227
   );
   background-repeat: no-repeat;
   background-size: cover;
@@ -39,8 +43,7 @@ body::before {
   to   { background-position: 800px 600px; }
 }
 
-/* Sécurité overflow pour header/footer */
-header, footer { max-width: 100%; overflow-x: hidden; }
+
 
 /* ============================= */
 /* BLOCS RESPONSABLES (PAUL / JOSEPH) */
@@ -436,36 +439,7 @@ header, footer { max-width: 100%; overflow-x: hidden; }
     -2px -2px 0 #FFFFFF;
 }
 
-/* ============================= */
-/* FOOTER BASIQUE (icônes + texte)
-   (tu peux remplacer par ton thème choisi si besoin) */
-/* ============================= */
-footer {
-  background: #1a1a1a;
-  color: #ffffff;
-  padding: 60px 20px;
-  text-align: center;
-}
-#reseau-social {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 26px;
-  margin-bottom: 24px;
-}
-#reseau-social a {
-  width: 76px; height: 76px; border-radius: 50%;
-  border: 2px solid rgba(255,255,255,.92);
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; background: transparent;
-  transition: background-color .2s, transform .2s, color .2s, border-color .2s;
-}
-#reseau-social a i { font-size: 28px; }
-#reseau-social a:hover {
-  background-color: rgba(255,255,255,.16);
-  transform: translateY(-2px);
-  border-color: #fff;
-}
+
 #contact p {
   margin: 10px 0 6px;
   font-weight: 500;

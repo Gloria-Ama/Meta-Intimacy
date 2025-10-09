@@ -1,36 +1,47 @@
-    <!doctype html>
+<!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Meta Intimacy — Accueil</title>
-
   <meta name="description" content="Bienvenue à l'Église Espoir. Culte chaque dimanche, ministères pour tous, prédications et événements.">
   <link rel="icon" href="favicon.ico">
-
   <!-- Styles -->
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/home.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
 
 <header class="site-header">
   <a class="brand" href="index.html">
-    <img src="img/logo.PNG" alt="Logo" height="40px">
+    <img src="/img/logo.PNG" alt="Logo" height="40px">
   </a>
   <nav class="site-nav" aria-label="Navigation principale">
-    <a href="index.html">Accueil</a>
-    <a href="pages/a-propos.html">À propos</a>
-    <a href="pages/ministeres.html">Ministères</a>
-    <a href="pages/cultes.html">Cultes</a>
-    <a href="pages/predications.html">Prédications</a>
-    <a href="pages/evenements.html">Événements</a>
-    <a href="pages/dons.html" class="btn">Dons</a>
-    <a href="pages/contact.html">Contact</a>
+    <a href="/index.html">Accueil</a>
+    <li class="has-dropdown">
+      <button class="menu-btn">À-propos <span class="caret">▾</span></button>
+      <ul class="dropdown">
+        <li><a href="/pages/a-propos.html">À propos</a></li>
+        <li><a href="/pages/a-propos/joseph.html">Responsable</a></li>
+        <li><a href="/pages/a-propos/paul.html">Fondateur</a></li>
+      </ul>
+    </li>
+    <a href="/pages/ministeres.html">Ministères</a>
+    <a href="/pages/cultes.html">Cultes</a>
+    <a href="/pages/predications.html">Prédications</a>
+    <a href="/pages/evenements.html">Événements</a>
+    <li class="has-dropdown">
+      <button class="menu-btn"> Contact <span class="caret">▾</span></button>
+      <ul class="dropdown">
+        <li><a href="/pages/contact.html">Nous joindre</a></li>
+        <li><a href="/pages/contact/rendez-vous.html">Prendre un rendez-vous </a></li>
+        <li><a href="/pages/contact/Servir chez nous.html">Servir chez nous</a></li>
+        <li><a href="/pages/contact/temoignage.html">Temoignages</a></li>
+      </ul>
+    </li>
+    <a href="/pages/dons.html" class="btn">Dons</a>
   </nav>
 </header>
-
 
 <body>
   <!--presentation de la cellule-->
@@ -99,6 +110,13 @@
         <p>Temps de prière en ligne </p>
         <a href="pages/enseignements.html" id="buttonhoraire">En savoir plus </a>
       </div>
+      <div class="horaire">
+        <img src="" alt="">
+        <h2>Dimanche</h2>
+        <h3>11h00 - 13h00</h3>
+        <p>Ecole de dimanche en présentiel </p>
+        <a href="pages/enseignements.html" id="buttonhoraire">En savoir plus </a>
+      </div>
     </div>
   </section>
   <!-- Présentation des responsables -->
@@ -124,9 +142,8 @@
           et à l’édification des enfants de Dieu au Canada, portant la marque d’une génération qui se lève
             pour manifester la gloire du Royaume.
         </h3>
-        <a href="pages/joseph.html" id="buttonjoseph">Lire plus</a>
+        <a href="/pages/a-propos/joseph.html" id="buttonjoseph">Lire plus</a>
       </div>
-     
   </section>
   <section class="paul">
       <section class="photo">
@@ -151,15 +168,31 @@
           vies transformées et une génération de croyants solides se lever pour manifester la gloire de Dieu. 
 
         </h3>
-        <a href="pages/paul.html" id="buttonpaul">Lire plus</a>
+        <a href="/pages/a-propos/paul.html" id="buttonpaul">Lire plus</a>
       </div>
   </section>
-  <!-- JS facultatif juste pour l’année dynamique -->
+  <section class="suivre">
+    <h1>Nous suivre</h1>
+    <h3>
+      Reste connecté avec nous sur les réseaux sociaux pour ne rien manquer de nos activités, 
+      événements et enseignements inspirants. Rejoins notre communauté en ligne et partage ta 
+      foi avec nous !
+    </h3>
+    <div id="reseau-social-home">
+      <a href="https://www.instagram.com/metaintimacy/" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.tiktok.com/@meta_intimacy" target="_blank">
+        <i class="fab fa-tiktok"></i>
+      </a>
+    </div>
+
+  </section>
 </body>
 <footer>
   <div id="reseau-social">
-    <a href="https://www.instagram.com/pad_officiel/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.facebook.com/paulandre.assale" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@meta_intimacy" target="_blank"><i class="fab fa-tiktok"></i></a>
   </div>
   <div id="contact">
     <p>&copy; <span id="year"></span> Meta Intimacy — Tous droits réservés</p>

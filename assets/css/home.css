@@ -1,418 +1,240 @@
-body{
-    background-color: rgb(20, 35, 51);
-    background: linear-gradient(180deg, #0d1b2a,#5577f4, #000046, #050227,  #1e3c72, #2a5298, #000046, #050227);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    margin: 0;
-    padding: 0;
-}
-body::before{
-    content: "";
-    position: fixed;
-    top: 0;
-    inset: 0;
-    z-index: -1; /* Assure que le pseudo-élément est derrière le contenu */
-    background-image: url("/img/logo.PNG");
-    filter: brightness(0.1);
-    background-size: 90px auto;
-    background-position: 0 0;
-    animation: bg-pan 20s linear infinite;
-}
-@keyframes bg-pan {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: 800px 600px; /* Ajustez cette valeur pour contrôler la vitesse du panoramique */
-    }
-}
 /* ============================= */
-/* Section Paul - Images + Texte */
+/* RESET & BASE                  */
 /* ============================= */
-.message{
-  text-align: center;
-  font-size: 16px;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-  padding: 20px ;
-  padding: 40px ;
-  background-color: #276086;
-  border-radius: 8px;
-  box-shadow:2px 0 4px 6px rgba(0, 3, 11, 0.1);
-  margin: 50px 100px;
-}
-.message h3{
-  color: #fefffb;
-  font-weight: 400;
-  line-height: 2;
-  font-size: 20px;
-  padding-bottom: 20px ;
-}
-.message h1{
-  color: #faf8f8;
-  font-weight: 800;
-  line-height: 2;
-  font-size: 34px;
-  padding-bottom: 20px ;
-}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; width: 100%; overflow-x: hidden; }
+img, iframe { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; }
 
 /* ============================= */
-/* Bloc des images en fondu      */
-.photo {
-  flex: 1;
-  max-width: 50%;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-  border-radius: 20px;
-  /*box-shadow: 30px 0px 40px 205px rgba(2, 145, 247, 0.2)*/
+/* FOND & ANIMATION BG           */
+/* ============================= */
+body {
+  background-color: rgb(20, 35, 51);
+  background: linear-gradient(
+    180deg,
+    #0d1b2a, #5577f4, #000046, #050227,
+    #1e3c72, #2a5298, #000046, #050227
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
-.responsables{
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;                /* top/right/bottom/left:0 */
+  z-index: -1;             /* derrière le contenu */
+  background-image: url("/img/logo.PNG");
+  filter: brightness(0.1);
+  background-size: 90px auto;
+  background-repeat: repeat;
+  background-position: 0 0;
+  animation: bg-pan 20s linear infinite;
+}
+
+@keyframes bg-pan {
+  from { background-position: 0 0; }
+  to   { background-position: 800px 600px; }
+}
+
+/* Sécurité overflow pour header/footer */
+header, footer { max-width: 100%; overflow-x: hidden; }
+
+/* ============================= */
+/* BLOCS RESPONSABLES (PAUL / JOSEPH) */
+/* ============================= */
+
+/* Conteneurs 2 colonnes — correction overflow:
+   on utilise gap au parent + flex-basis ≈ 50% */
+.paul,
+.joseph {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px 10px;
-  height: 300px;
-}
-.paul {
-  display: flex;              /* aligne en ligne */
-  justify-content: space-between; /* espace entre texte et images */
-  align-items: flex-start; 
-  padding: 30px 30px;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;                     /* espace entre colonnes */
+  padding: 30px;
   box-sizing: border-box;
-  margin-top: 10%;
+  min-width: 0;                  /* indispensable contre overflow */
   height: 550px;
+  margin: 0 0 10% 0;             /* marge bas, pas sur les côtés */
   border-color: #000000;
   background-color: #0b0000;
   box-shadow: 0px 40px 15px rgba(1, 0, 6, 0.2);
-  background-image: url("/img/backgroundpaulhome.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-#photopaul {
-  position: relative;
+/* Fonds spécifiques */
+.paul    { background-image: url("/img/backgroundpaulhome.jpg"); }
+.joseph  { background-image: url("/img/backgroundjosephhome.jpg"); }
+
+/* Colonne image + colonne bio — sans marges latérales qui faisaient dépasser */
+#Biopaul, #photopaul,
+#Biojoseph, #photojoseph {
+  flex: 1 1 0;
+  flex-basis: calc(50% - 10px);  /* 50% moins la moitié du gap */
+  min-width: 0;                  /* important si texte long */
+  width: auto;
+  margin: 0;
+}
+
+/* Carte image (cadre) */
+.photo {
+  flex: 1 1 0;
+  width: auto;
   height: 100%;
-  display: flex;
-  flex-wrap: wrap;            /* images reviennent à la ligne si trop */
-  gap: 10px;                  /* espace entre images */
-  justify-content: center;  
-  padding: auto;
-  background-color: #02021b;
+  position: relative;
+  overflow: hidden;
   border-radius: 20px;
 }
 
-#Biopaul, .photo {
-  width: 50%;                 /* chaque bloc prend 50% */
-  box-sizing: border-box;     /* sécurité pour padding/border */
-  margin:20px;
+/* Conteneur diaporama image (paul/joseph) */
+#photopaul, #photojoseph {
+  position: relative;
+  height: 100%;
+  background-color: #02021b;
+  border-radius: 20px;
+  overflow: hidden;              /* coupe proprement les bords */
+  min-width: 0;
 }
-#photopaul img {
+
+/* ⚠️ Dans ton HTML, tu as utilisé #photojoseph à l’intérieur de .paul :
+   on duplique la règle pour gérer ce cas et éviter un rendu cassé. */
+.paul #photojoseph { height: 100%; }
+
+/* Images du diaporama */
+#photopaul img,
+#photojoseph img {
   position: absolute;
-  inset: 0;               /* top:0; right:0; bottom:0; left:0; */
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;      /* remplit sans déformation (recadre proprement) */
-  opacity: 10;
-  animation: fade 25s infinite; /* 5 images × 5s */
+  object-fit: cover;
+  opacity: 1;                    /* 1 (au lieu de 10) */
+  animation: fade 25s infinite;  /* 5 images × 5s */
   mix-blend-mode: luminosity;
   border-radius: 30px;
 }
 
-#Biopaul {
-  flex: 2;
+/* Fade des images */
+@keyframes fade {
+  0%   { opacity: 0; }
+  5%   { opacity: 1; }
+  20%  { opacity: 1; }
+  25%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Pause du diaporama au survol (optionnel) */
+#photopaul:hover img,
+#photojoseph:hover img { animation-play-state: paused; }
+
+/* Décalages pour les 5 images */
+#photopaul  img:nth-child(1),
+#photojoseph img:nth-child(1) { animation-delay: 0s;  }
+#photopaul  img:nth-child(2),
+#photojoseph img:nth-child(2) { animation-delay: 5s;  }
+#photopaul  img:nth-child(3),
+#photojoseph img:nth-child(3) { animation-delay: 10s; }
+#photopaul  img:nth-child(4),
+#photojoseph img:nth-child(4) { animation-delay: 15s; }
+#photopaul  img:nth-child(5),
+#photojoseph img:nth-child(5) { animation-delay: 20s; }
+
+/* Colonnes texte (bio) */
+#Biopaul, #Biojoseph {
   height: 100%;
-  overflow-y: auto;
+  overflow-y: auto;              /* scroll vertical interne si besoin */
   display: flex;
-  flex-direction: column;   /* empile texte et bouton */
+  flex-direction: column;
   justify-content: flex-start;
-  align-items: center;      /* centre horizontalement le contenu */
-  text-align: left;       /* centre le texte aussi */
+  align-items: center;           /* centre horizontalement */
+  text-align: left;
+  padding: 0 10px;
 }
-#Biopaul h3 {
-  font-size: 16px;
-  line-height: 2;
-  margin: 0 0 20px 0;  /* espace sous le texte */
-  font-weight: 400;
-  color: #010007;
-  align-items: start;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-}
-#Biopaul h1 {
+
+/* Titres & textes */
+#Biopaul h1, #Biojoseph h1 {
   font-size: 40px;
   line-height: 2;
-  margin: 0 0 30px 0;  /* espace sous le texte */
+  margin: 0 0 30px 0;
   color: #060121;
   text-decoration-style: dotted;
   font-family: fantasy;
   font-weight: 800;
 }
-#buttonpaul {
-  padding: 10px 24px;
-  color: rgb(253, 248, 248);
-  font-family: 'Poppins', sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  background-color: #0a0b0b;
-  border: 1px solid #0a0b0b;
-  border-radius: 8px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-#buttonpaul:hover {
-  background: #2ec2dc;
-}
-
-/* chaque image a un délai différent pour apparaître */
-#photopaul img:nth-child(1) { animation-delay: 0s; }
-#photopaul img:nth-child(2) { animation-delay: 5s; }
-#photopaul img:nth-child(3) { animation-delay: 10s; }
-#photopaul img:nth-child(4) { animation-delay: 15s; }
-#photopaul img:nth-child(5) { animation-delay: 20s; }
-
-@keyframes fade {
-  0%   { opacity: 0; }
-  5%   { opacity: 1; }
-  20%  { opacity: 1; }
-  25%  { opacity: 0; }
-  100% { opacity: 0; }
-}
-
-/* Pause du diaporama au survol (optionnel) */
-#photopaul:hover img {
-  animation-play-state: paused;
-}
-
-/* Optionnel : affiner la scrollbar sur Chrome/Edge */
-#Biopaul::-webkit-scrollbar { width: 8px; }
-#Biopaul::-webkit-scrollbar-thumb {
-  background: rgba(219, 15, 15, 0.15);
-  border-radius: 8px;
-}
-
-/* ============================= */
-/* Version Responsive (mobile)   */
-/* ============================= */
-@media (max-width: 768px) {
-  .paul {
-    flex-direction: column;   /* images en haut, texte en bas */
-    height: auto;             /* laisse respirer en vertical */
-  }
-
-  .photo {
-    max-width: 100%;
-    width: 100%;
-    height: 300px;            /* assez grand pour ne pas couper la tête */
-  }
-
-  #Biopaul {
-    flex: unset;
-    width: 100%;
-    height: auto;             /* pas de contrainte de 450px sur mobile */
-    margin-top: 10px;
-    align-items: flex-start;  /* texte en haut sur mobile */
-  }
-
-  #Biopaul h3 {
-    font-size: 15px;
-    line-height: 1.6;
-  }
-}
-
-.joseph {
-  display: flex;              /* aligne en ligne */
-  justify-content: space-between; /* espace entre texte et images */
-  align-items: flex-start; 
-  padding: 30px 30px;
-  box-sizing: border-box;
-  margin-top: 10%;
-  height: 550px;
-  border-color: #000000;
-  background-color: #0b0000;
-  box-shadow: 0px 40px 15px rgba(1, 0, 6, 0.2);
-  background-image: url("/img/backgroundjosephhome.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-#photojoseph {
-  position: relative;
-  height: 100%;
-  display: flex;
-  flex-wrap: wrap;            /* images reviennent à la ligne si trop */
-  gap: 10px;                  /* espace entre images */
-  justify-content: center;  
-  padding: auto;
-  background-color: #02021b;
-  border-radius: 20px;
-}
-
-#Biojoseph, .photo {
-  width: 50%;                 /* chaque bloc prend 50% */
-  box-sizing: border-box;     /* sécurité pour padding/border */
-}
-#photojoseph img {
-  position: absolute;
-  inset: 0;               /* top:0; right:0; bottom:0; left:0; */
-  width: 100%;
-  height: 100%;
-  object-fit: cover;      /* remplit sans déformation (recadre proprement) */
-  opacity: 10;
-  animation: fade 25s infinite; /* 5 images × 5s */
-  mix-blend-mode: luminosity;
-  border-radius: 30px;
-}
-
-#Biojoseph {
-  flex: 2;
-  height: 100%;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;   /* empile texte et bouton */
-  justify-content: flex-start;
-  align-items: center;      /* centre horizontalement le contenu */
-  text-align: left;       /* centre le texte aussi */
-}
-#Biojoseph h3 {
+#Biopaul h3, #Biojoseph h3 {
   font-size: 16px;
   line-height: 2;
-  margin: 0 0 20px 0;  /* espace sous le texte */
+  margin: 0 0 20px 0;
   font-weight: 400;
-  color: #020114;
-  align-items: start;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  color: #010007;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-#Biojoseph h1 {
-  font-size: 40px;
-  line-height: 2;
-  margin: 0 0 30px 0;  /* espace sous le texte */
-  color: #0a012d;
-  text-decoration-style: dotted;
-  font-family: fantasy;
-  font-weight: 800;
-}
-#buttonjoseph {
+
+/* Boutons */
+#buttonpaul, #buttonjoseph {
   padding: 10px 24px;
-  color: rgb(253, 248, 248);
+  color: #fdf8f8;
   font-family: 'Poppins', sans-serif;
   font-size: 15px;
   font-weight: 500;
   background-color: #0a0b0b;
   border: 1px solid #0a0b0b;
   border-radius: 8px;
-  text-decoration: none;
   cursor: pointer;
   transition: background 0.3s;
-  margin-top: 35px;
+  text-decoration: none;
 }
+#buttonjoseph { margin-top: 35px; }
+#buttonpaul:hover, #buttonjoseph:hover { background: #2ec2dc; }
 
-#buttonjoseph:hover {
-  background: #2ec2dc;
-}
-
-/* chaque image a un délai différent pour apparaître */
-#photojoseph img:nth-child(1) { animation-delay: 0s; }
-#photojoseph img:nth-child(2) { animation-delay: 5s; }
-#photojoseph img:nth-child(3) { animation-delay: 10s; }
-#photojoseph img:nth-child(4) { animation-delay: 15s; }
-#photojoseph img:nth-child(5) { animation-delay: 20s; }
-
-@keyframes fade {
-  0%   { opacity: 0; }
-  5%   { opacity: 1; }
-  20%  { opacity: 1; }
-  25%  { opacity: 0; }
-  100% { opacity: 0; }
-}
-
-/* Pause du diaporama au survol (optionnel) */
-#photojoseph:hover img {
-  animation-play-state: paused;
-}
-
-/* Optionnel : affiner la scrollbar sur Chrome/Edge */
+/* Scrollbar (optionnel Chrome/Edge) */
+#Biopaul::-webkit-scrollbar,
 #Biojoseph::-webkit-scrollbar { width: 8px; }
+#Biopaul::-webkit-scrollbar-thumb,
 #Biojoseph::-webkit-scrollbar-thumb {
   background: rgba(0,0,0,0.15);
   border-radius: 8px;
 }
 
 /* ============================= */
-/* Version Responsive (mobile)   */
+/* SECTION PRÉSENTATION          */
 /* ============================= */
-@media (max-width: 768px) {
-  .joseph {
-    flex-direction: column;   /* images en haut, texte en bas */
-    height: auto;             /* laisse respirer en vertical */
-  }
-
-  .photo {
-    max-width: 100%;
-    width: 100%;
-    height: 300px;            /* assez grand pour ne pas couper la tête */
-  }
-
-  #Biojoseph {
-    flex: unset;
-    width: 100%;
-    height: auto;             /* pas de contrainte de 450px sur mobile */
-    margin-top: 10px;
-    align-items: flex-start;  /* texte en haut sur mobile */
-  }
-
-  #Biojoseph h3 {
-    font-size: 15px;
-    line-height: 1.6;
-    color:#000000;
-  }
-}
-
-
-/*============================== */
-/*section presentation de meta sur la page d'accueil*/
-/*============================== */
-.presentation{
+.presentation {
   display: flex;
   align-items: center;
-  text-align: center;
   justify-content: space-between;
-  padding: 100px 50px 50px 50px;
-  /*background:linear-gradient(to bottom, #0A0A23, #1E3C72,#000046,#050227);*/
-  background-color: #f2f1f6;
   gap: 50px;
-  height: 550px;
+  padding: 50px;
+  background-color: #f2f1f6;
+  height: 650px;
+  text-align: center;
 }
-.presentation h3{
+
+.presentation h1 {
   flex: 1;
-  text-align: center;
-  font-size: 20px;
-  line-height: 2;
-  color: #0d012b;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  margin: 0 0 20px 0;  /* espace sous le texte */
-  align-items: center;
-  text-align: center;
-  margin-left: 30px;
-  margin-right: 30px;
-}
-.presentation h1{
-  flex: 1;
-  text-align: center;
   font-size: 40px;
   line-height: 2;
   color: #050118;
   text-decoration-style: dotted;
   font-family: fantasy;
   font-weight: 800;
-  text-align: center;  
-  margin-bottom: 20px ;
-  
+  margin: 0 0 20px 0;
 }
+
+.presentation h3 {
+  flex: 1;
+  font-size: 20px;
+  line-height: 2;
+  color: #0d012b;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  margin: 0 30px;
+}
+
 #buttonpresentation {
   padding: 12px 24px;
   color: rgb(3, 1, 20);
@@ -422,17 +244,40 @@ body::before{
   border: 2px solid #ecf0f0;
   border-radius: 4px;
   background: linear-gradient(90deg, #0b0694 0%, #2575fc 100%);
-  text-decoration: none;
   cursor: pointer;
   transition: background 0.3s;
   display: inline-block;
-  margin-top: 20px ;
+  margin-top: 20px;
 }
+#buttonpresentation:hover { background: #563ff1; }
 
-#buttonpresentation:hover {
-  background: #563ff1;
+/* ============================= */
+/* SECTION MESSAGE               */
+/* ============================= */
+.message {
+  text-align: center;
+  font-size: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 40px;
+  background-color: #276086;
+  border-radius: 8px;
+  box-shadow: 2px 0 4px 6px rgba(0, 3, 11, 0.1);
+  margin: 50px 100px;
 }
-
+.message h1 {
+  color: #faf8f8;
+  font-weight: 800;
+  line-height: 2;
+  font-size: 34px;
+  padding-bottom: 20px;
+}
+.message h3 {
+  color: #fefffb;
+  font-weight: 400;
+  line-height: 2;
+  font-size: 20px;
+  padding-bottom: 20px;
+}
 #buttonmessage {
   padding: 12px 24px;
   color: rgb(9, 40, 100);
@@ -440,104 +285,70 @@ body::before{
   font-family: 'Poppins', sans-serif;
   font-size: 15px;
   font-weight: 500;
-  border: 0px solid #e9fafa;
+  border: 0;
   border-radius: 20px;
-  text-decoration: none;
   cursor: pointer;
   transition: background 0.3s;
   display: inline-block;
-  margin-top: 30px ;
+  margin-top: 30px;
 }
+#buttonmessage:hover { background: #000d18; color: #ffffff; }
 
-#buttonmessage:hover {
-  background: #000d18;
-  color: #ffffff;
-}
-
-/*============================== */
-/* programmes  */  
-/*============================== */
-
-.programmes{
-  background-image: url("/img/fond\ blanc.jpg");
+/* ============================= */
+/* SECTION PROGRAMMES            */
+/* ============================= */
+.programmes {
+  background-image: url("/img/fond blanc.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
+  flex-direction: column;
   align-items: center;
   text-align: center;
-  flex-direction: column;
   justify-content: space-between;
   padding: 50px 50px 100px 50px;
   margin-bottom: 5px;
-  gap: 30px;
   width: 100%;
 }
-.programmes h3{
-  flex: 1;
-  text-align: center;
-  font-size: 20px;
-  line-height: 2;
-  color: #0a0446;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 500;
-  align-items: center;
-  text-align: center;
-  margin-left: 30px;
-  margin-right: 30px;
-}
-.programmes h1{
-  flex: 1;
-  text-align: center;
+
+.programmes h1 {
   font-size: 40px;
   line-height: 2;
   color: #1b014f;
   text-decoration-style: dotted;
   font-family: fantasy;
   font-weight: 800;
-  text-align: center;  
-  margin-bottom: 20px ;
-  
+  margin-bottom: 20px;
 }
-.horaires{
+.programmes h3 {
+  font-size: 20px;
+  line-height: 2;
+  color: #0a0446;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 500;
+  margin: 0 30px;
+}
+
+.horaires {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+  margin-top: 100px;
 }
-.horaire{
+.horaire {
   background: #276086;
   border-radius: 10px;
   box-shadow: 0 4px 10px #0b0694;
   padding: 20px;
-  width: 300px;
+  width: 250px;
   text-align: center;
-  gap: 100px;
 }
-.horaire:hover{
-  transform: translateY(-15px);
-}
-.horaire img {
-  width: 100%;
-  height: 250px;
-  border-radius: 10px;
-}
-
-.horaire h2 {
-  font-size: 1.5em;
-  color: #f4f7fa;
-  margin-top: 10px;
-}
-
-.horaire h3 {
-  font-size: 1.2em;
-  color: #fbf9f9;
-  margin-bottom: 10px;
-}
-
-.horaire p {
-  font-size: 1em;
-  color: #f4f2f2;
-}
+.horaire:hover { transform: translateY(-15px); }
+.horaire img { width: 100%; height: 250px; border-radius: 10px; }
+.horaire h2 { font-size: 1.5em; color: #f4f7fa; margin-top: 10px; }
+.horaire h3 { font-size: 1.2em; color: #fbf9f9; margin-bottom: 10px; }
+.horaire p  { font-size: 1em;  color: #f4f2f2; }
 
 #buttonhoraire {
   padding: 12px 24px;
@@ -546,16 +357,165 @@ body::before{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 15px;
   font-weight: 500;
-  border: 0px solid #e9fafa;
+  border: 0;
   border-radius: 12px;
-  text-decoration: none;
   cursor: pointer;
-  font-weight: 500;
   transition: background 0.3s;
   display: inline-block;
-  margin-top: 30px ;
+  margin-top: 30px;
 }
-#buttonmessage:hover {
-  background: #000d18;
+#buttonhoraire:hover { background: #000d18; color: #ffffff; }
+
+/* ============================= */
+/* SECTION “NOUS SUIVRE”         */
+/* ============================= */
+.suivre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #276086;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 10px;
+  border-top: 1px solid #eee;
+}
+.suivre h1 { color: #ffffff; font-size: 30px; margin: 5px 0; padding-top: 15px; }
+.suivre h3 { color: #ffffff; font-size: 18px; font-weight: 200; margin: 5px 0; padding-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif; }
+.suivre p  { color: #ffffff; font-size: 20px; margin: 5px 0; padding-top: 15px; }
+
+/* Réseaux sociaux (cercles) */
+#reseau-social-home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+#reseau-social-home a {
+  width: 2cm;
+  height: 2cm;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center; align-items: center;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Bordure Instagram */
+#reseau-social-home a:first-child {
+  border: 4px solid transparent;
+  background-image: linear-gradient(white, white),
+                    radial-gradient(circle at 30% 30%, #feda75, #d62976, #962fbf, #4f5bd5);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+/* Bordure TikTok */
+#reseau-social-home a:last-child {
+  border: 4px solid transparent;
+  background-image: linear-gradient(white, white),
+                    linear-gradient(45deg, #EE1D52, #69C9D0);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+/* Icônes centrées */
+#reseau-social-home i { font-size: 0.75cm; }
+
+/* Couleurs officielles */
+#reseau-social-home a:first-child i {
+  background: radial-gradient(circle at 30% 30%, #feda75, #d62976, #962fbf, #4f5bd5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#reseau-social-home a:last-child i {
+  color: #69C9D0;
+  text-shadow:
+    2px 2px 0 #EE1D52,
+    -2px -2px 0 #FFFFFF;
+}
+
+/* ============================= */
+/* FOOTER BASIQUE (icônes + texte)
+   (tu peux remplacer par ton thème choisi si besoin) */
+/* ============================= */
+footer {
+  background: #1a1a1a;
   color: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
+}
+#reseau-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 26px;
+  margin-bottom: 24px;
+}
+#reseau-social a {
+  width: 76px; height: 76px; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.92);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; background: transparent;
+  transition: background-color .2s, transform .2s, color .2s, border-color .2s;
+}
+#reseau-social a i { font-size: 28px; }
+#reseau-social a:hover {
+  background-color: rgba(255,255,255,.16);
+  transform: translateY(-2px);
+  border-color: #fff;
+}
+#contact p {
+  margin: 10px 0 6px;
+  font-weight: 500;
+  font-size: clamp(15px, 1.8vw, 18px);
+  color: rgba(255,255,255,.92);
+}
+#contact address {
+  margin: 0;
+  font-style: normal;
+  font-size: clamp(14px, 1.6vw, 17px);
+  color: rgba(255,255,255,.88);
+}
+
+/* ============================= */
+/* RESPONSIVE                    */
+/* ============================= */
+@media (max-width: 768px) {
+  /* Sections 2 colonnes deviennent verticales */
+  .paul, .joseph {
+    flex-direction: column;
+    height: auto;               /* laisse respirer en vertical */
+    gap: 16px;
+  }
+
+  .photo {
+    width: 100%;
+    height: 300px;              /* évite de couper les têtes */
+    max-width: 100%;
+  }
+
+  #Biopaul, #Biojoseph {
+    width: 100%;
+    height: auto;
+    align-items: flex-start;
+  }
+
+  #Biopaul h3, #Biojoseph h3 {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #000000;
+  }
+
+  .message { margin: 30px 20px; }
+
+  #reseau-social-home { gap: 24px; }
+  #reseau-social-home a { width: 1.7cm; height: 1.7cm; }
+  #reseau-social-home i { font-size: 0.65cm; }
+}
+
+/* Respect préférence utilisateur : réduire les animations */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
 }

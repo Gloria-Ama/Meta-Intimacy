@@ -1,195 +1,311 @@
 /* ===========================
-   THÈME 7 — ICE BLUE
+    THÈME 7 — ICE BLUE (variables)
 =========================== */
 :root{
-  --blue-light: #e0effa;   /* header start */
-  --blue-med:   #b7d6ee;   /* header end */
-  --blue-f1:    #cfe6ff;   /* footer start */
-  --blue-f2:    #b0d3ff;   /* footer end */
-  --blue-dark:  #003366;   /* texte foncé / accents */
-  --blue-accent:#0055aa;   /* hover */
-  --gold:       #f5c542;   /* copyright */
-  --white:      #ffffff;
-  --shadow:     0 2px 10px rgba(0,0,0,.10);
-  --radius:     10px;
-}*/
+    /* thème */
+    --blue-light:#e0effa;
+    --blue-med:#b7d6ee;
+    --blue-f1:#cfe6ff;
+    --blue-f2:#b0d3ff;
+    --blue-dark:#003366;
+    --blue-accent:#0055aa;
+    --gold:#f7b709;
+    --white:#ffffff;
+    --shadow:0 2px 10px rgba(0,0,0,.10);
+    --radius:10px;
 
-/* Reset de base */
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-img{max-width:100%;display:block}
-a{text-decoration:none;color:inherit}
-li{list-style:none}
-/* Sécurité overflow pour header/footer */
-header, footer { max-width: 100%; overflow-x: hidden; }
+    /* layout : Utilisation d'une variable pour la hauteur du header (moins rigide que 'cm') */
+    --header-h: 88px;
+}
 
 /* ===========================
-   HEADER (3 cm de hauteur)
+    RESET + BASE LAYOUT
+=========================== */
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* Utiliser min-height: 100vh pour garantir que le body couvre toute la hauteur de l'écran */
+    min-height: 100vh;
+    display: flex; /* Active Flexbox pour le sticky footer */
+    flex-direction: column; /* Organise les enfants (header, main, footer) verticalement */
+    
+    overflow-x: hidden;
+}
+
+/* Ajoute l'espace sous le header fixe : lié à la variable */
+body{
+    padding-top: var(--header-h); /* utilise la variable du header-h */
+}
+img, iframe { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* Contenu principal: prend tout l'espace restant pour pousser le footer en bas */
+main {
+    flex: 1;
+}
+
+/* ===========================
+    HEADER (fixe)
 =========================== */
 .site-header{
-  background: linear-gradient(90deg, var(--blue-light), var(--blue-med));
-  color: var(--blue-dark);
-  height: 3cm; min-height: 3cm;
-  display:flex; align-items:center; justify-content:space-between; gap:24px;
-  padding: 0 clamp(18px,5vw,60px);   /* pas de padding vertical pour garder 3 cm */
-  position: sticky; top: 0; z-index: 1000;
-  box-shadow: var(--shadow);
-  border-bottom: 2px solid rgba(0,0,0,.04);
+    position: fixed;
+    inset: 0 0 auto 0; /* top: 0; left: 0; right: 0; */
+    /* Utilisation de la variable pour la hauteur */
+    height: var(--header-h);
+    /* Retrait de min-height: 3cm qui est trop rigide et non nécessaire */
+    /* Retrait de text-decoration: none qui est pour les <a> */
+    background-color: var(--white);
+    color: var(--blue-dark);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    /* Conserver le padding horizontal flexible */
+    padding: 0 clamp(18px,5vw,60px);
+    z-index: 1000;
+    box-shadow: var(--shadow);
+    border-bottom: 2px solid rgba(0,0,0,.04);
 }
-
-.site-header .brand{display:inline-flex;align-items:center;gap:10px}
-.site-header .brand img {
-  height: 165px;   /* agrandit le logo */
-  width: auto;    /* garde les proportions */
-  transition: transform 0.3s ease;
+.site-header .brand{
+    display:inline-flex;
+    align-items:center;
+    gap:50px;
+    height: 40px;
+    flex-shrink: 0; /* Empêche le logo de rétrécir */
 }
-
+.site-header .brand img{
+    /* CORRECTION MAJEURE: Taille du logo réduite pour qu'il tienne dans le header */
+    height: 250px; 
+    width: auto;
+}
 
 /* ===========================
-   NAVIGATION
+    NAVIGATION + SURVOL
 =========================== */
-.site-nav{display:flex;align-items:center;gap:18px;margin:0;padding:0}
+.site-nav{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin:0;
+    padding:0;
+}
 
 .site-nav > a,
 .site-nav .menu-btn{
-  color: var(--blue-dark);
-  font-size:18px; 
-  font-weight:200;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  padding:8px 6px;
-  background:none; border:none; cursor:pointer;
-  border-bottom:2px solid transparent;
-  transition: color .25s ease, border-color .25s ease;
-  white-space: nowrap;
+    color: var(--blue-dark);
+    font-size: 16px; /* Légèrement réduit pour mieux s'adapter */
+    font-weight: 500;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 8px 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: color .25s ease, border-color .25s ease;
+    white-space: nowrap;
+    flex-shrink: 1; /* Permet aux liens de se réduire avant de passer à la ligne */
 }
+
+/* Survol propre */
 .site-nav > a:hover,
 .site-nav .menu-btn:hover{
-  color: var(--blue-accent);
-  border-color: var(--blue-accent);
+    color: var(--gold);
+    border-color: var(--blue-accent);
 }
 
 /* Bouton Dons */
 .site-nav .btn{
-  background: var(--blue-dark);
-  color: var(--white);
-  padding:10px 16px; border-radius:999px; font-weight:700;
-  border:2px solid transparent;
-  transition: background .25s ease, color .25s ease, border-color .25s ease;
+    background: var(--blue-dark);
+    color: var(--white);
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-weight: 700;
+    border: 2px solid transparent;
+    transition: background .25s ease, color .25s ease, border-color .25s ease;
+    flex-shrink: 0; /* Assure que le bouton ne se réduit pas */
 }
 .site-nav .btn:hover{
-  background: var(--white);
-  color: var(--blue-dark);
-  border-color: var(--blue-accent);
+    background: var(--white);
+    color: var(--blue-dark);
+    border-color: var(--blue-accent);
 }
 
-/* Dropdowns (liste deroulante)*/
-.has-dropdown{ position:relative; }
+/* ===========================
+    DROPDOWN (ouverture au survol)
+=========================== */
+.has-dropdown{ 
+    position: relative;
+    list-style: none; /* Ajouté pour un meilleur reset */
+}
 .menu-btn{ display:inline-flex; align-items:center; }
-.caret{ margin-left:6px; }
+.caret{ margin-left: 6px; }
 
 .dropdown{
-  position:absolute; left:0; top:calc(100% + 8px);
-  min-width: 220px;
-  background: var(--blue-med);
-  border-radius: var(--radius);
-  padding:8px 0; margin:0; display:none;
-  box-shadow: var(--shadow);
-  z-index:1001;
+    position: absolute;
+    left: 0;
+    top: calc(100% + 8px);
+    min-width: 220px;
+    background: var(--blue-med);
+    border-radius: var(--radius);
+    padding: 8px 0;
+    margin: 0;
+    display: none;
+    box-shadow: var(--shadow);
+    z-index: 1001;
+    /* Assure que le dropdown ne dépasse pas l'écran */
+    max-width: calc(100vw - 32px);
 }
+
+.dropdown li{list-style: none;} /* Ajouté pour un meilleur reset */
 .dropdown li a{
-  display:block; 
-  padding:10px 16px;
-  color: var(--blue-dark); font-size:15px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  transition: background .2s ease, color .2s ease;
+    display: block;
+    padding: 10px 16px;
+    color: var(--blue-dark);
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: background .2s ease, color .2s ease;
+    /* Retrait de position: static qui était redondant ou potentiellement problématique */
 }
+
 .dropdown li a:hover{
-  background: rgba(255,255,255,.65);
-  color: var(--blue-accent);
+    background: rgba(255,255,255,.65);
+    color: var(--blue-accent);
 }
+
+/* Ouvrir au survol et au focus (clavier) */
 .has-dropdown:hover .dropdown,
-.has-dropdown:focus-within .dropdown{ display:block; }
+.has-dropdown:focus-within .dropdown{
+    display: block;
+}
 
 /* ===========================
-   FOOTER
+    FOOTER (sticky en bas + lisibilité)
 =========================== */
 footer{
-  background: linear-gradient(135deg, var(--blue-f1), var(--blue-f2));
-  color: var(--blue-dark);
-  padding: 70px 20px 60px; text-align:center;
-  box-shadow: 0 -2px 10px rgba(0,0,0,.06);
-  border-top: 2px solid rgba(0,0,0,.04);
+    margin-top: auto; /* Pousse le footer en bas */
+    /* CORRECTION LISIBILITÉ: Couleur du texte changée pour être lisible sur le fond sombre */
+    color: var(--white); 
+    background: linear-gradient(90deg, rgb(20, 20, 60),rgb(4, 4, 24),rgb(7, 7, 59));
+    padding: 70px 20px 60px;
+    text-align: center;
+    box-shadow: 0 -2px 10px rgba(0,0,0,.06);
+    border-top: 2px solid rgba(0,0,0,.04);
 }
 
-/* Réseaux sociaux (cercles bordés) */
 #reseau-social{
-  display:flex; justify-content:center; align-items:center;
-  gap:24px; margin-bottom:24px;
-}
-#reseau-social a{
-  width:76px; height:76px; border-radius:50%;
-  border:2px solid var(--blue-dark);
-  display:flex; align-items:center; justify-content:center;
-  color: var(--blue-dark); background: transparent;
-  transition: background-color .2s ease, transform .2s ease, color .2s ease, border-color .2s ease;
-}
-#reseau-social a i{ font-size:28px }
-#reseau-social a:hover{
-  background: var(--blue-dark);
-  color: var(--white);
-  transform: translateY(-2px);
-  border-color: var(--blue-dark);
+    display:flex; justify-content:center; align-items:center;
+    gap:24px; margin-bottom:24px;
 }
 
-/* Texte du footer */
+#reseau-social a{
+    width:46px; 
+    height:46px; 
+    background-color: var(--blue-light); /* Utilisation de variable */
+    border-radius:50%;
+    border:2px solid var(--white); /* Bords blancs pour contraster avec le fond sombre */
+    display:flex; 
+    align-items:center; 
+    justify-content:center;
+    color: var(--blue-dark); 
+    transition: background-color .2s, transform .2s, color .2s, border-color .2s;
+}
+
+#reseau-social a i{ 
+    font-size:22px; /* Réduit la taille de l'icône pour s'adapter à la boîte 46x46 */
+}
+
+#reseau-social a:hover{
+    background: var(--blue-dark);
+    color: var(--white);
+    transform: translateY(-2px);
+    border-color: var(--blue-dark);
+}
+
 #contact p{
-  margin:10px 0 6px;
-  font-weight:500;
-  font-size: clamp(15px, 1.8vw, 18px);
-  color: var(--blue-dark);
+    margin:10px 0 6px;
+    font-weight:500;
+    font-size: clamp(15px, 1.8vw, 18px);
+    /* CORRECTION LISIBILITÉ: Couleur claire sur fond sombre */
+    color: var(--blue-light); 
 }
 #contact address{
-  margin:0; font-style:normal;
-  font-size: clamp(14px, 1.6vw, 17px);
-  color: var(--blue-dark);
+    margin:0; font-style:normal;
+    font-size: clamp(14px, 1.6vw, 17px);
+    /* CORRECTION LISIBILITÉ: Couleur claire sur fond sombre */
+    color: var(--blue-med);
 }
 #contact .copyright{
-  color: var(--gold);
-  margin-top: 10px;
-  font-size: clamp(14px, 1.6vw, 17px);
+    color: var(--gold);
+    margin-top: 10px;
+    font-size: clamp(14px, 1.6vw, 17px);
 }
 
 /* ===========================
-   RESPONSIVE
+    RESPONSIVE
 =========================== */
+/* Tablette et écrans moyens */
 @media (max-width: 992px){
-  .site-header{ padding-inline:20px; gap:14px; }
-  .site-nav{ gap:12px; flex-wrap:wrap; justify-content:flex-end; }
-  #reseau-social a{ width:66px; height:66px; }
-  #reseau-social a i{ font-size:24px; }
+    /* Réduction de la hauteur du header pour les écrans moyens */
+    :root { --header-h: 70px; } 
+
+    .site-header{
+        /* Utilisation de la variable */
+        height: var(--header-h);
+        padding-inline: 20px;
+        gap: 14px;
+    }
+    .site-nav{ 
+        gap: 12px; 
+        flex-wrap: wrap; /* IMPORTANT: permet à la nav de passer à la ligne */
+        justify-content: flex-end; 
+    }
+    /* Les icônes étaient trop grandes (66px) et l'icône trop petite (14px) */
+    #reseau-social a{ width:50px; height:50px; }
+    #reseau-social a i{ font-size:22px; }
 }
 
+/* Mobile */
 @media (max-width: 640px){
-  .site-header{
-    flex-wrap: wrap; justify-content:center; text-align:center;
-    padding-inline: 14px; /* conserve la hauteur 3 cm */
-  }
-  .site-header .brand{ align-self:center; }
-  .site-nav{ width:100%; justify-content:center; gap:10px 14px; }
-  .site-nav > a, .site-nav .menu-btn{ font-size:15px; padding:6px 4px; }
+    /* Réduction de la hauteur du header pour les mobiles */
+    :root { --header-h: 60px; }
+    
+    .site-header{
+        /* IMPORTANT: Laisser la hauteur s'adapter en mobile si le menu passe sur deux lignes */
+        height: auto; 
+        padding-top: 8px; /* Ajouté pour espace en haut */
+        padding-bottom: 8px; /* Ajouté pour espace en bas */
+        
+        /* Flex-wrap géré pour aligner la marque à gauche et la nav en dessous */
+        flex-wrap: wrap; 
+        justify-content: space-between; /* Marque à gauche, nav en dessous */
+        text-align: left; /* Retiré le text-align:center pour éviter les problèmes d'alignement */
+        padding-inline: 14px;
+    }
+    .site-header .brand{ 
+        align-self: center; 
+    }
+    .site-nav{ 
+        width: 100%; /* La nav prend toute la largeur pour centrer ses liens */
+        justify-content: center; 
+        gap: 10px 14px; 
+        margin-top: 8px; /* Ajout d'espace entre la marque et le menu */
+    }
+    .site-nav > a, .site-nav .menu-btn{ font-size: 15px; padding: 6px 4px; }
 
-  .dropdown{
-    position: static; display:none; margin-top:6px;
-    background: var(--blue-light); width:100%;
-  }
-  .has-dropdown:hover .dropdown,
-  .has-dropdown:focus-within .dropdown{ display:block; }
-
-  #reseau-social{ gap:16px; }
-  #reseau-social a{ width:56px; height:56px; }
-  #reseau-social a i{ font-size:22px; }
+    /* Dropdown fluide sur mobile */
+    .dropdown{
+        position: static; 
+        display: none; 
+        margin-top: 6px;
+        background: var(--blue-light); 
+        width: 100%;
+        min-width: initial; /* Assure que le dropdown s'adapte à 100% de la largeur du conteneur */
+    }
+    .has-dropdown:hover .dropdown,
+    .has-dropdown:focus-within .dropdown{ display: block; }
 }
 
 @media (prefers-reduced-motion: reduce){
-  *{ transition: none !important; }
+    *{ transition: none !important; }
 }

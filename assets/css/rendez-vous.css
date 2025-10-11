@@ -1,0 +1,21 @@
+/* === Centrer le bouton Calendly sur la page === */
+.calendly-badge-widget {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 9999 !important;
+}
+
+
+.rdv {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(180deg, #e6f3ff 0%, #bcd8ff 100%);
+  color: #003366;
+  padding: 40px 20px;
+}

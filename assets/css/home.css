@@ -10,16 +10,17 @@ a { text-decoration: none; color: inherit; }
 /* FOND & ANIMATION BG           */
 /* ============================= */
 body {
-  /*background: linear-gradient(
-    180deg,
-    #0d1b2a, #5577f4, #000046, #050227,
-    #1e3c72, #2a5298, #000046, #050227
-  );*/
   background: linear-gradient(
     180deg,
-    #9db8d5, #5577f4, #000046, #50bff6,
-    #1e3c72, #2a5298, #b88d28, #050227
+    #0d1b2a, #5577f4, #000046, #050227,
+    #1e3c72, #2a5298, #000046, #050227,#5577f4
   );
+  /*background: linear-gradient(
+    180deg,
+    #0c056d, #040012, #001417, #041015,
+    #1e3c72, #0e1417, #0a1416, #050227
+  );*/
+  background-color: #121214;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -48,159 +49,188 @@ body::before {
 /* ============================= */
 /* BLOCS RESPONSABLES (PAUL / JOSEPH) */
 /* ============================= */
-
-/* Conteneurs 2 colonnes — correction overflow:
-   on utilise gap au parent + flex-basis ≈ 50% */
-.paul,
-.joseph {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;                     /* espace entre colonnes */
-  padding: 30px;
-  box-sizing: border-box;
-  min-width: 0;                  /* indispensable contre overflow */
-  height: 550px;
-  margin: 0 0 10% 0;             /* marge bas, pas sur les côtés */
-  border-color: #000000;
-  background-color: #0b0000;
-  box-shadow: 0px 40px 15px rgba(1, 0, 6, 0.2);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-/* Fonds spécifiques */
-.paul    { background-image: url("/img/backgroundpaulhome.jpg"); }
-.joseph  { background-image: url("/img/backgroundjosephhome.jpg"); }
-
-/* Colonne image + colonne bio — sans marges latérales qui faisaient dépasser */
-#Biopaul, #photopaul,
-#Biojoseph, #photojoseph {
-  flex: 1 1 0;
-  flex-basis: calc(50% - 10px);  /* 50% moins la moitié du gap */
-  min-width: 0;                  /* important si texte long */
-  width: auto;
-  margin: 0;
-}
-
-/* Carte image (cadre) */
-.photo {
-  flex: 1 1 0;
-  width: auto;
-  height: 100%;
+/* ==============================
+   SECTION — RESPONSABLES (Ice Blue)
+   ============================== */
+.responsables{
   position: relative;
+  color:#0F172A;
+  /*background:
+    radial-gradient(60% 80% at 20% 30%, #E6F4FF 0 60%, transparent 61%),
+    radial-gradient(50% 60% at 80% 20%, #DAECFF 0 55%, transparent 56%),
+    linear-gradient(180deg,#F5FAFF 0%, #EAF4FF 60%, #E6F4FF 100%);*/
+  margin-top: 200px;
+  margin-bottom: 100px;
   overflow: hidden;
-  border-radius: 20px;
+  padding: 32px 16px;
+  /* background-color: #121214;*/
+  background-color: #003366;
 }
 
-/* Conteneur diaporama image (paul/joseph) */
-#photopaul, #photojoseph {
-  position: relative;
-  height: 100%;
-  background-color: #02021b;
-  border-radius: 20px;
-  overflow: hidden;              /* coupe proprement les bords */
-  min-width: 0;
-}
+/* Texture douce + voile bas pour lisibilité */
+/*.responsables::before{
+  content:""; position:absolute; inset:-6%; pointer-events:none; z-index:0;
+  background:
+    radial-gradient(130% 90% at 20% 30%, #eef5ff 0 10%, transparent 11%) repeat,
+    radial-gradient(120% 80% at 80% 70%, #f5f9ff 0 9%,  transparent 10%) repeat;
+  background-size: 900px 700px, 1000px 800px;
+  filter: blur(10px) contrast(1.02);
+  opacity:.14;
+  box-shadow: inset 0 -60px 100px rgba(15,23,42,.08);
+}*/
 
-/* ⚠️ Dans ton HTML, tu as utilisé #photojoseph à l’intérieur de .paul :
-   on duplique la règle pour gérer ce cas et éviter un rendu cassé. */
-.paul #photojoseph { height: 100%; }
+/* Roses Ice Blue aux 4 coins *//*
+.responsables::after{
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none; opacity:.16;
+  background:
+    /* TL */ /*url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='76' height='76' viewBox='0 0 80 80'><g fill='none' stroke='%233B82F6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M40 16c10 4 16 10 16 18s-8 16-16 16-16-8-16-16 6-14 16-18z'/><path d='M40 22c7 3 12 7 12 12s-6 12-12 12-12-6-12-12 5-9 12-12z'/><path d='M40 28c4 2 8 4 8 8s-4 8-8 8-8-4-8-8 3-6 8-8z'/><path d='M28 48c-6 4-10 8-12 14'/><path d='M52 48c6 4 10 8 12 14'/></g></svg>") 12px 12px / 56px 56px no-repeat,*/
+    /* TR */ /*url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='76' height='76' viewBox='0 0 80 80'><g fill='none' stroke='%233B82F6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' transform='scale(-1,1) translate(-80,0)'><path d='M40 16c10 4 16 10 16 18s-8 16-16 16-16-8-16-16 6-14 16-18z'/><path d='M40 22c7 3 12 7 12 12s-6 12-12 12-12-6-12-12 5-9 12-12z'/><path d='M40 28c4 2 8 4 8 8s-4 8-8 8-8-4-8-8 3-6 8-8z'/><path d='M28 48c-6 4-10 8-12 14'/><path d='M52 48c6 4 10 8 12 14'/></g></svg>") calc(100% - 68px) 12px / 56px 56px no-repeat,*/
+    /* BL */ /*url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='76' height='76' viewBox='0 0 80 80'><g fill='none' stroke='%233B82F6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' transform='scale(1,-1) translate(0,-80)'><path d='M40 16c10 4 16 10 16 18s-8 16-16 16-16-8-16-16 6-14 16-18z'/><path d='M40 22c7 3 12 7 12 12s-6 12-12 12-12-6-12-12 5-9 12-12z'/><path d='M40 28c4 2 8 4 8 8s-4 8-8 8-8-4-8-8 3-6 8-8z'/><path d='M28 48c-6 4-10 8-12 14'/><path d='M52 48c6 4 10 8 12 14'/></g></svg>") 12px calc(100% - 68px) / 56px 56px no-repeat,*/
+    /* BR */ /*url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='76' height='76' viewBox='0 0 80 80'><g fill='none' stroke='%233B82F6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' transform='scale(-1,-1) translate(-80,-80)'><path d='M40 16c10 4 16 10 16 18s-8 16-16 16-16-8-16-16 6-14 16-18z'/><path d='M40 22c7 3 12 7 12 12s-6 12-12 12-12-6-12-12 5-9 12-12z'/><path d='M40 28c4 2 8 4 8 8s-4 8-8 8-8-4-8-8 3-6 8-8z'/><path d='M28 48c-6 4-10 8-12 14'/><path d='M52 48c6 4 10 8 12 14'/></g></svg>") calc(100% - 68px) calc(100% - 68px) / 56px 56px no-repeat;*/
+/*}*/
 
-/* Images du diaporama */
-#photopaul img,
-#photojoseph img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 1;                    /* 1 (au lieu de 10) */
-  animation: fade 25s infinite;  /* 5 images × 5s */
-  mix-blend-mode: luminosity;
-  border-radius: 30px;
-}
-
-/* Fade des images */
-@keyframes fade {
-  0%   { opacity: 0; }
-  5%   { opacity: 1; }
-  20%  { opacity: 1; }
-  25%  { opacity: 0; }
-  100% { opacity: 0; }
-}
-
-/* Pause du diaporama au survol (optionnel) */
-#photopaul:hover img,
-#photojoseph:hover img { animation-play-state: paused; }
-
-/* Décalages pour les 5 images */
-#photopaul  img:nth-child(1),
-#photojoseph img:nth-child(1) { animation-delay: 0s;  }
-#photopaul  img:nth-child(2),
-#photojoseph img:nth-child(2) { animation-delay: 5s;  }
-#photopaul  img:nth-child(3),
-#photojoseph img:nth-child(3) { animation-delay: 10s; }
-#photopaul  img:nth-child(4),
-#photojoseph img:nth-child(4) { animation-delay: 15s; }
-#photopaul  img:nth-child(5),
-#photojoseph img:nth-child(5) { animation-delay: 20s; }
-
-/* Colonnes texte (bio) */
-#Biopaul, #Biojoseph {
-  height: 100%;
-  overflow-y: auto;              /* scroll vertical interne si besoin */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;           /* centre horizontalement */
-  text-align: left;
-  padding: 0 10px;
-}
-
-/* Titres & textes */
-#Biopaul h1, #Biojoseph h1 {
-  font-size: 40px;
-  line-height: 2;
-  margin: 0 0 30px 0;
-  color: #060121;
-  text-decoration-style: dotted;
-  font-family: fantasy;
-  font-weight: 800;
-}
-#Biopaul h3, #Biojoseph h3 {
-  font-size: 16px;
-  line-height: 2;
-  margin: 0 0 20px 0;
-  font-weight: 400;
-  color: #010007;
+/* Titres & texte intro */
+.responsables > h1{
+  font-size: clamp(28px, 2.2vw + 16px, 40px);
+  color: #281cd4;
+  margin: 4px auto 12px; text-align:center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
-/* Boutons */
-#buttonpaul, #buttonjoseph {
-  padding: 10px 24px;
-  color: #fdf8f8;
-  font-family: 'Poppins', sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  background-color: #0a0b0b;
-  border: 1px solid #0a0b0b;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
-  text-decoration: none;
+.responsables > h3{
+  max-width: 1000px; margin: 0 auto 28px; text-align:center;
+  color:#334155; line-height:1.7; padding: 0 8px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 400; font-size: 18px;
 }
-#buttonjoseph { margin-top: 35px; }
-#buttonpaul:hover, #buttonjoseph:hover { background: #2ec2dc; }
 
-/* Scrollbar (optionnel Chrome/Edge) */
-#Biopaul::-webkit-scrollbar,
-#Biojoseph::-webkit-scrollbar { width: 8px; }
-#Biopaul::-webkit-scrollbar-thumb,
-#Biojoseph::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.15);
-  border-radius: 8px;
+/* ==============================
+BLOCS — JOSEPH / PAUL
+   ============================== */
+.paul, .joseph{
+  position: relative;
+  display: flex; align-items: stretch; /* même hauteur des colonnes */
+  justify-content: space-between;
+  gap: 24px;
+   margin: 22px auto; width: min(1100px, 100%);
+  ; backdrop-filter: blur(4px);
+ 
+  min-height: 300px;
+}
+.joseph{
+  margin-bottom: 200px;
+  margin-top: 100px ;
+}
+.paul{
+  margin-bottom: 100px ;
+}
+/* Variante visuelle: inverser l'ordre de Paul */
+.paul{ flex-direction: row-reverse; }
+
+/* Colonne PHOTOS : prend toute la hauteur du bloc */
+.paul .photo, .joseph .photo{
+  position: relative;
+  flex: 0 0 42%; min-width: 260px; max-width: 520px;
+}
+
+/* === Carrousel CSS-only (fondu automatique, sans JS) === */
+.paul .photo > div, .joseph .photo > div{
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Superposition de toutes les images, même hauteur que le texte */
+.paul .photo > div img, .joseph .photo > div img{
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;                 /* recadrage propre */
+  border-radius: 12px;
+  opacity: 0;
+  animation: MiFade 20s infinite ease-in-out;  /* 4 images -> 20s */
+}
+
+/* Décalages (adapte si + d'images : +5s par image et change 20s) */
+.paul .photo > div img:nth-child(1),
+.joseph .photo > div img:nth-child(1){ animation-delay: 0s; }
+.paul .photo > div img:nth-child(2),
+.joseph .photo > div img:nth-child(2){ animation-delay: 5s; }
+.paul .photo > div img:nth-child(3),
+.joseph .photo > div img:nth-child(3){ animation-delay: 10s; }
+.paul .photo > div img:nth-child(4),
+.joseph .photo > div img:nth-child(4){ animation-delay: 15s; }
+
+/* Effet de fondu (visible ~4s, fondu 1s) */
+@keyframes MiFade{
+  0%{ opacity: 0; }
+  5%{ opacity: 1; }      /* fondu entrant */
+  25%{ opacity: 1; }     /* visible */
+  30%{ opacity: 0; }     /* fondu sortant */
+  100%{ opacity: 0; }
+}
+
+/* Pause au survol — toujours sans JS */
+.paul .photo:hover > div img,
+.joseph .photo:hover > div img{
+  animation-play-state: paused;
+}
+
+/* Colonne BIO */
+#Biopaul, #Biojoseph{
+  flex: 1 1 auto; min-width: 0;
+}
+#Biopaul h1, #Biojoseph h1{
+  margin: 0 0 8px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 28px; 
+  padding-bottom: 30px;
+  line-height: 1.4; 
+  color:#94e2f7;
+  font-weight: 600;
+}
+#Biopaul h3, #Biojoseph h3{
+  color:#dae5f6; 
+  line-height:1.8; 
+  margin: 0 0 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 18px; 
+  padding-bottom: 30px;
+  font-weight: 400;
+}
+
+/* Boutons “Lire plus” unifiés */
+#buttonpaul, #buttonjoseph{
+  display:inline-flex; 
+  align-items:center; 
+  padding: 20px ; border-radius:.7rem; border:1px solid #3B82F6;
+  background:#edecec; color:#060134; font-weight:600; text-decoration:none;font-size: 20px;
+  transition: transform .12s ease, filter .12s ease, box-shadow .12s ease;
+  box-shadow: 0 6px 18px rgba(59,130,246,.25);
+  margin-top: 30px;
+}
+#buttonpaul:hover, #buttonjoseph:hover{ filter:brightness(.96); transform: translateY(-1px); }
+#buttonpaul:focus-visible, #buttonjoseph:focus-visible{ outline:none; box-shadow:0 0 0 .2rem rgba(59,130,246,.25); }
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+@media (max-width: 980px){
+  .paul, .joseph{ flex-direction: column; gap: 16px; padding: 20px; }
+  .paul .photo, .joseph .photo{ flex: 0 0 auto; min-width: 100%; max-width: 100%; }
+}
+@media (max-width: 640px){
+  .responsables{ padding: 24px 10px; }
+  .responsables::after{
+    background-size: 42px 42px, 42px 42px, 42px 42px, 42px 42px;
+    background-position: 8px 8px, calc(100% - 50px) 8px, 8px calc(100% - 50px), calc(100% - 50px) calc(100% - 50px);
+    opacity:.14;
+  }
+}
+
+/* Accessibilité : limiter l’animation si demandé */
+@media (prefers-reduced-motion: reduce){
+  .paul .photo > div img, .joseph .photo > div img{ animation: none; opacity: 1; }
+  .paul .photo > div img:not(:first-child),
+  .joseph .photo > div img:not(:first-child){ display: none; }
 }
 
 /* ============================= */
@@ -215,6 +245,7 @@ body::before {
   background-color: #f2f1f6;
   height: 650px;
   text-align: center;
+  margin-bottom: 150px;
 }
 
 .presentation h1 {
@@ -266,6 +297,7 @@ body::before {
   border-radius: 8px;
   box-shadow: 2px 0 4px 6px rgba(0, 3, 11, 0.1);
   margin: 50px 100px;
+  margin-bottom: 150px;
 }
 .message h1 {
   color: #faf8f8;
@@ -300,19 +332,54 @@ body::before {
 /* ============================= */
 /* SECTION PROGRAMMES            */
 /* ============================= */
-.programmes {
-  background-image: url("/img/fond blanc.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  justify-content: space-between;
+.programmes{
+  position:relative; background:#ffffff; color:#0F172A;
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+  justify-content:space-between;
   padding: 50px 50px 100px 50px;
-  margin-bottom: 5px;
-  width: 100%;
+  margin-bottom:5px; width:100%; overflow:hidden;
+  margin-bottom: 150px;
 }
+/* grande fleur angle haut-gauche */
+.programmes::before{
+  content:""; position:absolute; left:-80px; top:-80px; width:260px; height:260px; opacity:.12; z-index:0;
+  background:
+    url("data:image/svg+xml;utf8,\
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'>\
+      <defs><linearGradient id='g' x1='0' x2='1'><stop stop-color='%2360A5FA'/><stop offset='1' stop-color='%231E40AF'/></linearGradient></defs>\
+      <g fill='none' stroke='url(%23g)' stroke-width='3' stroke-linecap='round'>\
+        <path d='M100 20c12 20 12 34 0 54c-12-20-12-34 0-54z'/>\
+        <path d='M20 100c20-12 34-12 54 0c-20 12-34 12-54 0z'/>\
+        <path d='M100 180c12-20 12-34 0-54c-12 20-12 34 0 54z'/>\
+        <path d='M180 100c-20-12-34-12-54 0c20 12 34 12 54 0z'/>\
+        <circle cx='100' cy='100' r='10' fill='%233B82F6'/>\
+      </g>\
+    </svg>") center/contain no-repeat;
+}
+/* grande fleur angle bas-droit */
+.programmes::after{
+  content:""; position:absolute; right:-80px; bottom:-80px; width:260px; height:260px; opacity:.12; z-index:0;
+  background:
+    url("data:image/svg+xml;utf8,\
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'>\
+      <defs><linearGradient id='g' x1='0' x2='1'><stop stop-color='%2360A5FA'/><stop offset='1' stop-color='%231E40AF'/></linearGradient></defs>\
+      <g fill='none' stroke='url(%23g)' stroke-width='3' stroke-linecap='round'>\
+        <path d='M100 20c12 20 12 34 0 54c-12-20-12-34 0-54z'/>\
+        <path d='M20 100c20-12 34-12 54 0c-20 12-34 12-54 0z'/>\
+        <path d='M100 180c12-20 12-34 0-54c-12 20-12 34 0 54z'/>\
+        <path d='M180 100c-20-12-34-12-54 0c20 12 34 12 54 0z'/>\
+        <circle cx='100' cy='100' r='10' fill='%233B82F6'/>\
+      </g>\
+    </svg>") center/contain no-repeat;
+}
+/* contenu au-dessus */
+.programmes > *{ position:relative; z-index:1; }
+
+/* responsive: réduis la taille des ornements sur mobile */
+@media (max-width: 600px){
+  .programmes::before, .programmes::after{ width:180px; height:180px; left:-60px; top:-60px; right:-60px; bottom:-60px; }
+}
+
 
 .programmes h1 {
   font-size: 40px;
@@ -372,19 +439,31 @@ body::before {
 /* ============================= */
 /* SECTION “NOUS SUIVRE”         */
 /* ============================= */
-.suivre {
+/*.suivre {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #276086;
+  background-color: #2899b8;
   justify-content: center;
   text-align: center;
   padding: 20px 10px;
   border-top: 1px solid #eee;
-}
+}*/
 .suivre h1 { color: #ffffff; font-size: 30px; margin: 5px 0; padding-top: 15px; }
 .suivre h3 { color: #ffffff; font-size: 18px; font-weight: 200; margin: 5px 0; padding-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif; }
 .suivre p  { color: #ffffff; font-size: 20px; margin: 5px 0; padding-top: 15px; }
+
+
+.suivre{
+  color:#c9d2e7; 
+  text-align:center; padding:3rem 1rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 18px;
+  background: linear-gradient(180deg, #0F172A 0%, #1E293B 100%);
+}
+.suivre h1,.suivre h3{ color:#e9ebf0 }
+#reseau-social-home a{ background:#ffffffcc; border:1px solid #cfe3ff; color:#0F172A }
+
 
 /* Réseaux sociaux (cercles) */
 #reseau-social-home {

@@ -6,7 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../../assets/css/main.css">
-    <link rel="stylesheet" href="../contact/Servir chez nous.html">
+    <link rel="stylesheet" href="../../assets/css/servir.css">
     
 </head>
 <header class="site-header">
@@ -30,7 +30,7 @@
     <li class="has-dropdown">
     <button class="menu-btn"> Contact <span class="caret">▾</span></button>
     <ul class="dropdown">
-        <li><a href="/pages/contact.html">Nous joindre</a></li>
+        <li><a href="/pages/contact/contact.html">Nous joindre</a></li>
         <li><a href="/pages/contact/rendez-vous.html">Prendre un rendez-vous </a></li>
         <li><a href="../contact/Servir chez nous.html chez nous.html">Servir chez nous</a></li>
         <li><a href="../contact/temoignage.html">Temoignages</a></li>
@@ -40,6 +40,104 @@
     </nav>
 </header>
 <body>
+    <main class="servir-wrapper">
+        <section class="intro">
+        <h1>🤝 Servir à Meta Intimacy</h1>
+        <p>Tu désires mettre tes dons au service du Seigneur et de l’église ? Rejoins une équipe et contribue à bâtir une communauté accueillante, priante et rayonnante.</p>
+        </section>
+        <section class="departements">
+        <article class="d-card">
+            <div class="icon"><i class="fa-solid fa-hands-praying"></i></div>
+            <h3>Intercessions</h3>
+            <p>Veiller dans la prière, porter la cellule et les besoins des frères et sœurs, soutenir spirituellement les activités.</p>
+        </article>
+
+        <article class="d-card">
+            <div class="icon"><i class="fa-solid fa-door-open"></i></div>
+            <h3>Accueil</h3>
+            <p>Créer une atmosphère chaleureuse dès l’entrée, orienter, informer et veiller au bon déroulement des rencontres.</p>
+        </article>
+
+        <article class="d-card">
+            <div class="icon"><i class="fa-solid fa-utensils"></i></div>
+            <h3>Restauration</h3>
+            <p>Préparer et servir les collations/repas lors des rencontres, cultes spéciaux et agapes fraternelles.</p>
+        </article>
+
+        <article class="d-card">
+            <div class="icon"><i class="fa-solid fa-bullhorn"></i></div>
+            <h3>Communications</h3>
+            <p>Réseaux sociaux, annonces, visuels, photos/vidéos : partager la vie de la cellule et ses événements.</p>
+        </article>
+
+        <article class="d-card">
+            <div class="icon"><i class="fa-solid fa-music"></i></div>
+            <h3>Groupe musical</h3>
+            <p>Chorale, musiciens, chantres, sonorisation : conduire l’assemblée dans la louange et l’adoration.</p>
+        </article>
+        </section>
+
+        <!-- Formulaire d'engagement -->
+        <section class="card form">
+        <h2>Je veux servir</h2>
+        <p>Remplis ce formulaire et nous te recontacterons rapidement.</p>
+
+        <!-- 👉 Remplace l’email si besoin -->
+        <form id="servirForm" action="https://formspree.io/f/xqaygegb" method="POST" novalidate>
+            <!-- Anti-spam & options -->
+            <input type="text" name="_honey" style="display:none">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="Nouvelle demande — Servir à Meta Intimacy">
+            <!-- Redirection après envoi (optionnel) -->
+            <input type="hidden" name="_next" value="https://ton-domaine.com/pages/merci.html">
+
+            <div class="grid">
+            <div class="field">
+                <label for="prenom">Prénom</label>
+                <input type="text" id="prenom" name="Prénom" placeholder="Votre prénom" required>
+            </div>
+            <div class="field">
+                <label for="nom">Nom</label>
+                <input type="text" id="nom" name="Nom" placeholder="Votre nom">
+            </div>
+            <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="Email" placeholder="votre@email.com" required>
+            </div>
+            <div class="field">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="Téléphone" placeholder="+1 000 000 0000">
+            </div>
+            </div>
+
+            <div class="field">
+            <label for="departements">Département(s) où servir</label>
+            <!-- Multi-sélection -->
+            <select id="departements" name="Départements" multiple required>
+                <option>Intercessions</option>
+                <option>Accueil</option>
+                <option>Restauration</option>
+                <option>Communications</option>
+                <option>Groupe musical</option>
+            </select>
+            <small class="hint">Astuce : maintiens Ctrl (Windows) ou ⌘ Cmd (Mac) pour sélectionner plusieurs choix.</small>
+            </div>
+
+            <div class="field">
+                <label for="competences">Dons / Compétences (optionnel)</label>
+                <textarea id="competences" name="Dons / Compétences" rows="4" placeholder="Ex. Chant, guitare, photo/vidéo, graphisme, prière, accueil…"></textarea>
+            </div>
+
+            <div class="field inline">
+                <input type="checkbox" id="consent" required>
+                <label for="consent">J’accepte que mes informations soient utilisées pour être recontacté(e).</label>
+            </div>
+
+            <button type="submit" class="btn-submit"><span>Envoyer ma demande</span></button>
+            <p id="formStatus" class="form-note" aria-live="polite"></p>
+        </form>
+        </section>
+        </main>
 
 </body>
 <footer>

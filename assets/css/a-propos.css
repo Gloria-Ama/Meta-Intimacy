@@ -1,103 +1,208 @@
+/* =========================================
+   À PROPOS — Styles de la section .naissance
+   (aucune modification du header / footer)
+   Thème bleu cohérent avec le site
+========================================= */
+
+/* Variables locales au module (facultatif) */
+:root{
+  --ap-bg:      #f5f9ff;     /* fond très doux */
+  --ap-card:    #ffffff;     /* cartes/blocs */
+  --ap-text:    #0f172a;     /* texte principal */
+  --ap-soft:    #e6f0ff;     /* bleu très léger */
+  --ap-accent:  #2563ff;     /* bleu principal */
+  --ap-accent2: #0b5fff;     /* bleu plus profond */
+  --ap-border:  rgba(15,23,42,.08);
+  --ap-shadow:  0 12px 30px rgba(2,6,23,.08);
+  --ap-radius:  16px;
+}
 body{
-    background-color: rgb(190, 192, 194);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    margin: 0;
-    padding: 0;
+  background-color: #040506;
 }
-body::before{
-    content: "";
-    position: fixed;
-    top: 0;
-    inset: 0;
-    z-index: -1; /* Assure que le pseudo-élément est derrière le contenu */
-    background-image: url("/img/logo.PNG");
-    background-size: 90px auto;
-    background-position: 0 0;
-    animation: bg-pan 20s linear infinite;
-}
-@keyframes bg-pan {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: 800px 600px; /* Ajustez cette valeur pour contrôler la vitesse du panoramique */
-    }
-}
+
+/* Conteneur principal */
 .naissance{
-    font-size: 18px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: black;
-    padding: 20px;
-    margin: 2px 200px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-.p1{
-    font-size: 18px;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 30px;
-    margin: 2px 20px;
-    width: 650px;
-    align-self: flex-start;
-    box-shadow: 40px 40px 60px #000000,
-}
-.p1::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: -10px;
-  width: 0;
-  height: 0;
-  border: 10px solid transparent;
-  border-top-color: #1962ea;
+  max-width: 1100px;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding: clamp(16px, 4vw, 28px);
+  color: var(--ap-text);
+  background:
+    radial-gradient(60% 80% at 15% 20%, var(--ap-soft) 0 60%, transparent 61%),
+    radial-gradient(50% 60% at 90% 10%, #dce8ff 0 55%, transparent 56%),
+    linear-gradient(180deg, var(--ap-bg) 0%, #eef5ff 100%);
+  border: 1px solid var(--ap-border);
+  border-radius: calc(var(--ap-radius) + 6px);
+  box-shadow: var(--ap-shadow);
 }
 
-.p2{
-    font-size: 18px;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 30px;
-    margin: 2px 20px;
-    width: 650px;
-    align-self: flex-end;
-}
-.p2::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: -10px;
-  width: 0;
-  height: 0;
-  border: 10px solid transparent;
-  border-top-color: #0d6efd;
-}
-.p1, .p2 {
-  opacity: 0;                 /* caché au début */
-  transform: translateY(40px); /* décalé vers le bas */
-  animation: floatUp 1s ease-out forwards;
-  box-shadow: 0 20px 60px rgba(7, 27, 247, 0.15);
-  background-color: rgb(115, 171, 235);
-  color: rgb(238, 230, 230);
-  border-radius: 18px;
+/* Paragraphe de base */
+.naissance p{
+  margin: 10px;                 /* on gère les espacements via .bloc */
+  line-height: 1.85;
+  font-size: clamp(1rem, 1.25vw, 1.08rem);
+  text-wrap: pretty;
 }
 
-/* décalage pour que chaque bloc arrive en décalé */
-.p1:nth-of-type(1) { animation-delay: 5s; }
-.p2:nth-of-type(2) { animation-delay: 3s; }
-.p1:nth-of-type(3) { animation-delay: 6s; }
-.p2:nth-of-type(4) { animation-delay: 9s; }
-.p1:nth-of-type(5) { animation-delay: 12s; }
+/* Chaque paragraphe est mis dans un "bloc" visuel agréable */
+.naissance .p1,
+.naissance .p2{
+  display: block;
+  padding: 16px 18px;
+  border-radius: var(--ap-radius);
+  border: 1px solid var(--ap-border);
+  background: var(--ap-card);
+  box-shadow: 0 8px 22px rgba(2,6,23,.05);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
-/* animation */
-@keyframes floatUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
+/* Espacement entre blocs */
+.naissance .p1 + .p2,
+.naissance .p2 + .p1,
+.naissance .p1 + .p1,
+.naissance .p2 + .p2{
+  margin-top: 12px;
+}
+
+/* Variation visuelle : alternance discrète */
+.naissance .p1{
+  border-left: 5px solid var(--ap-accent);
+}
+.naissance .p2{
+  background:
+    linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+  border-left: 5px solid var(--ap-accent2);
+  color: #0b1220;
+}
+
+/* Petite lettrine douce pour le premier bloc (optionnel) */
+.naissance .p1:first-letter{
+  float: left;
+  font-weight: 800;
+  font-size: 2.2rem;
+  line-height: 1;
+  margin-right: 8px;
+  color: var(--ap-accent);
+}
+
+/* Titre de section (si tu ajoutes du texte dans le <h3>) */
+.naissance h3{
+  margin: 18px 0 0 0;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  color: #0b1b35;
+  border-left: 6px solid var(--ap-accent);
+  padding-left: 10px;
+}
+
+/* Responsive : deux colonnes au-dessus de 1000px (cards masonry simple) */
+@media (min-width: 1000px){
+  .naissance{
+    column-count: 2;
+    column-gap: 22px;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .naissance .p1,
+  .naissance .p2{
+    break-inside: avoid;
+    margin-bottom: 14px; /* espace vertical entre cartes en mode colonnes */
+  }
+  .naissance h3{
+    column-span: all;
+  }
+}
+
+/* Animation d’apparition subtile */
+@media (prefers-reduced-motion: no-preference){
+  .naissance .p1,
+  .naissance .p2{
+    opacity: 0;
+    transform: translateY(8px);
+    animation: ap-fade .5s ease forwards;
+  }
+  .naissance .p2{ animation-delay: .04s; }
+  @keyframes ap-fade{
+    to{ opacity:1; transform: translateY(0); }
+  }
+}
+
+/* Mode sombre respectueux */
+@media (prefers-color-scheme: dark){
+  :root{
+    --ap-bg:#0b1220; --ap-soft:#0e1729; --ap-card:#0f172a;
+    --ap-text:#e6ebf5; --ap-border: rgba(255,255,255,.08);
+    --ap-shadow: 0 12px 30px rgba(0,0,0,.45);
+  }
+  .naissance{
+    background:
+      radial-gradient(60% 80% at 15% 20%, #0f213d 0 60%, transparent 61%),
+      radial-gradient(50% 60% at 90% 10%, #0d1c33 0 55%, transparent 56%),
+      linear-gradient(180deg, #0b1220 0%, #0e1729 100%);
+  }
+  .naissance .p1,
+  .naissance .p2{
+    box-shadow: 0 10px 24px rgba(0,0,0,.35);
+  }
+}
+.reseau-social{
+  max-width: 980px;
+  margin: 0 auto clamp(28px, 6vw, 48px);
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.reseau-social a{
+  width: 42px; height: 42px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: var(--card);
+  border: 1.5px solid var(--bleu-400);
+  color: var(--bleu-600);
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+  box-shadow: 0 6px 16px rgba(47,102,255,.12);
+}
+.reseau-social a:hover{
+  transform: translateY(-2px);
+  background: var(--bleu-600);
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(47,102,255,.22);
+}
+
+/* =======================
+   Petits raffinements
+======================= */
+.section1{ scroll-margin-top: 72px; }
+
+/* Apparition douce (optionnel) */
+@media (prefers-reduced-motion: no-preference){
+  .video-intro, .section1, .reseau-social{
+    opacity: 0; transform: translateY(8px);
+    animation: fadeUp .5s ease forwards;
+  }
+  .section1{ animation-delay: .06s; }
+  .reseau-social{ animation-delay: .1s; }
+  @keyframes fadeUp{
+    to{ opacity:1; transform:translateY(0); }
+  }
+}
+
+/* =======================
+  Mode sombre
+======================= */
+@media (prefers-color-scheme: dark){
+  :root{
+    --bleu-100:#0f1b33; --bleu-200:#0d182b; --card:#0f172a;
+    --txt:#e6ebf5; --shadow:0 10px 28px rgba(0,0,0,.45);
+  }
+  .section1{ border-color: rgba(255,255,255,.06); }
+  .section1 p{ color:#dbe6ff; }
+  .reseau-social a{
+    background: var(--card);
+    border-color: #486fff;
+    color: #98b3ff;
+  }
+  .reseau-social a:hover{
+    background:#486fff; color:#fff;
   }
 }

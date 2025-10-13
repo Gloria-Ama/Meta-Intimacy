@@ -1,73 +1,146 @@
+/* Palette & tokens */
+:root{
+  --bleu-100:#f2f7ff;   /* fond très doux */
+  --bleu-200:#e6f0ff;   /* voile */
+  --bleu-400:#7aa2ff;   /* accent doux */
+  --bleu-600:#2f66ff;   /* accent principal */
+  --bleu-800:#0d2a6b;   /* titre */
+  --txt:#0f172a;        /* texte */
+  --card:#ffffff;
+  --radius: 18px;
+  --shadow: 0 10px 28px rgba(15,23,42,.10);
+}
 body{
- width: 100%;
-  background-image: url("img/joseph6.png");
+  background-color: #040506;
 }
 
+/* =======================
+   Bande vidéo d’intro
+======================= */
 .video-intro{
-  background-clip: border-box;
-  width: 100%;
-  height: 500px ; /* hauteur = 100% de l’écran */
-  overflow: hidden;
   position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.video-intro video{
+  width: 100%;
+  height: 800px;
+  margin: 40px;
+  object-fit: cover;
+  filter: brightness(.85) contrast(1.05) saturate(1.05);
+}
+/* voile très léger pour lisibilité */
+.video-intro::after{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.35) 100%),
+    radial-gradient(60% 80% at 20% 20%, rgba(122,162,255,.18) 0 60%, transparent 61%);
+  pointer-events:none;
 }
 
-.reseau-social {
-  margin-top: 15px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.reseau-social div {
-  display: flex;
-  gap: 50px; /* es                                                                                                                                                                                                                                                                                                                                                                                              pace entre icônes */
-}
-
-/* Icônes générales */
-.reseau-social a {
-  font-size: 2rem;
-  transition: transform 0.3s ease, filter 0.3s ease, color 0.3s ease;
-}
-
-/* Instagram dégradé */
-.reseau-social a .fa-instagram {
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, 
-    #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.reseau-social a:hover .fa-instagram {
-  transform: scale(1.2);
-  filter: brightness(1.2);
-}
-
-/* Facebook bleu */
-.reseau-social a .fa-facebook {
-  color: #1877f2;
-}
-.reseau-social a:hover .fa-facebook {
-  transform: scale(1.2);
-  filter: brightness(1.2);
-}
-
-/* YouTube rouge */
-.reseau-social a .fa-youtube {
-  color: #ff0000;
-}
-.reseau-social a:hover .fa-youtube {
-  transform: scale(1.2);
-  filter: brightness(1.2);
-}
-
-/* ==== SECTION PAUL ANDRÉ: SA biographie et ses reseaux ==== */
+/* =======================
+  Bloc contenu principal
+======================= */
 .section1{
-  padding: 50px 10%;
+  max-width: 980px;
+  margin: clamp(20px, 6vw, 56px) auto;
+  padding: clamp(22px, 4vw, 40px);
+  background:linear-gradient(180deg, var(--bleu-100) 0%, var(--bleu-200) 100%);
+  border: 1px solid rgba(15,23,42,.06);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  color: var(--txt);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
 }
 
-.section h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  text-align: center;
+.section1 h1{
+  margin: 0 0 .9rem 0;
+  font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+  line-height: 1.15;
+  color: var(--bleu-800);
+  letter-spacing: .2px;
+
+}
+.section1 h1 + p{
+  margin-top: .2rem;
 }
 
+/* Paragraphe lisible (1 colonne) */
+.section1 p{
+  margin: 1rem 0 0 0;
+  font-size: clamp(1.02rem, 1.3vw, 1.12rem);
+  line-height: 1.85;
+  color: #15223f;
+  text-wrap: pretty;
+}
 
+/* Emphase discrète */
+.section1 strong{ color: var(--bleu-600); }
+
+/* =======================
+  Réseaux sociaux
+======================= */
+.reseau-social{
+  max-width: 980px;
+  margin: 0 auto clamp(28px, 6vw, 48px);
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.reseau-social a{
+  width: 42px; height: 42px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: var(--card);
+  border: 1.5px solid var(--bleu-400);
+  color: var(--bleu-600);
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+  box-shadow: 0 6px 16px rgba(47,102,255,.12);
+}
+.reseau-social a:hover{
+  transform: translateY(-2px);
+  background: var(--bleu-600);
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(47,102,255,.22);
+}
+
+/* =======================
+   Petits raffinements
+======================= */
+.section1{ scroll-margin-top: 72px; }
+
+/* Apparition douce (optionnel) */
+@media (prefers-reduced-motion: no-preference){
+  .video-intro, .section1, .reseau-social{
+    opacity: 0; transform: translateY(8px);
+    animation: fadeUp .5s ease forwards;
+  }
+  .section1{ animation-delay: .06s; }
+  .reseau-social{ animation-delay: .1s; }
+  @keyframes fadeUp{
+    to{ opacity:1; transform:translateY(0); }
+  }
+}
+
+/* =======================
+   Mode sombre
+======================= */
+@media (prefers-color-scheme: dark){
+  :root{
+    --bleu-100:#0f1b33; --bleu-200:#0d182b; --card:#0f172a;
+    --txt:#e6ebf5; --shadow:0 10px 28px rgba(0,0,0,.45);
+  }
+  .section1{ border-color: rgba(255,255,255,.06); }
+  .section1 p{ color:#dbe6ff; }
+  .reseau-social a{
+    background: var(--card);
+    border-color: #486fff;
+    color: #98b3ff;
+  }
+  .reseau-social a:hover{
+    background:#486fff; color:#fff;
+  }
+}

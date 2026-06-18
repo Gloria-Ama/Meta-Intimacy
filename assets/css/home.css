@@ -1,574 +1,368 @@
-/* ============================= */
-/* RESET & BASE                  */
-/* ============================= */
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; width: 100%; overflow-x: hidden; }
-img, iframe { max-width: 100%; height: auto; display: block; }
-a { text-decoration: none; color: inherit; }
-
-/* ============================= */
-/* FOND & ANIMATION BG           */
-/* ============================= */
+/* =============================
+   1. FOND SPÉCIFIQUE
+============================= */
 body {
-  background: linear-gradient(
-    180deg,
-    #0d1b2a, #5577f4, #000046, #050227,
-    #1e3c72, #2a5298, #000046, #050227,#5577f4
-  );
-  /*background: linear-gradient(
-    180deg,
-    #0c056d, #040012, #001417, #041015,
-    #1e3c72, #0e1417, #0a1416, #050227
-  );*/
-  background-color: #000000;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;                /* top/right/bottom/left:0 */
-  z-index: -1;             /* derrière le contenu */
-  background-image: url("/img/logo.PNG");
-  filter: brightness(0.1);
-  background-size: 90px auto;
-  background-repeat: repeat;
-  background-position: 0 0;
-  animation: bg-pan 20s linear infinite;
+  background: linear-gradient(180deg, #0d1b2a, #003366, #000046, #050227);
+  background-size: 400% 400%;
+  animation: bg-pan 15s ease infinite;
+  color: white;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 @keyframes bg-pan {
-  from { background-position: 0 0; }
-  to   { background-position: 800px 600px; }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1;
+  background-image: url("/img/logo.PNG");
+  opacity: 0.03; background-size: 100px;
+}
 
-
-/* ============================= */
-/* BLOCS RESPONSABLES (PAUL / JOSEPH) */
-/* ============================= */
-/* ==============================
-   SECTION — RESPONSABLES (Ice Blue)
-   ============================== */
-.responsables{
-  position: relative;
-  color:#0F172A;
-  /*background:
-    radial-gradient(60% 80% at 20% 30%, #E6F4FF 0 60%, transparent 61%),
-    radial-gradient(50% 60% at 80% 20%, #DAECFF 0 55%, transparent 56%),
-    linear-gradient(180deg,#F5FAFF 0%, #EAF4FF 60%, #E6F4FF 100%);*/
-  margin-top: 200px;
-  margin-bottom: 100px;
+/* =============================
+   2. HERO
+============================= */
+.hero {
+  position: relative; 
+  height: 135vh; 
+  width: 100%;
   overflow: hidden;
-  padding: 32px 16px;
-  /* background-color: #121214;*/
-  background-color: #003366;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  background: #000;
 }
 
-/* Texture douce + voile bas pour lisibilité */
-/*.responsables::before{
-  content:""; position:absolute; inset:-6%; pointer-events:none; z-index:0;
-  background:
-    radial-gradient(130% 90% at 20% 30%, #eef5ff 0 10%, transparent 11%) repeat,
-    radial-gradient(120% 80% at 80% 70%, #f5f9ff 0 9%,  transparent 10%) repeat;
-  background-size: 900px 700px, 1000px 800px;
-  filter: blur(10px) contrast(1.02);
-  opacity:.14;
-  box-shadow: inset 0 -60px 100px rgba(15,23,42,.08);
-}*/
-
-/* Roses Ice Blue aux 4 coins *//*
-.responsables::after{
-  content:""; position:absolute; inset:0; z-index:0; pointer-events:none; opacity:.16;
-  background:
-    /* TL */ /*url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='76' height='76' viewBox='0 0 80 80'><g fill='none' stroke='%233B82F6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M40 16c10 4 16 10 16 18s-8 16-16 16-16-8-16-16 6-14 16-18z'/><path d='M40 22c7 3 12 7 12 12s-6 12-12 12-12-6-12-12 5-9 12-12z'/><path d='M40 28c4 2 8 4 8 8s-4 8-8 8-8-4-8-8 3-6 8-8z'/><path d='M28 48c-6 4-10 8-12 14'/><path d='M52 48c6 4 10 8 12 14'/></g></svg>") 12px 12px / 56px 56px no-repeat,*/
-    /* TR */ /*url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='76' height='76' viewBox='0 0 80 80'><g fill='none' stroke='%233B82F6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' transform='scale(-1,1) translate(-80,0)'><path d='M40 16c10 4 16 10 16 18s-8 16-16 16-16-8-16-16 6-14 16-18z'/><path d='M40 22c7 3 12 7 12 12s-6 12-12 12-12-6-12-12 5-9 12-12z'/><path d='M40 28c4 2 8 4 8 8s-4 8-8 8-8-4-8-8 3-6 8-8z'/><path d='M28 48c-6 4-10 8-12 14'/><path d='M52 48c6 4 10 8 12 14'/></g></svg>") calc(100% - 68px) 12px / 56px 56px no-repeat,*/
-    /* BL */ /*url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='76' height='76' viewBox='0 0 80 80'><g fill='none' stroke='%233B82F6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' transform='scale(1,-1) translate(0,-80)'><path d='M40 16c10 4 16 10 16 18s-8 16-16 16-16-8-16-16 6-14 16-18z'/><path d='M40 22c7 3 12 7 12 12s-6 12-12 12-12-6-12-12 5-9 12-12z'/><path d='M40 28c4 2 8 4 8 8s-4 8-8 8-8-4-8-8 3-6 8-8z'/><path d='M28 48c-6 4-10 8-12 14'/><path d='M52 48c6 4 10 8 12 14'/></g></svg>") 12px calc(100% - 68px) / 56px 56px no-repeat,*/
-    /* BR */ /*url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='76' height='76' viewBox='0 0 80 80'><g fill='none' stroke='%233B82F6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' transform='scale(-1,-1) translate(-80,-80)'><path d='M40 16c10 4 16 10 16 18s-8 16-16 16-16-8-16-16 6-14 16-18z'/><path d='M40 22c7 3 12 7 12 12s-6 12-12 12-12-6-12-12 5-9 12-12z'/><path d='M40 28c4 2 8 4 8 8s-4 8-8 8-8-4-8-8 3-6 8-8z'/><path d='M28 48c-6 4-10 8-12 14'/><path d='M52 48c6 4 10 8 12 14'/></g></svg>") calc(100% - 68px) calc(100% - 68px) / 56px 56px no-repeat;*/
-/*}*/
-
-/* Titres & texte intro */
-.responsables > h1{
-  font-size: clamp(28px, 2.2vw + 16px, 40px);
-  color: #281cd4;
-  margin: 4px auto 12px; text-align:center;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-.responsables > h3{
-  max-width: 1000px; margin: 0 auto 28px; text-align:center;
-  color:#334155; line-height:1.7; padding: 0 8px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 400; font-size: 18px;
+.video-bg { 
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%; 
+  z-index: 0;
 }
 
-/* ==============================
-BLOCS — JOSEPH / PAUL
-   ============================== */
-.paul, .joseph{
-  position: relative;
-  display: flex; align-items: stretch; /* même hauteur des colonnes */
-  justify-content: space-between;
-  gap: 24px;
-   margin: 22px auto; width: min(1100px, 100%);
-  ; backdrop-filter: blur(4px);
- 
-  min-height: 300px;
-}
-.joseph{
-  margin-bottom: 200px;
-  margin-top: 100px ;
-}
-.paul{
-  margin-bottom: 100px ;
-}
-/* Variante visuelle: inverser l'ordre de Paul */
-.paul{ flex-direction: row-reverse; }
-
-/* Colonne PHOTOS : prend toute la hauteur du bloc */
-.paul .photo, .joseph .photo{
-  position: relative;
-  flex: 0 0 42%; min-width: 260px; max-width: 520px;
+.video-bg video { 
+  width: 100%; height: 100%; 
+  object-fit: cover;
+  position: absolute;
+  top: 0; left: 0;
+  pointer-events: none;
 }
 
-/* === Carrousel CSS-only (fondu automatique, sans JS) === */
-.paul .photo > div, .joseph .photo > div{
-  position: relative;
-  height: 100%;
-  overflow: hidden;
-}
-
-/* Superposition de toutes les images, même hauteur que le texte */
-.paul .photo > div img, .joseph .photo > div img{
+.overlay { 
   position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;                 /* recadrage propre */
-  border-radius: 12px;
-  opacity: 0;
-  animation: MiFade 20s infinite ease-in-out;  /* 4 images -> 20s */
+  background: rgba(13, 27, 42, 0.4);
+  z-index: 1; 
+  pointer-events: none;
 }
 
-/* Décalages (adapte si + d'images : +5s par image et change 20s) */
-.paul .photo > div img:nth-child(1),
-.joseph .photo > div img:nth-child(1){ animation-delay: 0s; }
-.paul .photo > div img:nth-child(2),
-.joseph .photo > div img:nth-child(2){ animation-delay: 5s; }
-.paul .photo > div img:nth-child(3),
-.joseph .photo > div img:nth-child(3){ animation-delay: 10s; }
-.paul .photo > div img:nth-child(4),
-.joseph .photo > div img:nth-child(4){ animation-delay: 15s; }
-
-/* Effet de fondu (visible ~4s, fondu 1s) */
-@keyframes MiFade{
-  0%{ opacity: 0; }
-  5%{ opacity: 1; }      /* fondu entrant */
-  25%{ opacity: 1; }     /* visible */
-  30%{ opacity: 0; }     /* fondu sortant */
-  100%{ opacity: 0; }
+.content {
+  position: absolute; 
+  top: 50%; left: 50%; 
+  transform: translate(-50%, -50%);
+  text-align: center; 
+  width: 90%;
+  z-index: 2;
 }
 
-/* Pause au survol — toujours sans JS */
-.paul .photo:hover > div img,
-.joseph .photo:hover > div img{
-  animation-play-state: paused;
+.hero__title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 800; 
+  text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+  color: white;
 }
 
-/* Colonne BIO */
-#Biopaul, #Biojoseph{
-  flex: 1 1 auto; min-width: 0;
-}
-#Biopaul h1, #Biojoseph h1{
-  margin: 0 0 8px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 28px; 
-  padding-bottom: 30px;
-  line-height: 1.4; 
-  color:#94e2f7;
-  font-weight: 600;
-}
-#Biopaul h3, #Biojoseph h3{
-  color:#dae5f6; 
-  line-height:1.8; 
-  margin: 0 0 16px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 18px; 
-  padding-bottom: 30px;
-  font-weight: 400;
-}
-
-/* Boutons “Lire plus” unifiés */
-#buttonpaul, #buttonjoseph{
-  display:inline-flex; 
-  align-items:center; 
-  padding: 20px ; border-radius:.7rem; border:1px solid #3B82F6;
-  background:#edecec; color:#060134; font-weight:600; text-decoration:none;font-size: 20px;
-  transition: transform .12s ease, filter .12s ease, box-shadow .12s ease;
-  box-shadow: 0 6px 18px rgba(59,130,246,.25);
-  margin-top: 30px;
-}
-#buttonpaul:hover, #buttonjoseph:hover{ filter:brightness(.96); transform: translateY(-1px); }
-#buttonpaul:focus-visible, #buttonjoseph:focus-visible{ outline:none; box-shadow:0 0 0 .2rem rgba(59,130,246,.25); }
-
-/* ==============================
-   RESPONSIVE
-   ============================== */
-@media (max-width: 980px){
-  .paul, .joseph{ flex-direction: column; gap: 16px; padding: 20px; }
-  .paul .photo, .joseph .photo{ flex: 0 0 auto; min-width: 100%; max-width: 100%; }
-}
-@media (max-width: 640px){
-  .responsables{ padding: 24px 10px; }
-  .responsables::after{
-    background-size: 42px 42px, 42px 42px, 42px 42px, 42px 42px;
-    background-position: 8px 8px, calc(100% - 50px) 8px, 8px calc(100% - 50px), calc(100% - 50px) calc(100% - 50px);
-    opacity:.14;
-  }
-}
-
-/* Accessibilité : limiter l’animation si demandé */
-@media (prefers-reduced-motion: reduce){
-  .paul .photo > div img, .joseph .photo > div img{ animation: none; opacity: 1; }
-  .paul .photo > div img:not(:first-child),
-  .joseph .photo > div img:not(:first-child){ display: none; }
-}
-
-/* ============================= */
-/* SECTION PRÉSENTATION          */
-/* ============================= */
+/* =============================
+   3. PRÉSENTATION
+============================= */
 .presentation {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 50px;
-  padding: 50px;
-  background-color: #f2f1f6;
-  height: 650px;
-  text-align: center;
-  margin-bottom: 150px;
+  background-color: #f2f1f6; color: #050118;
+  border-radius: 8px; margin: 50px auto; width: 95%; max-width: 1200px;
 }
+.presentation .section-title { font-family: fantasy, sans-serif; letter-spacing: 1px; color: #1b014f; }
 
-.presentation h1 {
-  flex: 1;
-  font-size: 40px;
-  line-height: 2;
-  color: #050118;
-  text-decoration-style: dotted;
-  font-family: fantasy;
-  font-weight: 800;
-  margin: 0 0 20px 0;
-}
-
-.presentation h3 {
-  flex: 1;
-  font-size: 20px;
-  line-height: 2;
-  color: #0d012b;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  margin: 0 30px;
-}
-
-#buttonpresentation {
-  padding: 12px 24px;
-  color: rgb(3, 1, 20);
-  font-family: 'Poppins', sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  border: 2px solid #ecf0f0;
-  border-radius: 4px;
+.btn-gradient {
   background: linear-gradient(90deg, #0b0694 0%, #2575fc 100%);
-  cursor: pointer;
-  transition: background 0.3s;
-  display: inline-block;
-  margin-top: 20px;
+  color: white; padding: 12px 24px; border-radius: 4px; display: inline-block; margin-top: 20px;
+  text-decoration: none;
 }
-#buttonpresentation:hover { background: #563ff1; }
+.btn-gradient:hover { background: #563ff1; }
 
-/* ============================= */
-/* SECTION MESSAGE               */
-/* ============================= */
-.message {
-  text-align: center;
-  font-size: 16px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  padding: 40px;
-  background-color: #276086;
-  border-radius: 8px;
-  box-shadow: 2px 0 4px 6px rgba(0, 3, 11, 0.1);
-  margin: 50px 100px;
-  margin-bottom: 150px;
-}
-.message h1 {
-  color: #faf8f8;
-  font-weight: 800;
-  line-height: 2;
-  font-size: 34px;
-  padding-bottom: 20px;
-}
-.message h3 {
-  color: #fefffb;
-  font-weight: 400;
-  line-height: 2;
-  font-size: 20px;
-  padding-bottom: 20px;
-}
-#buttonmessage {
-  padding: 12px 24px;
-  color: rgb(9, 40, 100);
-  background-color: #e9fafa;
-  font-family: 'Poppins', sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  border: 0;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background 0.3s;
-  display: inline-block;
-  margin-top: 30px;
-}
-#buttonmessage:hover { background: #000d18; color: #ffffff; }
-
-/* ============================= */
-/* SECTION PROGRAMMES            */
-/* ============================= */
-.programmes{
-  position:relative; background:#ffffff; color:#0F172A;
-  display:flex; flex-direction:column; align-items:center; text-align:center;
-  justify-content:space-between;
-  padding: 50px 50px 100px 50px;
-  margin-bottom:5px; width:100%; overflow:hidden;
-  margin-bottom: 150px;
-}
-/* grande fleur angle haut-gauche */
-.programmes::before{
-  content:""; position:absolute; left:-80px; top:-80px; width:260px; height:260px; opacity:.12; z-index:0;
-  background:
-    url("data:image/svg+xml;utf8,\
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'>\
-      <defs><linearGradient id='g' x1='0' x2='1'><stop stop-color='%2360A5FA'/><stop offset='1' stop-color='%231E40AF'/></linearGradient></defs>\
-      <g fill='none' stroke='url(%23g)' stroke-width='3' stroke-linecap='round'>\
-        <path d='M100 20c12 20 12 34 0 54c-12-20-12-34 0-54z'/>\
-        <path d='M20 100c20-12 34-12 54 0c-20 12-34 12-54 0z'/>\
-        <path d='M100 180c12-20 12-34 0-54c-12 20-12 34 0 54z'/>\
-        <path d='M180 100c-20-12-34-12-54 0c20 12 34 12 54 0z'/>\
-        <circle cx='100' cy='100' r='10' fill='%233B82F6'/>\
-      </g>\
-    </svg>") center/contain no-repeat;
-}
-/* grande fleur angle bas-droit */
-.programmes::after{
-  content:""; position:absolute; right:-80px; bottom:-80px; width:260px; height:260px; opacity:.12; z-index:0;
-  background:
-    url("data:image/svg+xml;utf8,\
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'>\
-      <defs><linearGradient id='g' x1='0' x2='1'><stop stop-color='%2360A5FA'/><stop offset='1' stop-color='%231E40AF'/></linearGradient></defs>\
-      <g fill='none' stroke='url(%23g)' stroke-width='3' stroke-linecap='round'>\
-        <path d='M100 20c12 20 12 34 0 54c-12-20-12-34 0-54z'/>\
-        <path d='M20 100c20-12 34-12 54 0c-20 12-34 12-54 0z'/>\
-        <path d='M100 180c12-20 12-34 0-54c-12 20-12 34 0 54z'/>\
-        <path d='M180 100c-20-12-34-12-54 0c20 12 34 12 54 0z'/>\
-        <circle cx='100' cy='100' r='10' fill='%233B82F6'/>\
-      </g>\
-    </svg>") center/contain no-repeat;
-}
-/* contenu au-dessus */
-.programmes > *{ position:relative; z-index:1; }
-
-/* responsive: réduis la taille des ornements sur mobile */
-@media (max-width: 600px){
-  .programmes::before, .programmes::after{ width:180px; height:180px; left:-60px; top:-60px; right:-60px; bottom:-60px; }
-}
-
-
-.programmes h1 {
-  font-size: 40px;
-  line-height: 2;
-  color: #1b014f;
-  text-decoration-style: dotted;
-  font-family: fantasy;
-  font-weight: 800;
-  margin-bottom: 20px;
-}
-.programmes h3 {
-  font-size: 20px;
-  line-height: 2;
-  color: #0a0446;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 500;
-  margin: 0 30px;
-}
-
-.horaires {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 100px;
-}
-.horaire {
+/* =============================
+   4. MESSAGE
+============================= */
+.message-bg {
   background: #276086;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px #0b0694;
-  padding: 20px;
-  width: 250px;
-  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  margin: 50px 0;
+  border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1);
 }
-.horaire:hover { transform: translateY(-15px); }
-.horaire img { width: 100%; height: 250px; border-radius: 10px; }
-.horaire h2 { font-size: 1.5em; color: #f4f7fa; margin-top: 10px; }
-.horaire h3 { font-size: 1.2em; color: #fbf9f9; margin-bottom: 10px; }
-.horaire p  { font-size: 1em;  color: #f4f2f2; }
+.message-bg h2 { font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
 
-#buttonhoraire {
-  padding: 12px 24px;
-  color: rgb(100, 147, 242);
-  background-color: #e9fafa;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  border: 0;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: background 0.3s;
-  display: inline-block;
-  margin-top: 30px;
+.btn-light {
+    background: #fff; color: #276086; padding: 10px 20px; 
+    border-radius: 4px; text-decoration: none; display: inline-block; margin-top: 15px; font-weight: bold;
 }
-#buttonhoraire:hover { background: #000d18; color: #ffffff; }
+.btn-light:hover { background: #eee; }
 
-/* ============================= */
-/* SECTION “NOUS SUIVRE”         */
-/* ============================= */
-/*.suivre {
+/* =============================
+   5. PROGRAMMES (CORRIGÉ POUR ALIGNEMENT)
+============================= */
+.programmes {
+  background: #ffffff; color: #0F172A;
+  position: relative; overflow: hidden;
+  border-radius: 8px; width: 95%; margin: 0 auto 50px;
+}
+.programmes .subtitle {
+  max-width: 900px; margin: 0 auto 30px; font-size: 1.05rem; line-height: 1.8;
+}
+
+/* --- Correction Flexbox pour aligner sur la même ligne --- */
+.horaires-grid { 
+  display: flex;           /* Flexbox active l'alignement horizontal */
+  justify-content: center; /* Centre les éléments */
+  gap: 30px;               /* Espace entre les cartes */
+  position: relative; 
+  z-index: 1; 
+  flex-wrap: wrap;         /* Permet de passer à la ligne sur mobile */
+}
+
+.card-horaire {
+  background: #276086;
+  border-radius: 10px; padding: 25px;
+  box-shadow: 0 4px 10px rgba(11, 6, 148, 0.3);
+  text-align: center; transition: transform 0.3s;
+  color: white; display: flex; flex-direction: column; align-items: center;
+  min-height: 250px;
+  
+  /* Largeur flexible */
+  flex: 1;              /* Prend la place disponible équitablement */
+  min-width: 300px;     /* Ne devient pas trop petit */
+  max-width: 500px;     /* Ne devient pas trop grand */
+}
+
+.card-horaire:hover { transform: translateY(-10px); }
+.card-horaire h3 { color: #fbf9f9; font-size: 1.3rem; margin: 10px 0; }
+.card-horaire .heure { color: #81d4fa; font-weight: bold; display: block; margin-bottom: 10px; }
+.card-horaire p { color: #e0e0e0; font-size: 0.95rem; }
+.card-horaire .icon-box { font-size: 2rem; color: #f7b709; margin-bottom: 10px; }
+
+.btn-small {
+  background: #e9fafa; color: #6493f2;
+  text-decoration: none;
+  padding: 8px 16px; border-radius: 12px; font-size: 0.9rem; font-weight: bold;
+  display: inline-block; margin-top: 15px; align-self: center;
+}
+.btn-small:hover { background: #000d18; color: white; }
+
+/* =============================
+   6. RESPONSABLES
+============================= */
+.responsables { padding-bottom: 100px; }
+
+.bio-card {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px; 
+  padding: 0; 
+  overflow: hidden;
+  margin-bottom: 60px; 
+  color: white;
+  min-height: 450px;
+}
+
+.bio-card.reverse { flex-direction: row-reverse; }
+
+.bio-image { 
+  flex: 0 0 40%;
+  position: relative; 
+  overflow: hidden; 
+}
+
+.bio-image img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%; 
+  object-fit: cover;
+  animation: floatyImage 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatyImage { 
+  from { transform: scale(1); } 
+  to { transform: scale(1.1); } 
+}
+
+.bio-content { 
+  padding: 40px; 
+  flex: 1; 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: #2899b8;
   justify-content: center;
-  text-align: center;
-  padding: 20px 10px;
-  border-top: 1px solid #eee;
-}*/
-.suivre h1 { color: #ffffff; font-size: 30px; margin: 5px 0; padding-top: 15px; }
-.suivre h3 { color: #ffffff; font-size: 18px; font-weight: 200; margin: 5px 0; padding-top: 15px; font-family: Verdana, Geneva, Tahoma, sans-serif; }
-.suivre p  { color: #ffffff; font-size: 20px; margin: 5px 0; padding-top: 15px; }
-
-
-.suivre{
-  color:#c9d2e7; 
-  text-align:center; padding:3rem 1rem;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 18px;
-  background: linear-gradient(180deg, #0F172A 0%, #1E293B 100%);
 }
-.suivre h1,.suivre h3{ color:#e9ebf0 }
-#reseau-social-home a{ background:#ffffffcc; border:1px solid #cfe3ff; color:#0F172A }
 
+.bio-content h2 { color: #94e2f7; font-size: 1.8rem; margin-bottom: 15px; }
+.bio-content p { color: #e0e0e0; margin-bottom: 25px; line-height: 1.7; font-size: 1.05rem; }
 
-/* Réseaux sociaux (cercles) */
-#reseau-social-home {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-  margin-top: 30px;
-  flex-wrap: wrap;
-}
-#reseau-social-home a {
-  width: 2cm;
-  height: 2cm;
-  background-color: white;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center; align-items: center;
+.btn-outline-glow {
+  border: 1px solid #3B82F6; background: rgba(59,130,246,0.1);
+  color: white; padding: 12px 24px; border-radius: 8px; font-weight: bold;
+  display: inline-block; box-shadow: 0 0 15px rgba(59,130,246,0.2);
   text-decoration: none;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  align-self: flex-start;
 }
+.btn-outline-glow:hover { background: #3B82F6; box-shadow: 0 0 25px rgba(59,130,246,0.6); }
 
-/* Bordure Instagram */
-#reseau-social-home a:first-child {
-  border: 4px solid transparent;
-  background-image: linear-gradient(white, white),
-                    radial-gradient(circle at 30% 30%, #feda75, #d62976, #962fbf, #4f5bd5);
-  background-origin: border-box;
-  background-clip: content-box, border-box;
+/* =============================
+   7. NOUS SUIVRE
+============================= */
+.suivre { background: rgba(15, 23, 42, 0.8); border-top: 1px solid rgba(255,255,255,0.1); }
+.suivre h2, .suivre p { color: white; }
+
+.social-links-large { display: flex; justify-content: center; gap: 30px; margin-top: 30px; }
+.social-links-large a {
+  width: 70px; height: 70px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; background: white; transition: transform 0.3s;
+  text-decoration: none;
 }
-/* Bordure TikTok */
-#reseau-social-home a:last-child {
-  border: 4px solid transparent;
-  background-image: linear-gradient(white, white),
-                    linear-gradient(45deg, #EE1D52, #69C9D0);
-  background-origin: border-box;
-  background-clip: content-box, border-box;
+.social-links-large a:hover { transform: scale(1.1); }
+
+.social-links-large a:first-child {
+  border: 3px solid transparent;
+  background-image: linear-gradient(white, white), radial-gradient(circle at 30% 30%, #feda75, #d62976, #962fbf, #4f5bd5);
+  background-origin: border-box; background-clip: content-box, border-box;
 }
-
-/* Icônes centrées */
-#reseau-social-home i { font-size: 0.75cm; }
-
-/* Couleurs officielles */
-#reseau-social-home a:first-child i {
+.social-links-large a:first-child i {
   background: radial-gradient(circle at 30% 30%, #feda75, #d62976, #962fbf, #4f5bd5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-#reseau-social-home a:last-child i {
-  color: #69C9D0;
-  text-shadow:
-    2px 2px 0 #EE1D52,
-    -2px -2px 0 #FFFFFF;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 
-
-#contact p {
-  margin: 10px 0 6px;
-  font-weight: 500;
-  font-size: clamp(15px, 1.8vw, 18px);
-  color: rgba(255,255,255,.92);
+.social-links-large a:last-child {
+  border: 3px solid transparent;
+  background-image: linear-gradient(white, white), linear-gradient(45deg, #EE1D52, #69C9D0);
+  background-origin: border-box; background-clip: content-box, border-box;
 }
-#contact address {
-  margin: 0;
-  font-style: normal;
-  font-size: clamp(14px, 1.6vw, 17px);
-  color: rgba(255,255,255,.88);
+.social-links-large a:last-child i { color: #000; text-shadow: 2px 2px 0 #EE1D52, -2px -2px 0 #69C9D0; }
+
+/* =============================
+   8. RESPONSIVE
+============================= */
+@media (max-width: 992px) {
+  .presentation, .programmes { width: 100%; border-radius: 0; }
 }
 
-/* ============================= */
-/* RESPONSIVE                    */
-/* ============================= */
 @media (max-width: 768px) {
-  /* Sections 2 colonnes deviennent verticales */
-  .paul, .joseph {
-    flex-direction: column;
-    height: auto;               /* laisse respirer en vertical */
-    gap: 16px;
+  .hero__title { font-size: 2.5rem; }
+  
+  .bio-card, .bio-card.reverse { 
+    flex-direction: column; 
+    text-align: center; 
+    height: auto; 
+    min-height: auto;
   }
-
-  .photo {
-    width: 100%;
-    height: 300px;              /* évite de couper les têtes */
-    max-width: 100%;
+  
+  .bio-image { 
+    width: 100%; 
+    height: 300px;
+    flex: none; 
+    position: relative;
   }
-
-  #Biopaul, #Biojoseph {
-    width: 100%;
-    height: auto;
-    align-items: flex-start;
-  }
-
-  #Biopaul h3, #Biojoseph h3 {
-    font-size: 15px;
-    line-height: 1.6;
-    color: #000000;
-  }
-
-  .message { margin: 30px 20px; }
-
-  #reseau-social-home { gap: 24px; }
-  #reseau-social-home a { width: 1.7cm; height: 1.7cm; }
-  #reseau-social-home i { font-size: 0.65cm; }
+  
+  .bio-image img { position: absolute; height: 100%; width: 100%; }
+  
+  .bio-content { padding: 30px 20px; }
+  
+  .btn-outline-glow { align-self: center; }
+  
+  .social-links-large a { width: 50px; height: 50px; font-size: 1.5rem; }
 }
 
-/* Respect préférence utilisateur : réduire les animations */
-@media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
+/* ===========================
+   SECTION NEWSLETTER
+=========================== */
+.newsletter-section {
+    position: relative;
+    /* Assurez-vous que le chemin vers l'image est correct */
+    background-image: url('../../img/newsletter-bg.jpg'); 
+    background-size: cover;
+    background-position: center;
+    padding: 80px 20px;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.newsletter-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.newsletter-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.newsletter-tagline {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.newsletter-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 15px 25px;
+    border-radius: 50px 0 0 50px;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+}
+
+.newsletter-form button {
+    background-color: #d4af37;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 0 50px 50px 0;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.newsletter-form button:hover {
+    background-color: #b5952f;
+}
+
+@media (max-width: 600px) {
+    .newsletter-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .newsletter-form input, .newsletter-form button {
+        border-radius: 50px;
+        width: 100%;
+    }
 }

@@ -1,47 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/contact.css">
+    <title>Meta Intimacy — Contact</title>
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/contact.css">
+    <link rel="icon" type="image/png" href="../../img/logo.PNG">
 </head>
-<header class="site-header">
-    <img class="brand" href="index.html">
-    <img src="/img/logo.PNG" alt="Logo" height="40px">
-    </img>
-    <nav class="site-nav" aria-label="Navigation principale">
-    <a href="/index.html">Accueil</a>
-    <li class="has-dropdown">
-    <button class="menu-btn">À-propos <span class="caret">▾</span></button>
-    <ul class="dropdown">
-        <li><a href="/pages/a-propos.html">À propos</a></li>
-        <li><a href="/pages/a-propos/joseph.html">Responsable</a></li>
-        <li><a href="/pages/a-propos/paul.html">Fondateur</a></li>
-    </ul>
-    </li>
-    <a href="/pages/ministeres.html">Ministères</a>
-    <a href="/pages/cultes.html">Cultes</a>
-    <a href="/pages/predications.html">Prédications</a>
-    <a href="/pages/evenements.html">Événements</a>
-    <li class="has-dropdown">
-    <button class="menu-btn"> Contact <span class="caret">▾</span></button>
-    <ul class="dropdown">
-        <li><a href="/pages/contact/contact.html"aria-current="page">Nous joindre</a></li>
-        <li><a href="/pages/contact/rendez-vous.html">Prendre un rendez-vous </a></li>
-        <li><a href="/pages/contact/Servir chez nous.html">Servir chez nous</a></li>
-        <li><a href="/pages/contact/temoignage.html">Temoignages</a></li>
-    </ul>
-    </li>
-    <a href="/pages/dons.html" class="btn">Dons</a>
-</nav>
-</header>
+
 <body>
-     <main class="contact-wrapper">
-    <!-- Colonne gauche : infos + carte -->
+
+  <header class="site-header">
+    <div class="header-container">
+      <a class="brand" href="../../index.html">
+        <img src="../../img/logo.PNG" alt="Meta Intimacy" onerror="this.style.display='none'">
+      </a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+      </label>
+
+      <nav class="site-nav">
+        <ul>
+          <li><a href="../../index.html">Accueil</a></li>
+          <li class="has-dropdown">
+            <span class="menu-link">À-propos <i class="fas fa-chevron-down caret"></i></span>
+            <ul class="dropdown">
+              <li><a href="../a-propos.html">À propos</a></li>
+              <li><a href="../a-propos/joseph.html">Responsable</a></li>
+              <li><a href="../a-propos/paul.html">Fondateur</a></li>
+            </ul>
+          </li>
+          <!--<li><a href="../ministeres.html">Ministères</a></li>
+          <li><a href="../cultes.html">Cultes</a></li><-->
+          <li><a href="../predications.html">Prédications</a></li>
+          <li><a href="../evenements.html">Événements</a></li>
+          <li class="has-dropdown">
+            <span class="menu-link active-page">Contact <i class="fas fa-chevron-down caret"></i></span>
+            <ul class="dropdown">
+              <li><a href="contact.html">Nous joindre</a></li>
+              <li><a href="rendez-vous.html">Prendre RDV</a></li>
+              <li><a href="servir.html">Servir</a></li>
+            </ul>
+          </li>
+           <li><a href="../temoignage.html">Témoignages</a></li>
+          <li><a href="../dons.html" class="btn-don">Dons</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contact-wrapper">
+    
     <aside class="contact-info">
       <h2>Entrer en contact</h2>
       <p>Nous sommes heureux d’échanger avec vous. Notre équipe vous répondra dans les plus brefs délais.</p>
@@ -56,10 +71,10 @@
         <p><strong>Meta Intimacy</strong><br>22, rue de Stratus, Gatineau, QC</p>
 
         <div class="map-container">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.97!2d-75.70!3d45.4765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s22%20Rue%20de%20Stratus%2C%20Gatineau%2C%20QC!5e0!3m2!1sfr!2sca!4v0000000000000"
-            width="100%" height="220" style="border:0" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2800.741870624647!2d-75.7196096!3d45.4907663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce1d2f9d5e3243%3A0x8e8b8b8b8b8b8b8b!2s22%20Rue%20de%20Stratus%2C%20Gatineau%2C%20QC!5e0!3m2!1sfr!2sca!4v1234567890" 
+            width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy">
+          </iframe>
         </div>
       </div>
 
@@ -76,21 +91,14 @@
       </div>
     </aside>
 
-    <!-- Colonne droite : formulaire (Formsubmit) -->
     <section class="contact-form" id="contact">
       <h2>Envoyez-nous votre message</h2>
-      <p>Vous pouvez aussi nous écrire à <a href="mailto:metaintimacy@gmail.com">metaintimacy@gmail.com</a>.</p>
+      <p>Vous pouvez aussi nous écrire directement via le formulaire ci-dessous.</p>
 
-      <!-- 👉 Remplace l’e-mail si besoin -->
-      <form id="contactForm" action="https://formspree.io/f/xeorpjlv" method="POST" novalidate>
-        <!-- Anti-spam (honeypot) -->
+      <form id="contactForm" action="https://formspree.io/f/xeorpjlv" method="POST">
         <input type="text" name="_honey" style="display:none">
         <input type="hidden" name="_captcha" value="false">
-        <!-- Redirection après envoi (crée /pages/merci.html si tu veux) -->
-        <input type="hidden" name="_next" value="https://ton-domaine.com/pages/merci.html">
-        <!-- Sujet de l’email reçu -->
-        <input type="hidden" name="_subject" value="Nouveau message de la page Contact — Meta Intimacy">
-
+        
         <div class="grid">
           <div class="field">
             <label for="prenom">Prénom</label>
@@ -106,7 +114,7 @@
           </div>
           <div class="field">
             <label for="telephone">Téléphone</label>
-            <input type="tel" id="telephone" name="Téléphone" placeholder="+1 000 000 0000">
+            <input type="tel" id="telephone" name="Téléphone" placeholder="+1 ...">
           </div>
         </div>
 
@@ -122,33 +130,31 @@
 
         <div class="field inline">
           <input type="checkbox" id="consent" required>
-          <label for="consent">J’accepte que mes informations soient utilisées pour être recontacté(e).</label>
+          <label for="consent" class="consent-label">J’accepte que mes informations soient utilisées pour être recontacté(e).</label>
         </div>
 
-        <button type="submit" class="btn-submit"><span>Envoyer</span></button>
-        <p id="formStatus" class="form-note" aria-live="polite"></p>
+        <button type="submit" class="btn-submit">Envoyer le message</button>
       </form>
     </section>
+
   </main>
 
-  <!-- (Garde ton footer existant ici si tu veux) -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-social">
+        <a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@meta_intimacy" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+      <div class="footer-info">
+        <p>&copy; <span id="year"></span> Meta Intimacy — Tous droits réservés</p>
+        <address><i class="fas fa-map-marker-alt"></i> 22 rue de Stratus, Gatineau, QC</address>
+      </div>
+    </div>
+  </footer>
 
-  <!-- JS optionnel pour message de succès sans changer de page -->
   <script>
-    const form = document.getElementById('contactForm');
-    const statusEl = document.getElementById('formStatus');
-
-    form.addEventListener('submit', function (e) {
-    });
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
 </body>
-<footer>
-    <div id="reseau-social">
-    <a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.tiktok.com/@meta_intimacy" target="_blank"><i class="fab fa-tiktok"></i></a>
-    </div>
-    <div id="contact">
-    <p>&copy; <span id="year"></span> Meta Intimacy — Tous droits réservés</p>
-    <address>22 rue de Stratus, Gatineau, QC</address>
-    </div>
-</footer>
+</html>

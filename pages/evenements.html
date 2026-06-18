@@ -1,55 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evenements</title>
+    <title>Meta Intimacy — Nos Événements</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/evenements.css">
-    
+    <link rel="icon" type="image/png" href="../img/logo.PNG">
 </head>
-<header class="site-header">
-  <img class="brand" href="index.html">
-    <img src="../img/logo.PNG" alt="Logo" height="45px">
-  </img>
-  <nav class="site-nav" aria-label="Navigation principale">
-    <a href="../index.html">Accueil</a>
-    <li class="has-dropdown">
-      <button class="menu-btn">À-propos <span class="caret">▾</span></button>
-      <ul class="dropdown">
-        <li><a href="a-propos.html">À propos</a></li>
-        <li><a href="../pages/a-propos/joseph.html">Responsable</a></li>
-        <li><a href="../pages/a-propos/paul.html">Fondateur</a></li>
-      </ul>
-    </li>
-    <a href="ministeres.html">Ministères</a>
-    <a href="cultes.html">Cultes</a>
-    <a href="predications.html">Prédications</a>
-    <a href="evenements.html">Événements</a>
-    <li class="has-dropdown">
-      <button class="menu-btn"> Contact <span class="caret">▾</span></button>
-      <ul class="dropdown">
-        <li><a href="../pages/contact/contact.html">Nous joindre</a></li>
-        <li><a href="../pages/contact/rendez-vous.html">Prendre un rendez-vous </a></li>
-        <li><a href="../pages/contact/Servir chez nous.html">Servir chez nous</a></li>
-        <li><a href="../pages/contact/temoignage.html">Temoignages</a></li>
-      </ul>
-    </li>
-    <a href="dons.html" class="btn">Dons</a>
-  </nav>
-</header>
+
 <body>
-  
+
+  <header class="site-header">
+    <div class="header-container">
+      <a class="brand" href="../index.html">
+        <img src="../img/logo.PNG" alt="Meta Intimacy" onerror="this.style.display='none'">
+      </a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+      </label>
+
+      <nav class="site-nav">
+        <ul>
+          <li><a href="../index.html">Accueil</a></li>
+          
+          <li class="has-dropdown">
+            <input type="checkbox" id="dd-apropos" class="dropdown-toggle">
+            <label for="dd-apropos" class="menu-link">
+              À-propos <i class="fas fa-chevron-down caret"></i>
+            </label>
+            <ul class="dropdown">
+              <li><a href="a-propos.html">À propos</a></li>
+              <li><a href="a-propos/joseph.html">Responsable</a></li>
+              <li><a href="a-propos/paul.html">Fondateur</a></li>
+            </ul>
+          </li>
+
+          <li><a href="predications.html">Prédications</a></li>
+          <li><a href="evenements.html" class="active-link">Événements</a></li>
+
+          <li class="has-dropdown">
+            <input type="checkbox" id="dd-contact" class="dropdown-toggle">
+            <label for="dd-contact" class="menu-link">
+              Contact <i class="fas fa-chevron-down caret"></i>
+            </label>
+            <ul class="dropdown">
+              <li><a href="contact/contact.html">Nous joindre</a></li>
+              <li><a href="contact/rendez-vous.html">Prendre RDV</a></li>
+              <li><a href="contact/servir.html">Servir</a></li>
+              <li><a href="contact/temoignage.html">Témoignages</a></li>
+            </ul>
+          </li>
+
+          <li><a href="dons.html" class="btn-don">Dons</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="events-wrapper">
+    
+    <section class="page-intro">
+      <h1>Nos Événements</h1>
+      <p>Retrouvez les temps forts, conférences et moments de communion qui marquent la vie de notre communauté.</p>
+    </section>
+
+    <section class="events-list-grid">
+
+      <article class="event-summary-card">
+        <div class="card-thumb">
+            <img src="../img/gallery/1 (1).jpg" alt="1er Anniversaire" onerror="this.src='https://placehold.co/600x400?text=Anniversaire'">
+        </div>
+        <div class="card-info">
+            <h2>🎉 1er Anniversaire</h2>
+            <div class="card-date"><i class="far fa-calendar"></i> 10 Août 2025</div>
+            <p class="card-excerpt">
+                Une soirée mémorable de louange et de célébration pour fêter notre première année. Revivez ce moment clé avec notre album photo complet.
+            </p>
+            <a href="events/anniversaire.html" class="btn-card">Voir l'album</a>
+        </div>
+      </article>
+
+      <article class="event-summary-card">
+        <div class="card-thumb">
+            <img src="../img/gallery/noel_cover.jpg" alt="Noël 2025" onerror="this.src='https://placehold.co/600x400?text=Noel+2025'">
+        </div>
+        <div class="card-info">
+            <h2>🎄 Noël 2025</h2>
+            <div class="card-date"><i class="far fa-calendar"></i> 25 Décembre 2025</div>
+            <p class="card-excerpt">
+                Un temps glorieux pour célébrer la naissance de notre Sauveur. Spectacles, chants et partage fraternel au programme.
+            </p>
+            <a href="events/noel2025.html" class="btn-card">Voir l'album</a>
+        </div>
+      </article>
+
+      <article class="event-summary-card">
+        <div class="card-thumb">
+            <img src="../img/gallery/women_cover.jpg" alt="Women's Night" onerror="this.src='https://placehold.co/600x400?text=Womens+Night'">
+        </div>
+        <div class="card-info">
+            <h2>🌸 Women's Night</h2>
+            <div class="card-date"><i class="far fa-calendar"></i> Octobre 2025</div>
+            <p class="card-excerpt">
+                Une soirée dédiée aux femmes de valeur. Enseignements inspirants, prières et encouragement mutuel pour toutes les filles de Dieu.
+            </p>
+            <a href="events/womensnight.html" class="btn-card">Voir l'album</a>
+        </div>
+      </article>
+
+      <article class="event-summary-card">
+        <div class="card-thumb">
+            <img src="../img/gallery/game_cover.jpg" alt="Game Night" onerror="this.src='https://placehold.co/600x400?text=Game+Night'">
+        </div>
+        <div class="card-info">
+            <h2>🎲 Game Night</h2>
+            <div class="card-date"><i class="far fa-calendar"></i> Juillet 2025</div>
+            <p class="card-excerpt">
+                Parce qu'être chrétien, c'est aussi savoir s'amuser ! Retour sur notre soirée jeux de société, rires et détente entre frères et sœurs.
+            </p>
+            <a href="events/gamenight.html" class="btn-card">Voir l'album</a>
+        </div>
+      </article>
+
+      <article class="event-summary-card">
+        <div class="card-thumb">
+            <img src="../img/gallery/cinema_cover.jpg" alt="Sortie Cinéma" onerror="this.src='https://placehold.co/600x400?text=Sortie+Cinema'">
+        </div>
+        <div class="card-info">
+            <h2>🎬 Sortie Cinéma</h2>
+            <div class="card-date"><i class="far fa-calendar"></i> Juin 2025</div>
+            <p class="card-excerpt">
+                Une sortie communautaire pour visionner un film inspirant suivi d'un temps de débat et d'échange autour d'un repas.
+            </p>
+            <a href="events/cinema.html" class="btn-card">Voir l'album</a>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-social">
+        <a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@meta_intimacy" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+      <div class="footer-info">
+        <p>&copy; <span id="year"></span> Meta Intimacy — Tous droits réservés</p>
+        <address><i class="fas fa-map-marker-alt"></i> 22 rue de Stratus, Gatineau, QC</address>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
 </body>
-<footer>
-  <div id="reseau-social">
-    <a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.tiktok.com/@meta_intimacy" target="_blank"><i class="fab fa-tiktok"></i></a>
-  </div>
-  <div id="contact">
-    <p>&copy; <span id="year"></span> Meta Intimacy — Tous droits réservés</p>
-    <address>22 rue de Stratus, Gatineau, QC</address>
-  </div>
-</footer>
 </html>

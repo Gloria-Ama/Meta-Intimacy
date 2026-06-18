@@ -1,152 +1,214 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Meta Intimacy — Servir</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="../../assets/css/servir.css">
-    
+    <link rel="icon" type="image/png" href="../../img/logo.PNG">
 </head>
-<header class="site-header">
-    <a class="brand" href="index.html">
-    <img src="/img/logo.PNG" alt="Logo" height="40px">
-    </a>
-    <nav class="site-nav" aria-label="Navigation principale">
-    <a href="/index.html">Accueil</a>
-    <li class="has-dropdown">
-    <button class="menu-btn">À-propos <span class="caret">▾</span></button>
-    <ul class="dropdown">
-        <li><a href="/pages/a-propos.html">À propos</a></li>
-        <li><a href="/pages/a-propos/joseph.html">Responsable</a></li>
-        <li><a href="/pages/a-propos/paul.html">Fondateur</a></li>
-    </ul>
-    </li>
-    <a href="../ministeres.html">Ministères</a>
-    <a href="../cultes.html">Cultes</a>
-    <a href="../predications.html">Prédications</a>
-    <a href="../evenements.html">Événements</a>
-    <li class="has-dropdown">
-    <button class="menu-btn"> Contact <span class="caret">▾</span></button>
-    <ul class="dropdown">
-        <li><a href="/pages/contact/contact.html">Nous joindre</a></li>
-        <li><a href="/pages/contact/rendez-vous.html">Prendre un rendez-vous </a></li>
-        <li><a href="../contact/Servir chez nous.html chez nous.html">Servir chez nous</a></li>
-        <li><a href="../contact/temoignage.html">Temoignages</a></li>
-    </ul>
-    </li>
-    <a href="dons.html" class="btn">Dons</a>
-    </nav>
-</header>
+
 <body>
-    <main class="servir-wrapper">
-        <section class="intro">
-        <h1>🤝 Servir à Meta Intimacy</h1>
-        <p>Tu désires mettre tes dons au service du Seigneur et de l’église ? Rejoins une équipe et contribue à bâtir une communauté accueillante, priante et rayonnante.</p>
-        </section>
-        <section class="departements">
-        <article class="d-card">
-            <div class="icon"><i class="fa-solid fa-hands-praying"></i></div>
-            <h3>Intercessions</h3>
-            <p>Veiller dans la prière, porter la cellule et les besoins des frères et sœurs, soutenir spirituellement les activités.</p>
-        </article>
 
-        <article class="d-card">
-            <div class="icon"><i class="fa-solid fa-door-open"></i></div>
-            <h3>Accueil</h3>
-            <p>Créer une atmosphère chaleureuse dès l’entrée, orienter, informer et veiller au bon déroulement des rencontres.</p>
-        </article>
+  <header class="site-header">
+    <div class="header-container">
+      <a class="brand" href="../../index.html">
+        <img src="../../img/logo.PNG" alt="Meta Intimacy" onerror="this.style.display='none'">
+      </a>
 
-        <article class="d-card">
-            <div class="icon"><i class="fa-solid fa-utensils"></i></div>
-            <h3>Restauration</h3>
-            <p>Préparer et servir les collations/repas lors des rencontres, cultes spéciaux et agapes fraternelles.</p>
-        </article>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+      </label>
 
-        <article class="d-card">
-            <div class="icon"><i class="fa-solid fa-bullhorn"></i></div>
-            <h3>Communications</h3>
-            <p>Réseaux sociaux, annonces, visuels, photos/vidéos : partager la vie de la cellule et ses événements.</p>
-        </article>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="../../index.html">Accueil</a></li>
+          
+          <li class="has-dropdown">
+            <span class="menu-link">À-propos <i class="fas fa-chevron-down caret"></i></span>
+            <ul class="dropdown">
+              <li><a href="../a-propos.html">À propos</a></li>
+              <li><a href="../a-propos/joseph.html">Responsable</a></li>
+              <li><a href="../a-propos/paul.html">Fondateur</a></li>
+            </ul>
+          </li>
+          <!--<li><a href="../ministeres.html">Ministères</a></li>
+          <li><a href="../cultes.html">Cultes</a></li></-->
+          <li><a href="../predications.html">Prédications</a></li>
+          <li><a href="../evenements.html">Événements</a></li>
+          <li class="has-dropdown">
+            <span class="menu-link active-page">Contact <i class="fas fa-chevron-down caret"></i></span>
+            <ul class="dropdown">
+              <li><a href="contact.html">Nous joindre</a></li>
+              <li><a href="rendez-vous.html">Prendre RDV</a></li>
+              <li><a href="servir.html">Servir</a></li>
+            </ul>
+          </li>
+          <li><a href="../temoignage.html">Témoignages</a></li>
+          <li><a href="../dons.html" class="btn-don">Dons</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-        <article class="d-card">
-            <div class="icon"><i class="fa-solid fa-music"></i></div>
-            <h3>Groupe musical</h3>
-            <p>Chorale, musiciens, chantres, sonorisation : conduire l’assemblée dans la louange et l’adoration.</p>
-        </article>
-        </section>
+  <main class="servir-wrapper">
+    
+    <section class="intro">
+      <h1>🤝 Servir à Meta Intimacy</h1>
+      <p>Tu désires mettre tes dons au service du Seigneur et de l’église ? Rejoins une équipe et contribue à bâtir une communauté accueillante, priante et rayonnante.</p>
+    </section>
 
-        <!-- Formulaire d'engagement -->
-        <section class="card form">
-        <h2>Je veux servir</h2>
-        <p>Remplis ce formulaire et nous te recontacterons rapidement.</p>
+    <section class="departements">
+      <article class="d-card">
+        <div class="icon"><i class="fa-solid fa-hands-praying"></i></div>
+        <h3>Intercessions</h3>
+        <p>Veiller dans la prière, porter la cellule et les besoins des frères et sœurs, soutenir spirituellement les activités.</p>
+      </article>
 
-        <!-- 👉 Remplace l’email si besoin -->
-        <form id="servirForm" action="https://formspree.io/f/xqaygegb" method="POST" novalidate>
-            <!-- Anti-spam & options -->
-            <input type="text" name="_honey" style="display:none">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_subject" value="Nouvelle demande — Servir à Meta Intimacy">
-            <!-- Redirection après envoi (optionnel) -->
-            <input type="hidden" name="_next" value="https://ton-domaine.com/pages/merci.html">
+      <article class="d-card">
+        <div class="icon"><i class="fa-solid fa-door-open"></i></div>
+        <h3>Accueil et Intégration</h3>
+        <p>Créer une atmosphère chaleureuse dès l’entrée, orienter, informer et faciliter l'intégration des nouveaux.</p>
+      </article>
 
-            <div class="grid">
-            <div class="field">
-                <label for="prenom">Prénom</label>
-                <input type="text" id="prenom" name="Prénom" placeholder="Votre prénom" required>
-            </div>
-            <div class="field">
-                <label for="nom">Nom</label>
-                <input type="text" id="nom" name="Nom" placeholder="Votre nom">
-            </div>
-            <div class="field">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="Email" placeholder="votre@email.com" required>
-            </div>
-            <div class="field">
-                <label for="telephone">Téléphone</label>
-                <input type="tel" id="telephone" name="Téléphone" placeholder="+1 000 000 0000">
-            </div>
-            </div>
+      <article class="d-card">
+        <div class="icon"><i class="fa-solid fa-utensils"></i></div>
+        <h3>Restauration</h3>
+        <p>Préparer et servir les collations/repas lors des rencontres, cultes spéciaux et agapes fraternelles.</p>
+      </article>
 
-            <div class="field">
-            <label for="departements">Département(s) où servir</label>
-            <!-- Multi-sélection -->
-            <select id="departements" name="Départements" multiple required>
-                <option>Intercessions</option>
-                <option>Accueil</option>
-                <option>Restauration</option>
-                <option>Communications</option>
-                <option>Groupe musical</option>
-            </select>
-            <small class="hint">Astuce : maintiens Ctrl (Windows) ou ⌘ Cmd (Mac) pour sélectionner plusieurs choix.</small>
-            </div>
+      <article class="d-card">
+        <div class="icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+        <h3>Logistique</h3>
+        <p>Assurer la mise en place, la propreté des lieux et la gestion du matériel pour le bon déroulement des cultes.</p>
+      </article>
 
-            <div class="field">
-                <label for="competences">Dons / Compétences (optionnel)</label>
-                <textarea id="competences" name="Dons / Compétences" rows="4" placeholder="Ex. Chant, guitare, photo/vidéo, graphisme, prière, accueil…"></textarea>
-            </div>
+      <article class="d-card">
+        <div class="icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <h3>Décoration</h3>
+        <p>Embellir la salle et créer une atmosphère visuelle accueillante et inspirante pour les événements.</p>
+      </article>
 
-            <div class="field inline">
-                <input type="checkbox" id="consent" required>
-                <label for="consent">J’accepte que mes informations soient utilisées pour être recontacté(e).</label>
-            </div>
+      <article class="d-card">
+        <div class="icon"><i class="fa-solid fa-bullhorn"></i></div>
+        <h3>Communications</h3>
+        <p>Réseaux sociaux, annonces, visuels, photos/vidéos : partager la vie de la cellule et ses événements.</p>
+      </article>
 
-            <button type="submit" class="btn-submit"><span>Envoyer ma demande</span></button>
-            <p id="formStatus" class="form-note" aria-live="polite"></p>
-        </form>
-        </section>
-        </main>
+      <article class="d-card">
+        <div class="icon"><i class="fa-solid fa-users-rays"></i></div>
+        <h3>Mobilisations</h3>
+        <p>Mettre en place des stratégies et des actions concrètes pour attirer et rassembler les gens autour de la vision.</p>
+      </article>
 
-</body>
-<footer>
-    <div id="reseau-social">
+      <article class="d-card">
+        <div class="icon"><i class="fa-solid fa-pen-to-square"></i></div>
+        <h3>Secrétariat</h3>
+        <p>Prendre des notes, rédiger les résumés des messages et gérer l'administration courante.</p>
+      </article>
+
+      <article class="d-card">
+        <div class="icon"><i class="fa-solid fa-car"></i></div>
+        <h3>Ministère du Transport</h3>
+        <p>Faciliter l'accès aux cultes en allant chercher les gens et en les raccompagnant chez eux.</p>
+      </article>
+
+      <article class="d-card">
+        <div class="icon"><i class="fa-solid fa-music"></i></div>
+        <h3>Groupe musical</h3>
+        <p>Chorale, musiciens, chantres, sonorisation : conduire l’assemblée dans la louange et l’adoration.</p>
+      </article>
+
+      <article class="d-card">
+        <div class="icon"><i class="fa-solid fa-earth-americas"></i></div>
+        <h3>Évangélisation</h3>
+        <p>Partager la Bonne Nouvelle, gagner des âmes et aller vers les autres à l'extérieur de l'église.</p>
+      </article>
+
+    </section>
+
+    <section class="card-form">
+      <h2>Je veux servir</h2>
+      <p>Remplis ce formulaire et nous te recontacterons rapidement.</p>
+
+      <form id="servirForm" action="https://formspree.io/f/xqaygegb" method="POST">
+        <input type="text" name="_honey" style="display:none">
+        <input type="hidden" name="_captcha" value="false">
+
+        <div class="grid">
+          <div class="field">
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" name="Prénom" placeholder="Votre prénom" required>
+          </div>
+          <div class="field">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="Nom" placeholder="Votre nom">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="Email" placeholder="votre@email.com" required>
+          </div>
+          <div class="field">
+            <label for="telephone">Téléphone</label>
+            <input type="tel" id="telephone" name="Téléphone" placeholder="+1 000 000 0000">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="departements">Département(s) souhaité(s)</label>
+          <select id="departements" name="Départements" multiple required>
+            <option value="Intercessions">Intercessions</option>
+            <option value="Accueil et Intégration">Accueil et Intégration</option>
+            <option value="Restauration">Restauration</option>
+            <option value="Logistique">Logistique</option>
+            <option value="Décoration">Décoration</option>
+            <option value="Mobilisations">Mobilisations</option>
+            <option value="Secrétariat">Secrétariat</option>
+            <option value="Ministère du Transport">Ministère du Transport</option>
+            <option value="Communications">Communications</option>
+            <option value="Groupe musical">Groupe musical</option>
+            <option value="Évangélisation">Évangélisation</option>
+          </select>
+          <small class="hint">Maintiens Ctrl (PC) ou Cmd (Mac) pour en sélectionner plusieurs.</small>
+        </div>
+
+        <div class="field">
+          <label for="competences">Dons / Compétences</label>
+          <textarea id="competences" name="Dons" rows="4" placeholder="Ex. Chant, guitare, photo/vidéo, cuisine, permis de conduire..."></textarea>
+        </div>
+
+        <div class="field inline">
+          <input type="checkbox" id="consent" required>
+          <label for="consent" class="consent-label">J’accepte d'être recontacté(e).</label>
+        </div>
+
+        <button type="submit" class="btn-submit">Envoyer ma demande</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-social">
         <a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://www.tiktok.com/@meta_intimacy" target="_blank"><i class="fab fa-tiktok"></i></a>
-    </div>
-    <div id="contact">
+      </div>
+      <div class="footer-info">
         <p>&copy; <span id="year"></span> Meta Intimacy — Tous droits réservés</p>
-        <address>22 rue de Stratus, Gatineau, QC</address>
+        <address><i class="fas fa-map-marker-alt"></i> 22 rue de Stratus, Gatineau, QC</address>
+      </div>
     </div>
-</footer>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

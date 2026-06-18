@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta Intimacy — Témoignages</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/temoignage.css">
+    <link rel="icon" type="image/png" href="../../img/logo.PNG">
+
+</head>
+
+<body>
+
+    <header class="site-header">
+    <div class="header-container">
+        <a class="brand" href="../../index.html">
+            <img src="../../img/logo.PNG" alt="Meta Intimacy" onerror="this.style.display='none'">
+        </a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+        <nav class="site-nav">
+        <ul>
+            <li><a href="../../index.html">Accueil</a></li>
+            <li class="has-dropdown">
+            <span class="menu-link">À-propos <i class="fas fa-chevron-down caret"></i></span>
+            <ul class="dropdown">
+                <li><a href="../a-propos.html">À propos</a></li>
+                <li><a href="../a-propos/joseph.html">Responsable</a></li>
+                <li><a href="../a-propos/paul.html">Fondateur</a></li>
+            </ul>
+            </li>
+            <li><a href="../predications.html">Prédications</a></li>
+            <li><a href="../evenements.html">Événements</a></li>
+            <li class="has-dropdown">
+            <span class="menu-link">Contact <i class="fas fa-chevron-down caret"></i></span>
+            <ul class="dropdown">
+                <li><a href="/pages/contact/contact.html">Nous joindre</a></li>
+                <li><a href="rendez-vous.html">Prendre RDV</a></li>
+                <li><a href="servir.html">Servir</a></li>
+            </ul>
+            </li>
+            <li><a href="temoignage.html">Témoignages</a></li>
+            <li><a href="../dons.html" class="btn-don">Dons</a></li>
+        </ul>
+    </nav>
+    </div>
+    </header>
+
+    <main class="temoignage-wrapper">
+    
+    <section class="page-intro">
+        <h1>Témoignages</h1>
+        <p>Ils ont vu la main de Dieu agir. Connectez-vous pour partager votre histoire.</p>
+    </section>
+
+    <section id="loginSection" class="auth-container">
+        <h3><i class="fas fa-lock"></i> Espace Témoignage</h3>
+        <p style="color:#aaa; margin-bottom:20px;">Pour éviter les spams, merci de vous identifier.</p>
+        <button id="btnLogin" class="btn-google">
+            <i class="fab fa-google"></i> Se connecter avec Google
+        </button>
+    </section>
+
+    <section id="formSection" class="form-section">
+        <div class="user-profile">
+            <div class="user-left">
+                <img id="userImg" src="" class="user-avatar" alt="Profil">
+                <div>
+                    <span style="display:block; font-size:0.8rem; color:#aaa;">Connecté en tant que :</span>
+                    <strong id="userName" style="color:white;">User</strong>
+                </div>
+            </div>
+            <button id="btnLogout" class="btn-logout">Déconnexion</button>
+        </div>
+
+        <div class="form-card">
+            <h3><i class="fas fa-pen-nib"></i> Écrire un témoignage</h3>
+            <form id="temoignageForm">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="isAnonymous">
+                    <label for="isAnonymous">Publier en anonyme (Mon nom sera caché)</label>
+                </div>
+                <div class="input-group">
+                    <textarea id="messageUser" rows="4" placeholder="Racontez ce que Dieu a fait pour vous..." required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Publier le témoignage</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="feed-section">
+        <h2>Derniers témoignages</h2>
+        <div id="temoignages-grid" class="temoignages-grid">
+            <p style="text-align:center; color:#666;">Chargement des témoignages...</p>
+        </div>
+    </section>
+
+    </main>
+<script type="module">
+    // 1. IMPORTS (J'ai ajouté updateDoc)
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getFirestore, collection, addDoc, deleteDoc, updateDoc, doc, onSnapshot, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+    import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+    // 2. CONFIGURATION (Vos codes)
+    const firebaseConfig = {
+        apiKey: "AIzaSyCrSo3K6b6TH97576gSk9nRuNL_jBr_jjI",
+        authDomain: "meta-intimacy.firebaseapp.com",
+        projectId: "meta-intimacy",
+        storageBucket: "meta-intimacy.firebasestorage.app",
+        messagingSenderId: "574049186555",
+        appId: "1:574049186555:web:1f7cbbd68426d55d4a365e"
+    };
+
+    // 3. INITIALISATION
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    // DOM Elements
+    const loginSection = document.getElementById('loginSection');
+    const formSection = document.getElementById('formSection');
+    const btnLogin = document.getElementById('btnLogin');
+    const btnLogout = document.getElementById('btnLogout');
+    const userImg = document.getElementById('userImg');
+    const userNameDisplay = document.getElementById('userName');
+    const form = document.getElementById('temoignageForm');
+    const container = document.getElementById('temoignages-grid');
+    const submitBtn = document.querySelector('.btn-submit'); // Le bouton du formulaire
+
+    // VARIABLE POUR SAVOIR SI ON MODIFIE
+    let editingId = null; // Si null = on crée, Sinon = contient l'ID du message à modifier
+
+    // --- GESTION CONNEXION ---
+    btnLogin.addEventListener('click', () => {
+        signInWithPopup(auth, provider).catch((error) => console.error("Erreur:", error));
+    });
+
+    btnLogout.addEventListener('click', () => {
+        signOut(auth).then(() => {
+            alert("Déconnecté.");
+            resetForm(); // On nettoie le formulaire si on part
+        });
+    });
+
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            loginSection.style.display = 'none';
+            formSection.style.display = 'block';
+            userImg.src = user.photoURL;
+            userNameDisplay.textContent = user.displayName;
+        } else {
+            loginSection.style.display = 'block';
+            formSection.style.display = 'none';
+        }
+    });
+
+    // --- LECTURE DES MESSAGES ---
+    const q = query(collection(db, "temoignages"), orderBy("timestamp", "desc"));
+    
+    onSnapshot(q, (snapshot) => {
+        container.innerHTML = "";
+        snapshot.forEach((documentSnapshot) => {
+            addReviewToPage(documentSnapshot.data(), documentSnapshot.id);
+        });
+        if(snapshot.empty) container.innerHTML = "<p style='text-align:center'>Soyez le premier à témoigner !</p>";
+    });
+
+    // --- SOUMISSION DU FORMULAIRE (Création OU Modification) ---
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const user = auth.currentUser;
+        if (!user) return alert("Veuillez vous reconnecter.");
+
+        const message = document.getElementById('messageUser').value;
+        const isAnon = document.getElementById('isAnonymous').checked;
+        const finalName = isAnon ? "Un membre (Anonyme)" : user.displayName;
+        const initial = isAnon ? "?" : (user.displayName ? user.displayName.charAt(0).toUpperCase() : "U");
+
+        try {
+            if (editingId) {
+                // --- MODE MODIFICATION ---
+                const docRef = doc(db, "temoignages", editingId);
+                await updateDoc(docRef, {
+                    text: message,
+                    // On ne change pas le nom/date/uid, juste le texte
+                });
+                alert("Témoignage mis à jour !");
+            } else {
+                // --- MODE CRÉATION ---
+                await addDoc(collection(db, "temoignages"), {
+                    text: message,
+                    name: finalName,
+                    initial: initial,
+                    uid: user.uid,
+                    timestamp: serverTimestamp(),
+                    dateString: new Date().toLocaleDateString('fr-FR')
+                });
+                alert("Témoignage publié !");
+            }
+            
+            resetForm(); // Remettre le formulaire à zéro
+
+        } catch (error) {
+            console.error(error);
+            alert("Erreur lors de l'enregistrement.");
+        }
+    });
+
+    window.deleteTemoignage = async function(docId) {
+        if(confirm("Supprimer définitivement ce témoignage ?")) {
+            try {
+                await deleteDoc(doc(db, "temoignages", docId));
+                if(editingId === docId) resetForm();
+            } catch (error) {
+                alert("Impossible de supprimer.");
+            }
+        }
+    }
+
+    window.editTemoignage = function(docId, textActuel) {
+        document.getElementById('messageUser').value = textActuel;
+        // On passe en "Mode Édition"
+        editingId = docId;
+        submitBtn.textContent = "Mettre à jour le témoignage";
+        submitBtn.style.background = "#f7b709"; 
+        // On remonte vers le formulaire
+        document.getElementById('formSection').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Fonction pour remettre le formulaire à zéro
+    function resetForm() {
+        form.reset();
+        editingId = null;
+        submitBtn.textContent = "Publier le témoignage";
+        submitBtn.style.background = ""; // Remet la couleur bleue d'origine
+    }
+
+    // --- AFFICHAGE HTML ---
+    function addReviewToPage(data, docId) {
+        const card = document.createElement('article');
+        card.className = 'review-card fade-in';
+        let date = data.dateString || "";
+
+        let buttons = "";
+        const user = auth.currentUser;
+        
+        // Si c'est MON message, j'affiche Edit et Delete
+        if (user && data.uid === user.uid) {
+            // Attention aux guillemets dans le texte pour le JS
+            // On utilise une astuce pour passer le texte proprement
+            const safeText = data.text.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+            
+            buttons = `
+                <button class="btn-edit" onclick="window.editTemoignage('${docId}', '${safeText}')" title="Modifier">
+                    <i class="fas fa-pen"></i>
+                </button>
+                <button class="btn-delete" onclick="window.deleteTemoignage('${docId}')" title="Supprimer">
+                    <i class="fas fa-trash"></i>
+                </button>
+            `;
+        }
+
+        card.innerHTML = `
+            ${buttons}
+            <div class="review-header">
+                <div class="avatar" style="background:${getRandomColor()}">${data.initial}</div>
+                <div class="user-info"><h4>${data.name}</h4><span class="date">${date}</span></div>
+            </div>
+            <div class="review-body"><p>"${data.text}"</p></div>
+            <div class="review-footer"><i class="fas fa-quote-right"></i></div>
+        `;
+        container.appendChild(card);
+    }
+
+    function getRandomColor() {
+        const colors = ['#f7b709', '#2f66ff', '#e91e63', '#9c27b0', '#00bcd4'];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+    
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<footer>
+    <div class="container footer-content">
+        <p>&copy; <span id="year"></span> Meta Intimacy</p>
+    </div>
+</footer>
+
+</body>
+</html>

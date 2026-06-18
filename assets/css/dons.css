@@ -1,0 +1,143 @@
+/* ===============================
+   DONS — Thème Sombre (Ice Blue)
+================================ */
+
+body {
+    background: #00050d;
+    color: #e6ebf5;
+    /* Petit effet de fond subtil */
+    background-image: radial-gradient(circle at 50% 10%, #0d1b2a 0%, #00050d 60%);
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.dons-wrapper {
+    max-width: 800px;
+    margin: 100px auto 60px; /* Espace pour le header fixe */
+    padding: 0 20px;
+}
+
+/* Intro */
+.intro {
+    text-align: center;
+    background: linear-gradient(135deg, #030852 0%, #010b1a 100%);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    border-radius: 16px;
+    padding: 40px 30px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    margin-bottom: 30px;
+}
+
+.intro h1 {
+    margin: 0 0 15px;
+    font-size: 2.2rem;
+    color: #7aa2ff; /* Bleu clair */
+}
+
+.intro p {
+    line-height: 1.7;
+    font-size: 1.1rem;
+    color: #dbe6ff;
+}
+
+/* Carte Interac (Glassmorphism) */
+.interac-card {
+    background: rgba(255, 255, 255, 0.05); /* Transparence */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    padding: 30px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.interac-card h2 {
+    color: #fff;
+    margin-top: 0;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+.interac-card p {
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin: 0.6rem 0;
+}
+
+/* Email Box (Mise en valeur) */
+.email-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: rgba(47, 102, 255, 0.1);
+    border: 1px solid #2f66ff;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 20px 0 30px;
+    box-shadow: 0 0 20px rgba(47, 102, 255, 0.2);
+    transition: transform 0.2s;
+}
+
+.email-box:hover {
+    transform: scale(1.05);
+    background: rgba(47, 102, 255, 0.2);
+}
+
+.email-box i {
+    font-size: 1.3rem;
+    color: #7aa2ff;
+}
+
+/* Notes d'information */
+.info-notes {
+    text-align: left;
+    background: rgba(0,0,0,0.2);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #f7b709; /* Bordure dorée */
+}
+
+.note {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    margin-bottom: 10px;
+    display: flex; gap: 10px;
+}
+.note i { color: #f7b709; margin-top: 4px; }
+.note:last-child { margin-bottom: 0; }
+
+/* Remerciement final */
+.remerciement {
+    text-align: center;
+    margin-top: 30px;
+    color: #fff;
+    background: linear-gradient(135deg, #2f66ff 0%, #003c9e 100%);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0, 105, 255, 0.3);
+}
+
+.remerciement p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Animation douce */
+@media (prefers-reduced-motion: no-preference) {
+    .intro, .interac-card, .remerciement {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 0.6s ease forwards;
+    }
+    .interac-card { animation-delay: 0.1s; }
+    .remerciement { animation-delay: 0.2s; }
+    
+    @keyframes fadeUp {
+        to { opacity: 1; transform: translateY(0); }
+    }
+}

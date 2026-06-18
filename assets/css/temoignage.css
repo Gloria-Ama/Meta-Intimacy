@@ -1,0 +1,370 @@
+/* =========================================
+   TEMOIGNAGE.CSS
+   Design de la page de témoignages
+========================================= */
+
+/* --- 1. CONFIGURATION GÉNÉRALE DE LA PAGE --- */
+body {
+    background: #00050d;
+    color: #e6ebf5;
+    /* Dégradé de fond pour donner de la profondeur */
+    background-image: radial-gradient(circle at 50% 0%, #1a2c4e 0%, #00050d 60%);
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Conteneur principal */
+.temoignage-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px 100px; /* Espace haut/côté/bas */
+}
+
+/* Titre et Intro */
+.page-intro {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.page-intro h1 {
+    font-size: 2.5rem;
+    color: #7aa2ff; /* Bleu clair */
+    margin-bottom: 15px;
+    font-family: 'Segoe UI', serif;
+}
+
+.page-intro p {
+    color: #94a3b8; /* Gris bleuté */
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* =========================================
+   2. ZONE DE CONNEXION (Login)
+========================================= */
+.auth-container {
+    text-align: center;
+    padding: 50px 20px;
+    background: rgba(255, 255, 255, 0.03); /* Fond très léger */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    margin-bottom: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.auth-container h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+/* Bouton Google */
+.btn-google {
+    background: white;
+    color: #333;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-google:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.btn-google i {
+    font-size: 1.2rem;
+}
+
+/* =========================================
+   3. ZONE FORMULAIRE (Une fois connecté)
+========================================= */
+.form-section {
+    margin-bottom: 60px;
+    /* C'est géré par JS, mais on peut mettre une animation ici */
+    animation: fadeIn 0.5s ease;
+}
+
+/* Barre de Profil Utilisateur */
+.user-profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    background: rgba(47, 102, 255, 0.1); /* Fond bleu transparent */
+    padding: 15px 25px;
+    border-radius: 12px;
+    border: 1px solid rgba(47, 102, 255, 0.3);
+}
+
+.user-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid #2f66ff;
+    object-fit: cover;
+}
+
+.user-details span {
+    display: block;
+    font-size: 0.8rem;
+    color: #a0aec0;
+}
+
+.user-details strong {
+    color: white;
+    font-size: 1rem;
+}
+
+.btn-logout {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ccc;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+}
+
+.btn-logout:hover {
+    background: rgba(220, 38, 38, 0.15);
+    color: #feb2b2;
+    border-color: #feb2b2;
+}
+
+/* Carte du Formulaire */
+.form-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.form-card h3 {
+    margin-bottom: 25px;
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+}
+
+/* Champs de saisie */
+.input-group {
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical; /* Permet de redimensionner verticalement */
+    transition: border-color 0.3s;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #2f66ff;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Checkbox (Anonyme) */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    transform: scale(1.3);
+    cursor: pointer;
+    accent-color: #f7b709; /* Couleur jaune quand coché */
+}
+
+/* Bouton Envoyer */
+.btn-submit {
+    width: 100%;
+    background: linear-gradient(90deg, #0b0694 0%, #2f66ff 100%);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(47, 102, 255, 0.4);
+}
+
+/* =========================================
+   4. LISTE DES TÉMOIGNAGES (Feed)
+========================================= */
+.feed-section h2 {
+    color: #fff;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    border-left: 5px solid #f7b709; /* Petite barre jaune à gauche */
+    padding-left: 15px;
+}
+
+.temoignages-grid {
+    display: grid;
+    /* Création de colonnes automatiques */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+/* Carte Témoignage Individuelle */
+.review-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, border-color 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    border-color: #f7b709; /* Bordure dorée au survol */
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+/* Rond avec l'initiale */
+.avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.user-info h4 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.user-info .date {
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.review-body p {
+    color: #e2e8f0;
+    font-style: italic;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.review-footer {
+    margin-top: auto;
+    padding-top: 20px;
+    text-align: right;
+    color: rgba(255, 255, 255, 0.1);
+    font-size: 1.5rem;
+}
+
+/* Animation d'apparition */
+.fade-in {
+    animation: slideUp 0.6s ease forwards;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   5. RESPONSIVE MOBILE
+========================================= */
+@media (max-width: 768px) {
+    .temoignage-wrapper {
+        padding: 80px 15px 50px;
+    }
+
+    .temoignages-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
+
+    .user-profile {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .user-left {
+        flex-direction: column;
+    }
+
+    .btn-submit {
+        padding: 12px;
+    }
+}/* Bouton Modifier (Crayon) */
+.btn-edit {
+    background: transparent;
+    border: none;
+    color: #7aa2ff; /* Bleu */
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 5px 10px;
+    position: absolute;
+    top: 15px;
+    right: 50px; /* Décalé à gauche de la poubelle */
+    transition: transform 0.2s;
+}
+
+.btn-edit:hover {
+    transform: scale(1.2);
+    color: white;
+}

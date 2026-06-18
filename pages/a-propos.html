@@ -1,92 +1,142 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Meta Intimacy — À Propos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/a-propos.css">
     <link rel="icon" type="image/png" href="../img/logo.PNG">
 </head>
-<header class="site-header">
-  <a class="brand" href="index.html">
-    <img src="../img/logo.PNG" alt="Logo" height="40px">
-  </a>
-  <nav class="site-nav" aria-label="Navigation principale">
-    <a href="../index.html">Accueil</a>
-    <li class="has-dropdown">
-      <button class="menu-btn">À-propos <span class="caret">▾</span></button>
-      <ul class="dropdown">
-        <li><a href="a-propos.html">À propos</a></li>
-        <li><a href="../pages/a-propos/joseph.html">Responsable</a></li>
-        <li><a href="../pages/a-propos/paul.html">Fondateur</a></li>
-      </ul>
-    </li>
-    <a href="ministeres.html">Ministères</a>
-    <a href="cultes.html">Cultes</a>
-    <a href="predications.html">Prédications</a>
-    <a href="evenements.html">Événements</a>
-    <li class="has-dropdown">
-      <button class="menu-btn"> Contact <span class="caret">▾</span></button>
-      <ul class="dropdown">
-        <li><a href="../pages/contact/contact.html">Nous joindre</a></li>
-        <li><a href="../pages/contact/rendez-vous.html">Prendre un rendez-vous </a></li>
-        <li><a href="../pages/contact/Servir chez nous.html">Servir chez nous</a></li>
-        <li><a href="../pages/contact/temoignage.html">Temoignages</a></li>
-      </ul>
-    </li>
-    <a href="dons.html" class="btn">Dons</a>
-  </nav>
-</header>
 
 <body>
-  <section class="naissance">
-      <p class="p1">
-        Meta Intimacy est une cellule dynamique du ministère international Metamorphoo, 
-        implantée à Gatineau, au Canada, sous la responsabilité du Serviteur Joseph Levi Don, 
-        fils spirituel du Pasteur Paul André Don.
-      </p>
-      <p class="p2">
-        Née d’une vision portée dans le cœur de son responsable, Meta Intimacy a commencé 
-        humblement avec quelques croyants, d’abord en ligne puis en présentiel. Aujourd’hui, 
-        elle est devenue une véritable communauté spirituelle, un lieu d’adoration, de prière 
-        et d’enseignement où des vies sont transformées et des destinées restaurées.
-      </p>
-      <p class="p1">
-        La particularité de Meta Intimacy réside dans son identité : une cellule qui met 
-        l’accent sur l’intimité avec Dieu, la communion avec le Saint-Esprit et la fraternité 
-        authentique. Les jeunes qui s’y retrouvent expérimentent non seulement la présence de 
-        Dieu, mais aussi une atmosphère familiale où chacun se sent accueilli et valorisé.
-      </p>
-      <p class="p2">
-        Nous vivons des temps de prières, d’enseignements, d’agapes, de brunchs, 
-        de Bible Study Picnic et de Women’s Night ✨. Et ce qui rend nos rencontres uniques, 
-        c’est que chaque jeudi à la fin, nous partageons un petit repas ensemble 🍽️, renforçant 
-        ainsi les liens d’amitié et la fraternité entre nous.
-      </p>
-      <p class="p1">
-        Sous la conduite du Serviteur Joseph Levi Don, Meta Intimacy s’inscrit dans la vision du 
-        Pasteur Paul André Don : former une génération enracinée, persévérante et prête à manifester 
-        la gloire de Dieu. Aujourd’hui, elle représente un pôle majeur de l’implantation de Metamorphoo 
-        au Canada 🇨🇦, et une source d’inspiration pour les futures cellules à travers le monde.
-      </p>
-      <h3> </h3>
-  </section>
-  <section class="reseau-social">
+
+  <header class="site-header">
+    <div class="header-container">
+      <a class="brand" href="../index.html">
+        <img src="../img/logo.PNG" alt="Meta Intimacy" onerror="this.style.display='none'">
+      </a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+      </label>
+
+      <nav class="site-nav">
+        <ul>
+          <li><a href="../index.html">Accueil</a></li>
+          
+          <li class="has-dropdown">
+            <span class="menu-link active-page">À-propos <i class="fas fa-chevron-down caret"></i></span>
+            <ul class="dropdown">
+              <li><a href="a-propos.html">À propos</a></li>
+              <li><a href="a-propos/joseph.html">Responsable</a></li>
+              <li><a href="a-propos/paul.html">Fondateur</a></li>
+            </ul>
+          </li>
+         <!-- <li><a href="ministeres.html">Ministères</a></li>
+          <li><a href="cultes.html">Cultes</a></li><-->
+          <li><a href="predications.html">Prédications</a></li>
+          <li><a href="evenements.html">Événements</a></li>
+          <li class="has-dropdown">
+            <span class="menu-link">Contact <i class="fas fa-chevron-down caret"></i></span>
+            <ul class="dropdown">
+              <li><a href="contact/contact.html">Nous joindre</a></li>
+              <li><a href="contact/rendez-vous.html">Prendre RDV</a></li>
+              <li><a href="contact/servir.html">Servir</a></li>
+            </ul>
+          </li>
+          <li><a href="temoignage.html">Témoignages</a></li>
+          <li><a href="dons.html" class="btn-don">Dons</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+      <section class="page-title text-center">
+          <h1>Notre Histoire</h1>
+          <p class="subtitle">Découvrez l'origine et la vision de la famille Meta Intimacy</p>
+      </section>
+
+      <section class="naissance">
+          
+          <div class="bloc-texte p1">
+            <h3>Une vision divine</h3>
+            <p>
+              Meta Intimacy est une cellule dynamique du ministère international Metamorphoo, 
+              implantée à Gatineau, au Canada, sous la responsabilité du Serviteur Joseph Levi Don, 
+              fils spirituel du Pasteur Paul André Don.
+            </p>
+          </div>
+
+          <div class="bloc-texte p2">
+            <h3>Des débuts humbles</h3>
+            <p>
+              Née d’une vision portée dans le cœur de son responsable, Meta Intimacy a commencé 
+              humblement avec quelques croyants, d’abord en ligne puis en présentiel. Aujourd’hui, 
+              elle est devenue une véritable communauté spirituelle, un lieu d’adoration, de prière 
+              et d’enseignement où des vies sont transformées et des destinées restaurées.
+            </p>
+          </div>
+
+          <div class="bloc-texte p1">
+            <h3>Notre identité</h3>
+            <p>
+              La particularité de Meta Intimacy réside dans son identité : une cellule qui met 
+              l’accent sur l’intimité avec Dieu, la communion avec le Saint-Esprit et la fraternité 
+              authentique. Les jeunes qui s’y retrouvent expérimentent non seulement la présence de 
+              Dieu, mais aussi une atmosphère familiale où chacun se sent accueilli et valorisé.
+            </p>
+          </div>
+
+          <div class="bloc-texte p2">
+            <h3>Vie de communauté</h3>
+            <p>
+              Nous vivons des temps de prières, d’enseignements, d’agapes, de brunchs, 
+              de Bible Study Picnic et de Women’s Night ✨. Et ce qui rend nos rencontres uniques, 
+              c’est que chaque jeudi à la fin, nous partageons un petit repas ensemble 🍽️, renforçant 
+              ainsi les liens d’amitié et la fraternité entre nous.
+            </p>
+          </div>
+
+          <div class="bloc-texte p1">
+            <h3>Une vision pour le Canada</h3>
+            <p>
+              Sous la conduite du Serviteur Joseph Levi Don, Meta Intimacy s’inscrit dans la vision du 
+              Pasteur Paul André Don : former une génération enracinée, persévérante et prête à manifester 
+              la gloire de Dieu. Aujourd’hui, elle représente un pôle majeur de l’implantation de Metamorphoo 
+              au Canada 🇨🇦, et une source d’inspiration pour les futures cellules à travers le monde.
+            </p>
+          </div>
+
+      </section>
+
+      <section class="reseau-social-page">
+            <a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@meta_intimacy" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.youtube.com/@Pad_ministries" target="_blank"><i class="fab fa-youtube"></i></a>
+      </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-social">
         <a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://www.tiktok.com/@meta_intimacy" target="_blank"><i class="fab fa-tiktok"></i></a>
-        <a href="https://www.youtube.com/@Pad_ministries" target="_blank"><i class="fab fa-youtube"></i></a>
-    </section>
+      </div>
+      <div class="footer-info">
+        <p>&copy; <span id="year"></span> Meta Intimacy — Tous droits réservés</p>
+        <address><i class="fas fa-map-marker-alt"></i> 22 rue de Stratus, Gatineau, QC</address>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
 </body>
-<footer>
-  <div id="reseau-social">
-    <a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.tiktok.com/@meta_intimacy" target="_blank"><i class="fab fa-tiktok"></i></a>
-  </div>
-  <div id="contact">
-    <p>&copy; <span id="year"></span> Meta Intimacy — Tous droits réservés</p>
-    <address>22 rue de Stratus, Gatineau, QC</address>
-  </div>
-</footer>
 </html>

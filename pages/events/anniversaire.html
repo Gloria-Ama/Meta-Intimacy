@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1er Anniversaire — Galerie</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/evenements.css">
+    <link rel="icon" type="image/png" href="../../img/logo.PNG">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="header-container">
+      <a class="brand" href="../../index.html">
+        <img src="../../img/logo.PNG" alt="Meta Intimacy" onerror="this.style.display='none'">
+      </a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+
+      <nav class="site-nav">
+        <ul>
+          <li><a href="../../index.html">Accueil</a></li>
+          
+          <li class="has-dropdown">
+            <input type="checkbox" id="dd-apropos" class="dropdown-toggle">
+            <label for="dd-apropos" class="menu-link">À-propos <i class="fas fa-chevron-down caret"></i></label>
+            <ul class="dropdown">
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../a-propos/joseph.html">Responsable</a></li>
+              <li><a href="../a-propos/paul.html">Fondateur</a></li>
+            </ul>
+          </li>
+
+          <li><a href="../predications.html">Prédications</a></li>
+          <li><a href="../evenements.html" class="active-link">Événements</a></li>
+
+          <li class="has-dropdown">
+            <input type="checkbox" id="dd-contact" class="dropdown-toggle">
+            <label for="dd-contact" class="menu-link">Contact <i class="fas fa-chevron-down caret"></i></label>
+            <ul class="dropdown">
+              <li><a href="../contact/contact.html">Nous joindre</a></li>
+              <li><a href="../contact/rendez-vous.html">Prendre RDV</a></li>
+              <li><a href="../contact/servir.html">Servir</a></li>
+              
+            </ul>
+          </li>
+          <li><a href="../temoignage.html">Témoignages</a></li>
+          <li><a href="../dons.html" class="btn-don">Dons</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="events-wrapper">
+    
+    <section class="events-section">
+      
+      <div style="margin-bottom:20px;">
+          <a href="../evenements.html" style="color:#7aa2ff; text-decoration:none; font-weight:bold;">
+             <i class="fas fa-arrow-left"></i> Retour à la liste
+          </a>
+      </div>
+
+      <article class="event-card featured" style="margin-bottom:0;">
+        <div class="card-content">
+            <div class="badge">Événement Spécial</div>
+            
+            <h1>🎉 1er Anniversaire de Meta Intimacy</h1>
+            <p class="event-theme">Thème : Le Réveil des Héros</p>
+
+            <div class="event-details">
+                <p><i class="far fa-calendar"></i> 10 Août 2025</p>
+                <p><i class="fas fa-map-marker-alt"></i> 100 rue de la Baie</p>
+            </div>
+
+            <p class="description">
+                Le 10 août 2025, Meta Intimacy a célébré son premier anniversaire lors d’un événement mémorable réunissant sa communauté dans une ambiance chaleureuse et festive.
+                Cette soirée s’est déroulée comme un véritable temps de culte, marqué par de puissants moments de prédication, de louange, de prière et de délivrance.
+                <br><br>
+                Revivez ces instants de grâce à travers notre galerie multimédia ci-dessous.
+            </p>
+
+            <div class="gallery-section">
+                <h3>📸 Galerie Souvenirs</h3>
+                <p class="gallery-intro">Cliquez sur une image ou une vidéo pour l'agrandir.</p>
+                <div class="gallery-grid" id="gallery-container"></div>
+            </div>
+
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+    <span class="close-btn" onclick="closeLightbox(event)">&times;</span>
+    <button class="nav-btn prev" onclick="changeImage(-1, event)">&#10094;</button>
+    <button class="nav-btn next" onclick="changeImage(1, event)">&#10095;</button>
+    <div class="lightbox-content">
+        <img id="lightbox-img" src="" style="display:none;">
+    </div>
+  </div>
+
+  <div id="video-lightbox" class="lightbox" onclick="closeVideoLightbox(event)">
+    <span class="close-btn" onclick="closeVideoLightbox(event)">&times;</span>
+    <button class="nav-btn prev" onclick="changeVideo(-1, event)">&#10094;</button>
+    <button class="nav-btn next" onclick="changeVideo(1, event)">&#10095;</button>
+    <div class="lightbox-content">
+        <video id="lightbox-video-player" controls style="width:100%; max-height:85vh;"></video>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-social">
+        <a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@meta_intimacy" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+      <div class="footer-info">
+        <p>&copy; <span id="year"></span> Meta Intimacy</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const container = document.getElementById('gallery-container');
+
+    /* ============================================================
+       CONFIGURATION SPÉCIFIQUE À CETTE PAGE (ANNIVERSAIRE)
+       Changez ces variables pour chaque fichier HTML d'événement !
+    ============================================================ */
+    // Chemin vers le dossier des images (Créez un dossier par événement !)
+    const PATH_IMG = '../../img/gallery/'; 
+    const NB_PHOTOS = 100; // Nombre de photos à charger (ex: 1.jpg à 100.jpg)
+    
+    const PATH_VID = '../../video/anniversaire_recap.mp4/'; 
+    const NB_VIDEOS = 100; // Nombre de vidéos
+
+    // Tableaux de navigation
+    let galleryImages = []; 
+    let currentImageIndex = 0;
+    let galleryVideos = [];
+    let currentVideoIndex = 0;
+
+    // --- 1. GÉNÉRATION DES VIDÉOS ---
+    for (let j = 1; j <= NB_VIDEOS; j++) {
+        let div = document.createElement('div');
+        div.className = 'gallery-item video';
+        div.setAttribute('onclick', 'openVideoLightbox(this)');
+        
+        let vid = document.createElement('video');
+        // Suppose que vos vidéos s'appellent video (1).mp4, video (2).mp4...
+        let videoName = `video (${j})`; 
+        vid.src = `${PATH_VID}${videoName}.mp4`; 
+        vid.muted = true; 
+        vid.preload = "metadata"; 
+
+        let icon = document.createElement('div');
+        icon.className = 'play-icon';
+        icon.innerHTML = '<i class="fas fa-play"></i>';
+
+        // Gestion Erreur extension (mp4/MOV)
+        vid.onerror = function() {
+            if (this.src.endsWith('.mp4')) this.src = `${PATH_VID}${videoName}.MOV`;
+            else { div.style.display = 'none'; div.classList.add('broken-link'); }
+        };
+
+        div.appendChild(vid);
+        div.appendChild(icon);
+        container.appendChild(div);
+    }
+
+    // --- 2. GÉNÉRATION DES PHOTOS ---
+    for (let i = 1; i <= NB_PHOTOS; i++) {
+        let div = document.createElement('div');
+        div.className = 'gallery-item photo';
+        
+        let img = document.createElement('img');
+        // Ls photos s'appellent : 1 (1).jpg, 1 (2).jpg ...
+        let src = `${PATH_IMG}1 (${i}).jpg`; 
+        
+        img.src = src;
+        img.loading = "lazy"; // Chargement différé pour la performance
+        
+        img.onload = function() {
+            galleryImages.push(src);
+            div.setAttribute('onclick', `openLightbox('${src}')`);
+        };
+        img.onerror = function() { 
+            // Si .jpg marche pas, essaye .JPG, sinon cache
+            if (this.src.endsWith('.jpg')) this.src = `${PATH_IMG}${i}.JPG`;
+            else this.parentElement.style.display = 'none'; 
+        };
+
+        div.appendChild(img);
+        container.appendChild(div);
+    }
+
+    /* --- FONCTIONS LIGHTBOX (Standard) --- */
+    function openLightbox(src) {
+        const lightbox = document.getElementById('lightbox');
+        currentImageIndex = galleryImages.indexOf(src);
+        updateLightboxImage();
+        lightbox.classList.add('active');
+    }
+    function changeImage(dir, e) {
+        if(e) e.stopPropagation();
+        currentImageIndex += dir;
+        if (currentImageIndex >= galleryImages.length) currentImageIndex = 0;
+        if (currentImageIndex < 0) currentImageIndex = galleryImages.length - 1;
+        updateLightboxImage();
+    }
+    function updateLightboxImage() {
+        const img = document.getElementById('lightbox-img');
+        img.src = galleryImages[currentImageIndex];
+        img.style.display = 'block';
+    }
+    function closeLightbox(e) {
+        if (e.target.id === 'lightbox' || e.target.classList.contains('close-btn')) {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+    }
+
+    /* --- FONCTIONS VIDEO LIGHTBOX --- */
+    function openVideoLightbox(el) {
+        const lightbox = document.getElementById('video-lightbox');
+        galleryVideos = [];
+        // Récupère toutes les vidéos visibles
+        const allVids = document.querySelectorAll('.gallery-item.video:not(.broken-link) video');
+        const clickedSrc = el.querySelector('video').currentSrc;
+        
+        allVids.forEach((v, idx) => {
+            galleryVideos.push(v.currentSrc);
+            if(v.currentSrc === clickedSrc) currentVideoIndex = idx;
+        });
+        updateLightboxVideo();
+        lightbox.classList.add('active');
+    }
+    function changeVideo(dir, e) {
+        if(e) e.stopPropagation();
+        currentVideoIndex += dir;
+        if (currentVideoIndex >= galleryVideos.length) currentVideoIndex = 0;
+        if (currentVideoIndex < 0) currentVideoIndex = galleryVideos.length - 1;
+        updateLightboxVideo();
+    }
+    function updateLightboxVideo() {
+        const player = document.getElementById('lightbox-video-player');
+        player.src = galleryVideos[currentVideoIndex];
+        player.play();
+    }
+    function closeVideoLightbox(e) {
+        if (e.target.id === 'video-lightbox' || e.target.classList.contains('close-btn')) {
+            const lb = document.getElementById('video-lightbox');
+            const pl = document.getElementById('lightbox-video-player');
+            lb.classList.remove('active');
+            pl.pause(); pl.src = "";
+        }
+    }
+  </script>
+
+</body>
+</html>

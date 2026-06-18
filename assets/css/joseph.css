@@ -1,145 +1,155 @@
+/* =======================
+   JOSEPH.CSS (Page Spécifique)
+   (S'ajoute par-dessus main.css)
+======================= */
 
-/* Tokens */
-:root{
-  --bleu-100:#f2f7ff;   /* fond très doux */
-  --bleu-200:#e6f0ff;   /* voile */
-  --bleu-400:#7aa2ff;   /* accent doux */
-  --bleu-600:#2f66ff;   /* accent principal */
-  --bleu-800:#0d2a6b;   /* titre */
-  --txt:#0f172a;        /* texte */
-  --card:#ffffff;
+/* Variables locales */
+:root {
+  --bleu-100: #f2f7ff;
+  --bleu-200: #e6f0ff;
+  --bleu-400: #7aa2ff;
+  --bleu-600: #2f66ff;
+  --bleu-800: #0d2a6b;
+  --txt: #0f172a;
+  --card: #ffffff;
   --radius: 18px;
   --shadow: 0 10px 28px rgba(15,23,42,.10);
 }
-body{
+
+/* Fond sombre global pour la page */
+body {
   background-color: #040506;
+  color: #e6ebf5;
 }
+
 /* =======================
    Bande vidéo d’intro
 ======================= */
-.video-intro{
+.video-intro {
   position: relative;
   width: 100%;
+  height: 55vh; /* Légèrement plus grand pour bien apprécier la vidéo */
+  min-height: 400px;
   overflow: hidden;
   background: var(--bleu-800);
+  margin-bottom: 0; /* CORRECTION : Le texte ne montera plus sur la vidéo */
 }
-.video-intro video{
+
+.video-intro video {
   width: 100%;
-  height: 800px;
+  height: 100%;
   object-fit: cover;
-  filter: brightness(.85) contrast(1.05) saturate(1.05);
+  object-position: top center; /* Focus sur le haut (visage) */
+  filter: brightness(0.9) contrast(1.1); /* J'ai éclairci un peu (0.9) pour qu'on voit mieux */
 }
-.video-intro::after{
-  /* voile léger = lisibilité */
-  content:"";
-  position:absolute; inset:0;
-  background:
-    linear-gradient(180deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.35) 100%),
-    radial-gradient(60% 80% at 20% 20%, rgba(122,162,255,.18) 0 60%, transparent 61%);
-  pointer-events:none;
+
+/* Voile dégradé vers le noir en bas de la vidéo pour transition douce */
+.video-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, #040506 100%);
+  pointer-events: none;
 }
 
 /* =======================
-   Bloc contenu principal
+   Bloc Texte Principal
 ======================= */
-.section1{
-  max-width: 980px;
-  margin: clamp(20px, 6vw, 56px) auto;
-  padding: clamp(22px, 4vw, 40px);
-  background:
-    linear-gradient(180deg, var(--bleu-100) 0%, var(--bleu-200) 100%);
-  border: 1px solid rgba(15,23,42,.06);
+.section1 {
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
+  
+  /* CORRECTION : Marge standard, le texte est en dessous de la vidéo */
+  margin: 20px auto 60px; 
+  
+  padding: 50px;
+  
+  /* Fond Verre/Moderne */
+  background: rgba(13, 24, 43, 0.6); /* Un peu plus transparent */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.05);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  color: var(--txt);
-  /* typo identique */
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  
+  color: #e6ebf5;
+  text-align: justify;
 }
 
 /* Titre */
-.section1 h1{
-  margin: 0 0 .9rem 0;
-  font-size: clamp(1.6rem, 3.6vw, 2.4rem);
-  line-height: 1.15;
-  color: var(--bleu-800);
-  letter-spacing: .2px;
-}
-.section1 h1 + p{ margin-top: .2rem; }
-
-/* Paragraphe lisible (1 colonne) */
-.section1 p{
-  margin: 1rem 0 0 0;
-  font-size: clamp(1.02rem, 1.3vw, 1.12rem);
-  line-height: 1.85;
-  color: #15223f;
-  text-wrap: pretty;
+.section1 h1 {
+  text-align: center;
+  margin: 0 0 30px 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--bleu-400);
+  font-family: 'Segoe UI', serif; 
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 20px;
 }
 
-.section1 strong{ color: var(--bleu-600); }
+/* Paragraphes */
+.section1 p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #dbe6ff;
+}
+
+.section1 strong {
+  color: var(--bleu-600);
+}
 
 /* =======================
-  Réseaux sociaux
+   Réseaux sociaux (Spécifique Pasteur)
 ======================= */
-.reseau-social{
-  max-width: 980px;
-  margin: 0 auto clamp(28px, 6vw, 48px);
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+.reseau-social {
+  padding: 0 0 60px; /* Réduit le padding haut */
+  text-align: center;
 }
-.reseau-social a{
-  width: 42px; height: 42px;
+
+#pasteur-social {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+#pasteur-social a {
+  width: 50px; height: 50px;
   display: inline-flex; align-items: center; justify-content: center;
   border-radius: 50%;
-  background: var(--card);
-  border: 1.5px solid var(--bleu-400);
-  color: var(--bleu-600);
-  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
-  box-shadow: 0 6px 16px rgba(47,102,255,.12);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
-.reseau-social a:hover{
-  transform: translateY(-2px);
+
+#pasteur-social a:hover {
+  transform: translateY(-5px);
   background: var(--bleu-600);
   color: #fff;
-  box-shadow: 0 10px 22px rgba(47,102,255,.22);
+  box-shadow: 0 0 20px rgba(47,102,255,0.4);
 }
 
 /* =======================
-   Petits raffinements
+   Responsive
 ======================= */
-.section1{ scroll-margin-top: 72px; }
-
-/* Apparition douce (comme PAUL) */
-@media (prefers-reduced-motion: no-preference){
-  .video-intro, .section1, .reseau-social{
-    opacity: 0; transform: translateY(8px);
-    animation: fadeUp .5s ease forwards;
+@media (max-width: 768px) {
+  .section1 {
+    padding: 30px 20px;
+    margin: 10px 15px 40px; 
   }
-  .section1{ animation-delay: .06s; }
-  .reseau-social{ animation-delay: .1s; }
-  @keyframes fadeUp{
-    to{ opacity:1; transform:translateY(0); }
+  
+  .video-intro {
+    height: 40vh; 
   }
 }
 
-/* =======================
-   Mode sombre cohérent
-======================= */
-@media (prefers-color-scheme: dark){
-  :root{
-    --bleu-100:#0f1b33; --bleu-200:#0d182b; --card:#0f172a;
-    --txt:#e6ebf5; --shadow:0 10px 28px rgba(0,0,0,.45);
+/* Animation d'entrée */
+@media (prefers-reduced-motion: no-preference) {
+  .section1 {
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp 0.8s ease forwards;
   }
-  .section1{ border-color: rgba(255,255,255,.06); }
-  .section1 p{ color:#dbe6ff; }
-  .reseau-social a{
-    background: var(--card);
-    border-color: #486fff;
-    color: #98b3ff;
-  }
-  .reseau-social a:hover{
-    background:#486fff; color:#fff;
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
   }
 }

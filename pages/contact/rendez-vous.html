@@ -1,88 +1,99 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meta Intimacy - Prendre un Rendez-vous</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="/assets/css/main.css">
-<link rel="stylesheet" href="/assets/css/rendez-vous.css">
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta Intimacy — Prendre Rendez-vous</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/rendez-vous.css">
+    <link rel="icon" type="image/png" href="../../img/logo.PNG">
+
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </head>
 
 <body>
-<header class="site-header">
-<a class="brand" href="/index.html"> 
-<img src="/img/logo.PNG" alt="Logo Meta Intimacy">
-</a>
+  <header class="site-header">
+    <div class="header-container">
+      <a class="brand" href="../../index.html">
+        <img src="../../img/logo.PNG" alt="Meta Intimacy" onerror="this.style.display='none'">
+      </a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="../../index.html">Accueil</a></li>
+          <li class="has-dropdown">
+            <span class="menu-link">À-propos <i class="fas fa-chevron-down caret"></i></span>
+            <ul class="dropdown">
+              <li><a href="../a-propos.html">À propos</a></li>
+              <li><a href="../a-propos/joseph.html">Responsable</a></li>
+              <li><a href="../a-propos/paul.html">Fondateur</a></li>
+            </ul>
+          </li>
+          <li><a href="../predications.html">Prédications</a></li>
+          <li><a href="../evenements.html">Événements</a></li>
+          <li class="has-dropdown">
+            <span class="menu-link active-page">Contact <i class="fas fa-chevron-down caret"></i></span>
+            <ul class="dropdown">
+              <li><a href="contact.html">Nous joindre</a></li>
+              <li><a href="rendez-vous.html">Prendre RDV</a></li>
+              <li><a href="servir.html">Servir</a></li>
+            </ul>
+          </li>
+          <li><a href="../temoignage.html">Témoignages</a></li>
+          <li><a href="../dons.html" class="btn-don">Dons</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-<nav class="site-nav" aria-label="Navigation principale">
-<a href="/index.html">Accueil</a>
-<li class="has-dropdown">
-    <button class="menu-btn">À-propos <span class="caret">▾</span></button>
-    <ul class="dropdown">
-    <li><a href="/pages/a-propos.html">À propos</a></li>
-    <li><a href="/pages/a-propos/joseph.html">Responsable</a></li>
-    <li><a href="/pages/a-propos/paul.html">Fondateur</a></li>
-    </ul>
-</li>
-<a href="/pages/ministeres.html">Ministères</a>
-<a href="/pages/cultes.html">Cultes</a>
-<a href="/pages/predications.html">Prédications</a>
-<a href="/pages/evenements.html">Événements</a>
-<li class="has-dropdown">
-    <button class="menu-btn">Contact <span class="caret">▾</span></button>
-    <ul class="dropdown">
-    <li><a href="/pages/contact/contact.html">Nous joindre</a></li>
-    <li><a href="/pages/contact/rendez-vous.html" aria-current="page">Prendre un rendez-vous</a></li> 
-    <li><a href="/pages/contact/Servir chez nous.html">Servir chez nous</a></li>
-    <li><a href="/pages/contact/temoignage.html">Témoignages</a></li>
-    </ul>
-</li>
-<a href="/pages/dons.html" class="btn">Dons</a>
-</nav>
-</header>
+  <main>
+    <section class="section-rdv">
+      <h2>🤝 Rendez-vous avec le responsable</h2>
+      <p class="accroche"><strong>Le Seigneur se révèle souvent dans un simple moment d’écoute.</strong></p>
 
-<section id="rendez-vous-responsable" class="section-rdv" lang="fr">
-<h2>🤝 Rendez-vous seul à seul avec le responsable</h2>
-<p class="accroche"><strong>Le Seigneur se révèle souvent dans un simple moment d’écoute.</strong></p>
+      <div class="rdv-content">
+        <p>
+          Ce moment est une occasion privilégiée de rencontrer le responsable de
+          <strong>Meta Intimacy</strong> en toute confidentialité, pour parler, être
+          écouté et recevoir une orientation spirituelle selon la Parole de Dieu.
+        </p>
+        <p>
+          Que vous ayez besoin de <strong>conseils</strong>, de <strong>prière</strong>, de
+          <strong>soutien</strong> ou simplement d’un espace pour vous exprimer, ce rendez-vous est
+          un temps d’échange personnel empreint de compassion et de foi.
+        </p>
+      </div>
 
-<p>
-Ce moment est une occasion privilégiée de rencontrer le responsable de
-<strong>Meta Intimacy</strong> en toute confidentialité, pour parler, être
-écouté et recevoir une orientation spirituelle selon la Parole de Dieu.
-Que vous ayez besoin de <strong>conseils</strong>, de <strong>prière</strong>, de
-<strong>soutien</strong> ou simplement d’un espace pour vous exprimer, ce rendez-vous est
-un temps d’échange personnel empreint de compassion et de foi.
-</p>
+      <div class="cta-container">
+        <a class="btn-rdv" href="#" onclick="Calendly.initPopupWidget({ url: 'https://calendly.com/migatineau1' }); return false;">
+          <i class="far fa-calendar-check"></i> Réserver mon créneau
+        </a>
+        <p class="note-dispo">Les créneaux sont mis à jour chaque semaine.</p>
+      </div>
+    </section>
+  </main>
 
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-social">
+        <a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@meta_intimacy" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+      <div class="footer-info">
+        <p>&copy; <span id="year"></span> Meta Intimacy — Tous droits réservés</p>
+        <address><i class="fas fa-map-marker-alt"></i> 22 rue de Stratus, Gatineau, QC</address>
+      </div>
+    </div>
+  </footer>
 
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 
-<p class="cta">
-<a class="btn-rdv" href="#"
-    onclick="Calendly.initPopupWidget({ url: 'https://calendly.com/migatineau1' }); return false;">
-    Prendre un rendez-vous
-</a>
-</p>
-
-
-</section>
-
-<footer>
-<div id="reseau-social">
-<a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
-<a href="https://www.tiktok.com/@meta_intimacy" target="_blank"><i class="fab fa-tiktok"></i></a>
-</div>
-<div id="contact">
-<p>&copy; <span id="year"></span> Meta Intimacy — Tous droits réservés</p>
-<address>22 rue de Stratus, Gatineau, QC</address>
-</div>
-</footer>
-
-<script>
-// Mise à jour automatique de l’année dans le footer
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
 </body>
 </html>

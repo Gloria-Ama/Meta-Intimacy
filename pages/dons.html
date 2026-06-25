@@ -1,87 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Meta Intimacy — Dons</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/dons.css">
-    
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/dons.css">
+    <link rel="icon" type="image/png" href="/img/logo.PNG">
 </head>
-<header class="site-header">
-  <a class="brand" href="index.html">
-    <img src="../img/logo.PNG" alt="Logo" height="40px">
-  </a>
-  <nav class="site-nav" aria-label="Navigation principale">
-    <a href="../index.html">Accueil</a>
-    <li class="has-dropdown">
-      <button class="menu-btn">À-propos <span class="caret">▾</span></button>
-      <ul class="dropdown">
-        <li><a href="a-propos.html">À propos</a></li>
-        <li><a href="../pages/a-propos/joseph.html">Responsable</a></li>
-        <li><a href="../pages/a-propos/paul.html">Fondateur</a></li>
-      </ul>
-    </li>
-    <!--<a href="ministeres.html">Ministères</a>
-    <a href="cultes.html">Cultes</a>-->
-    <a href="predications.html">Prédications</a>
-    <a href="evenements.html">Événements</a>
-    <li class="has-dropdown">
-      <button class="menu-btn"> Contact <span class="caret">▾</span></button>
-      <ul class="dropdown">
-        <li><a href="../pages/contact/contact.html">Nous joindre</a></li>
-        <li><a href="../pages/contact/rendez-vous.html">Prendre un rendez-vous </a></li>
-        <li><a href="../pages/contact/Servir chez nous.html">Servir chez nous</a></li>
-        
-      </ul>
-    </li>
-    <li><a href="/temoignage.html">Temoignages</a></li>
-    <a href="dons.html" class="btn">Dons</a>
-  </nav>
-</header>
 <body>
-    <main class="dons-wrapper">
+
+  <header class="site-header">
+    <div class="header-container">
+      <a class="brand" href="/index.html">
+        <img src="/img/logo.PNG" alt="Meta Intimacy" onerror="this.style.display='none'">
+      </a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="/index.html">Accueil</a></li>
+          <li class="has-dropdown">
+            <span class="menu-link">À-propos <i class="fas fa-chevron-down caret"></i></span>
+            <ul class="dropdown">
+              <li><a href="/pages/a-propos.html">À propos</a></li>
+              <li><a href="/pages/a-propos/joseph.html">Responsable</a></li>
+              <li><a href="/pages/a-propos/paul.html">Fondateur</a></li>
+            </ul>
+          </li>
+          <li><a href="/pages/predications.html">Prédications</a></li>
+          <li><a href="/pages/evenements.html">Événements</a></li>
+          <li class="has-dropdown">
+            <span class="menu-link">Contact <i class="fas fa-chevron-down caret"></i></span>
+            <ul class="dropdown">
+              <li><a href="/pages/contact/contact.html">Nous joindre</a></li>
+              <li><a href="/pages/contact/rendez-vous.html">Prendre RDV</a></li>
+              <li><a href="/pages/contact/servir.html">Servir</a></li>
+            </ul>
+          </li>
+          <li><a href="/pages/temoignage.html">Témoignages</a></li>
+          <li><a href="/pages/dons.html" class="btn-don">Dons</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="dons-wrapper">
     <section class="intro">
       <h1>🎁 Faire un don</h1>
-      <p>Votre générosité permet à <strong>Meta Intimacy</strong> de poursuivre sa mission : 
-        impacter des vies, soutenir les activités communautaires et propager l’amour du Christ.  
-        Chaque don, quel qu’en soit le montant, fait une différence. 💙
+      <p>Votre générosité permet à <strong>Meta Intimacy</strong> de poursuivre sa mission :
+        impacter des vies, soutenir les activités communautaires et propager l'amour du Christ.
+        Chaque don, quel qu'en soit le montant, fait une différence. 💙
       </p>
     </section>
 
     <section class="interac-card">
       <h2>💳 Don par Interac</h2>
-      <p>Vous pouvez faire un virement Interac à l’adresse suivante :</p>
-
+      <p>Vous pouvez faire un virement Interac à l'adresse suivante :</p>
       <div class="email-box">
         <i class="fa-solid fa-envelope"></i>
         <span>metaintimacy@gmail.com</span>
       </div>
-      <p class="note">
-        Veuillez noter que les dons par Interac ne sont pas éligibles pour un reçu fiscal.
-      </p>
-      <p class="note">
-        Merci d’indiquer votre nom complet et le motif du don (ex : “Dîme”, “Offrande”, “Soutien Meta Intimacy”)
-        dans la section message du virement.
-      </p>
+      <div class="info-notes">
+        <p class="note"><i class="fas fa-info-circle"></i> Les dons par Interac ne sont pas éligibles pour un reçu fiscal.</p>
+        <p class="note"><i class="fas fa-info-circle"></i> Merci d'indiquer votre nom complet et le motif du don (ex : "Dîme", "Offrande", "Soutien Meta Intimacy") dans la section message du virement.</p>
+      </div>
     </section>
 
     <section class="remerciement">
-      <p>🙏 Merci pour votre fidélité et votre soutien !  
+      <p>🙏 Merci pour votre fidélité et votre soutien !
       Que Dieu vous bénisse abondamment. 💙</p>
     </section>
   </main>
 
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-social">
+        <a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@meta_intimacy" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+      <div class="footer-info">
+        <p>&copy; <span id="year"></span> Meta Intimacy — Tous droits réservés</p>
+        <address><i class="fas fa-map-marker-alt"></i> 22 rue de Stratus, Gatineau, QC</address>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
-<footer>
-  <div id="reseau-social">
-    <a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.tiktok.com/@meta_intimacy" target="_blank"><i class="fab fa-tiktok"></i></a>
-  </div>
-  <div id="contact">
-    <p>&copy; <span id="year"></span> Meta Intimacy — Tous droits réservés</p>
-    <address>22 rue de Stratus, Gatineau, QC</address>
-  </div>
-</footer>
 </html>

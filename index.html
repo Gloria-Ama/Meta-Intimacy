@@ -1,295 +1,425 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Meta Intimacy — Accueil</title>
-  <meta name="description" content="Bienvenue à Meta Intimacy. Culte chaque dimanche, ministères pour tous.">
-  <link rel="icon" href="favicon.ico">
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  
-  <link rel="stylesheet" href="assets/css/main.css">
-  <link rel="stylesheet" href="assets/css/home.css">
-</head>
-
-<body>
-
-  <header class="site-header">
-    <div class="header-container">
-      <a class="brand" href="index.html">
-        <img src="img/logo.PNG" alt="Meta Intimacy" onerror="this.style.display='none'">
-      </a>
-
-      <input type="checkbox" id="nav-toggle" class="nav-toggle">
-      <label for="nav-toggle" class="nav-toggle-label">
-        <span></span>
-      </label>
-
-      <nav class="site-nav">
-        <ul>
-          <li><a href="index.html">Accueil</a></li>
-          
-          <li class="has-dropdown">
-            <span class="menu-link">À-propos <i class="fas fa-chevron-down caret"></i></span>
-            <ul class="dropdown">
-              <li><a href="pages/a-propos.html">À propos</a></li>
-              <li><a href="pages/a-propos/joseph.html">Responsable</a></li>
-              <li><a href="pages/a-propos/paul.html">Fondateur</a></li>
-            </ul>
-          </li>
-         <!-- <li><a href="pages/cultes.html">Cultes</a></li> -->
-          <li><a href="pages/predications.html">Prédications</a></li>
-          <li><a href="pages/evenements.html">Événements</a></li>
-          <li class="has-dropdown">
-            <span class="menu-link">Contact <i class="fas fa-chevron-down caret"></i></span>
-            <ul class="dropdown">
-              <li><a href="pages/contact/contact.html">Nous joindre</a></li>
-              <li><a href="pages/contact/rendez-vous.html">Prendre RDV</a></li>
-              <li><a href="pages/contact/servir.html">Servir</a></li>
-            </ul>
-          </li>
-          <li><a href="pages/temoignage.html">Témoignages</a></li>
-          <li><a href="pages/dons.html" class="btn-don">Dons</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero">
-    <div class="video-bg">
-      <video autoplay muted loop playsinline poster="img/poster.jpg">
-        <source src="video/accueil.mp4" type="video/mp4">
-      </video>
-      <div class="overlay"></div>
-      <div class="content">
-        <h1 class="hero__title"></h1><br> </h1>
-      </div>
-    </div>
-  </section>
-
-  <main>
+    <!doctype html>
+    <html lang="fr">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Meta Intimacy — Accueil</title>
+    <meta name="description" content="Bienvenue à Meta Intimacy. Culte chaque dimanche, ministères pour tous.">
+    <link rel="icon" href="favicon.ico">
     
-    <section class="section-padding presentation">
-      <div class="container text-center">
-        <h2 class="section-title">Qui sommes-nous ?</h2>
-        <p class="lead-text">
-          Nous sommes un groupe de jeunes de la région d’Ottawa-Gatineau qui partageons notre foi et des moments 
-          de qualité dans le Seigneur. Ensemble, nous vivons des temps de prières, d’enseignements, d’agapes, 
-          de brunchs, de Bible Study Picnic et de Women’s Night ✨<br><br>
-          Meta Intimacy est plus qu’un simple rassemblement : c’est une famille spirituelle où règnent la
-          communion fraternelle, la joie et l’amour de Dieu. Ici, chacun trouve un espace pour approfondir sa 
-          relation avec le Seigneur, grandir dans sa foi et partager des moments précieux dans une atmosphère 
-          conviviale et inspirante. <br><br>
-          Alors, si tu ressens le besoin de te rapprocher de Dieu et de trouver une famille spirituelle avec 
-          qui partager ces instants de grâce, Meta Intimacy t’ouvre grand ses bras 💙.
-        </p>
-        <a href="pages/a-propos.html" class="btn-gradient">En savoir plus</a>
-      </div>
-    </section>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+    </head>
 
-    <section class="section-padding message-bg">
-      <div class="container text-center">
-        <h2 class="section-title text-white">Chaque message, une lumière nouvelle, une destinée transformée 🤍</h2>
-        <p class="lead-text text-white">
-          Nous croyons que les messages inspirés de la Parole sont capables de guérir les blessures les plus profondes.
-          Ils éclairent le chemin, donnent une nouvelle perspective et ouvrent la porte à la transformation.
-          À travers eux, Dieu parle directement aux cœurs avec amour et puissance.
-          Ils sont une source de restauration, de foi et d’espérance pour tous ceux qui les reçoivent.
-          Chaque rencontre est une expérience unique où le ciel touche la terre par la puissance de la Parole.
-        </p>
-        <a href="pages/enseignements.html" class="btn-light">Découvrir</a>
-      </div>
-    </section>
+    <body>
 
-    <section class="section-padding programmes">
-      <div class="container">
-        <div class="text-center mb-5">
-          <h2 class="section-title">Nos programmes hebdomadaires</h2>
-          <p class="subtitle">
-             Chaque semaine, nous nous réunissons pour des moments forts de prière, d’enseignement et de partage.
-             Nos programmes incluent des temps de prière intenses, des enseignements bibliques profonds. 
-             Chaque rencontre est une occasion de grandir dans la foi, de renforcer les liens 
-             fraternels et de vivre la présence de Dieu au milieu de nous. Nous nous réunissons dans une 
-             atmosphère chaleureuse en ligne et en présentiel où chacun peut trouver sa place et s’épanouir spirituellement.
-          </p>
+    <header class="site-header">
+        <div class="header-container">
+        <a class="brand" href="/index.html">
+            <img src="img/logo.PNG" alt="Meta Intimacy" onerror="this.style.display='none'">
+        </a>
+
+                <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+        <nav class="site-nav">
+            <ul>
+            <li><a href="/index.html">Accueil</a></li>
+            <li class="has-dropdown">
+                <span class="menu-link">À-propos <i class="fas fa-chevron-down caret"></i></span>
+                <ul class="dropdown">
+                <li><a href="/pages/a-propos.html">À propos</a></li>
+                <li><a href="/pages/a-propos/joseph.html">Responsable</a></li>
+                <li><a href="/pages/a-propos/paul.html">Fondateur</a></li>
+                </ul>
+            </li>
+            <li><a href="/pages/predications.html">Prédications</a></li>
+            <li><a href="/pages/evenements.html">Événements</a></li>
+            <li class="has-dropdown">
+                <span class="menu-link">Contact <i class="fas fa-chevron-down caret"></i></span>
+                <ul class="dropdown">
+                <li><a href="/pages/contact/contact.html">Nous joindre</a></li>
+                <li><a href="/pages/contact/rendez-vous.html">Prendre RDV</a></li>
+                <li><a href="/pages/contact/servir.html">Servir</a></li>
+                </ul>
+            </li>
+            <li><a href="/pages/temoignage.html">Témoignages</a></li>
+            <li><a href="/pages/dons.html" class="btn-don">Dons</a></li>
+            </ul>
+        </nav>
         </div>
+    </header>
 
-        <div class="horaires-grid">
-          <!--<div class="card-horaire">
-            <div class="icon-box"><i class="fas fa-laptop-house"></i></div>
-            <h3>Lundi soir</h3>
-            <span class="heure">19h00 - 20h00</span>
-            <p>Temps de méditation en ligne</p>
-            <a href="pages/enseignements.html" class="btn-small">En savoir plus</a>
-          </div> -->
+    <section class="hero">
+        <div class="hero-bg">
+        <img src="img/home.JPG" alt="Meta Intimacy" class="hero-img">
+        <div class="overlay"></div>
+        <div class="content">
+            <p class="hero__eyebrow">Bienvenue à</p>
+            <h1 class="hero__title">Meta Intimacy</h1>
+            <p class="hero__sub">Une famille, une foi, une mission — Ottawa-Gatineau 🇨🇦</p>
+            <div class="hero__btns">
+            <a href="/pages/a-propos.html" class="btn-hero-primary">Nous découvrir</a>
+            <a href="/pages/evenements.html" class="btn-hero-outline">Nos événements</a>
+            </div>
+        </div>
+        </div>
+    </section>
 
-          <div class="card-horaire">
-            <div class="icon-box"><i class="fas fa-church"></i></div>
-            <h3>Jeudi</h3>
-            <span class="heure">19h00 - 21h30</span>
-            <p>Temps de prière, d'enseignement et de communion fraternelle à <br><strong>22 rue de Stratus</strong> <br> Suivez-nous en direct sur Tiktok et instagram</p>
-            <!--<a href="pages/enseignements.html" class="btn-small">En savoir plus</a><!-->
-            <div class="footer-social">
+    <main>
+        
+        <section class="section-padding presentation">
+        <div class="container text-center">
+            <h2 class="section-title">Qui sommes-nous ?</h2>
+            <p class="lead-text">
+            Nous sommes un groupe de jeunes de la région d’Ottawa-Gatineau qui partageons notre foi et des moments 
+            de qualité dans le Seigneur. Ensemble, nous vivons des temps de prières, d’enseignements, d’agapes, 
+            de brunchs, de Bible Study Picnic et de Women’s Night ✨<br><br>
+            Meta Intimacy est plus qu’un simple rassemblement : c’est une famille spirituelle où règnent la
+            communion fraternelle, la joie et l’amour de Dieu. Ici, chacun trouve un espace pour approfondir sa 
+            relation avec le Seigneur, grandir dans sa foi et partager des moments précieux dans une atmosphère 
+            conviviale et inspirante. <br><br>
+            Alors, si tu ressens le besoin de te rapprocher de Dieu et de trouver une famille spirituelle avec 
+            qui partager ces instants de grâce, Meta Intimacy t’ouvre grand ses bras 💙.
+            </p>
+            <a href="/pages/a-propos.html" class="btn-gradient">En savoir plus</a>
+        </div>
+        </section>
+
+        <section class="section-padding message-bg">
+        <div class="container text-center">
+            <h2 class="section-title text-white">Chaque message, une lumière nouvelle, une destinée transformée 🤍</h2>
+            <p class="lead-text text-white">
+            Nous croyons que les messages inspirés de la Parole sont capables de guérir les blessures les plus profondes.
+            Ils éclairent le chemin, donnent une nouvelle perspective et ouvrent la porte à la transformation.
+            À travers eux, Dieu parle directement aux cœurs avec amour et puissance.
+            Ils sont une source de restauration, de foi et d’espérance pour tous ceux qui les reçoivent.
+            Chaque rencontre est une expérience unique où le ciel touche la terre par la puissance de la Parole.
+            </p>
+            <a href="/pages/predications.html" class="btn-light">Découvrir</a>
+        </div>
+        </section>
+
+        <section class="section-padding programmes">
+        <div class="container">
+            <div class="text-center mb-5">
+            <h2 class="section-title">Nos programmes hebdomadaires</h2>
+            <p class="subtitle">
+                Chaque semaine, nous nous réunissons pour des moments forts de prière, d’enseignement et de partage.
+                Nos programmes incluent des temps de prière intenses, des enseignements bibliques profonds. 
+                Chaque rencontre est une occasion de grandir dans la foi, de renforcer les liens 
+                fraternels et de vivre la présence de Dieu au milieu de nous. Nous nous réunissons dans une 
+                atmosphère chaleureuse en ligne et en présentiel où chacun peut trouver sa place et s’épanouir spirituellement.
+            </p>
+            </div>
+
+            <div class="horaires-grid">
+            <!--<div class="card-horaire">
+                <div class="icon-box"><i class="fas fa-laptop-house"></i></div>
+                <h3>Lundi soir</h3>
+                <span class="heure">19h00 - 20h00</span>
+                <p>Temps de méditation en ligne</p>
+                <a href="/pages/predications.html" class="btn-small">En savoir plus</a>
+            </div> -->
+
+            <div class="card-horaire">
+                <div class="icon-box"><i class="fas fa-church"></i></div>
+                <h3>Jeudi</h3>
+                <span class="heure">19h00 - 21h30</span>
+                <p>Temps de prière, d'enseignement et de communion fraternelle à <br><strong>22 rue de Stratus</strong> <br> Suivez-nous en direct sur Tiktok et instagram</p>
+                <!--<a href="/pages/predications.html" class="btn-small">En savoir plus</a><!-->
+                <div class="footer-social">
+                <a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@meta_intimacy" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <!-- <div class="card-horaire">
+                <div class="icon-box"><i class="fas fa-pray"></i></div>
+                <h3>Lundi-Vendredi</h3>
+                <span class="heure">23h00 - 00h00</span>
+                <p>Temps de prière en ligne</p>
+                <a href="/pages/predications.html" class="btn-small">En savoir plus</a>
+            </div> -->
+
+            <div class="card-horaire">
+                <div class="icon-box"><i class="fas fa-child"></i></div>
+                <h3>Dimanche</h3>
+                <span class="heure">11h00 - 13h00</span>
+                <p>École de dimanche en présentiel</p>
+                <a href="/pages/predications.html" class="btn-small">En savoir plus</a>
+            </div>
+            </div>
+        </div>
+        </section>
+
+        <section class="section-padding responsables">
+        <div class="container">
+            
+            <article class="bio-card">
+            <div class="bio-image">
+                <div class="paul-slider" id="paulSlider">
+                <div class="paul-slides">
+                    <img src="img/paul1.png"  alt="Pasteur Paul André Don" class="paul-slide">
+                    <img src="img/paul2.png"  alt="Pasteur Paul André Don" class="paul-slide">
+                    <img src="img/paul3.png"  alt="Pasteur Paul André Don" class="paul-slide">
+                    <img src="img/paul4.png"  alt="Pasteur Paul André Don" class="paul-slide">
+                    <img src="img/paul5.png"  alt="Pasteur Paul André Don" class="paul-slide">
+                    <img src="img/paul6.png"  alt="Pasteur Paul André Don" class="paul-slide">
+                    <img src="img/paul.png"   alt="Pasteur Paul André Don" class="paul-slide">
+                    <img src="img/paul1.JPG"  alt="Pasteur Paul André Don" class="paul-slide">
+                    <img src="img/paul2.JPG"  alt="Pasteur Paul André Don" class="paul-slide">
+                    <img src="img/paul3.JPG"  alt="Pasteur Paul André Don" class="paul-slide">
+                    <img src="img/paul4.JPG"  alt="Pasteur Paul André Don" class="paul-slide">
+                </div>
+                <div class="paul-dots" id="paulDots"></div>
+                <button class="paul-arrow paul-prev" aria-label="Précédent">&#8249;</button>
+                <button class="paul-arrow paul-next" aria-label="Suivant">&#8250;</button>
+                </div>
+            </div>
+            <div class="bio-content">
+                <h2>Pasteur Paul André Don</h2>
+                <p>
+                Le Pasteur Paul André Don, leader et père spirituel de la famille META United, issue du Metamorphoo International Ministry (MIM),
+                est un homme de vision et de foi. Il consacre sa vie à former une génération enracinée dans les valeurs du Royaume de Dieu.
+                Sous sa conduite, le ministère s’est étendu en Côte d’Ivoire 🇨🇮, Cameroun 🇨🇲, Canada 🇨🇦, Russie 🇷🇺 et France 🇫🇷.
+                Par son enseignement inspiré, il appelle les croyants à la prière, à la sanctification et à manifester la gloire de Dieu dès aujourd’hui.
+                </p>
+                <a href="/pages/a-propos/paul.html" class="btn-outline-glow">Lire plus</a>
+            </div>
+            </article>
+
+            <article class="bio-card reverse">
+            <div class="bio-image">
+                <img src="img/joseph1.png" alt="Serviteur Joseph Levi Don" onerror="this.src='https://placehold.co/400x500?text=Photo+Joseph'">
+            </div>
+            <div class="bio-content">
+                <h2>Serviteur Joseph Levi Don</h2>
+                <p>
+                Joseph, responsable de la cellule Meta Intimacy implantée à Gatineau (Canada 🇨🇦) dans le cadre du mouvement Metamorphoo,
+                est un visionnaire engagé. Fondateur de la cellule, il désire rassembler les croyants autour de la prière, de la communion
+                fraternelle et de l’enseignement de la Parole de Dieu. Fils spirituel du Pasteur Paul André Don, il marche fidèlement dans
+                la vision transmise par son père spirituel et contribue à l’expansion de Metamorphoo ainsi qu’à l’édification des enfants de Dieu au Canada.
+                </p>
+                <a href="/pages/a-propos/joseph.html" class="btn-outline-glow">En savoir plus</a>
+            </div>
+            </article>
+
+        </div>
+        </section>
+
+        <section class="section-padding suivre text-center">
+        <div class="container">
+            <h2 class="section-title">Nous suivre</h2>
+            <p>
+            Restez connecter avec nous sur les réseaux sociaux pour ne rien manquer de nos activités, 
+            événements et enseignements inspirants. Rejoins notre communauté en ligne et partage ta 
+            foi avec nous !
+            </p>
+            <div class="social-links-large">
             <a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="https://www.tiktok.com/@meta_intimacy" target="_blank"><i class="fab fa-tiktok"></i></a>
             </div>
-          </div>
-
-         <!-- <div class="card-horaire">
-            <div class="icon-box"><i class="fas fa-pray"></i></div>
-            <h3>Lundi-Vendredi</h3>
-            <span class="heure">23h00 - 00h00</span>
-            <p>Temps de prière en ligne</p>
-            <a href="pages/enseignements.html" class="btn-small">En savoir plus</a>
-          </div> -->
-
-          <div class="card-horaire">
-            <div class="icon-box"><i class="fas fa-child"></i></div>
-            <h3>Dimanche</h3>
-            <span class="heure">11h00 - 13h00</span>
-            <p>École de dimanche en présentiel</p>
-            <a href="pages/enseignements.html" class="btn-small">En savoir plus</a>
-          </div>
         </div>
-      </div>
-    </section>
+        </section>
 
-    <section class="section-padding responsables">
-      <div class="container">
+    </main>
+    <section class="newsletter-section">
+    <div class="newsletter-overlay"></div>
+    <div class="newsletter-content">
+        <p class="newsletter-tagline">Ne ratez aucune information importante</p>
+        <h2>Inscrivez-vous à la newsletter</h2>
         
-        <article class="bio-card">
-          <div class="bio-image">
-             <img src="img/paul1.png" alt="Pasteur Paul André Don" onerror="this.src='https://placehold.co/400x500?text=Photo+Paul'">
-          </div>
-          <div class="bio-content">
-            <h2>Pasteur Paul André Don</h2>
-            <p>
-              Le Pasteur Paul André Don, leader et père spirituel de la famille META United, issue du Metamorphoo International Ministry (MIM),
-              est un homme de vision et de foi. Il consacre sa vie à former une génération enracinée dans les valeurs du Royaume de Dieu.
-              Sous sa conduite, le ministère s’est étendu en Côte d’Ivoire 🇨🇮, Cameroun 🇨🇲, Canada 🇨🇦, Russie 🇷🇺 et France 🇫🇷.
-              Par son enseignement inspiré, il appelle les croyants à la prière, à la sanctification et à manifester la gloire de Dieu dès aujourd’hui.
-            </p>
-            <a href="pages/a-propos/paul.html" class="btn-outline-glow">Lire plus</a>
-          </div>
-        </article>
-
-        <article class="bio-card reverse">
-          <div class="bio-image">
-            <img src="img/joseph1.png" alt="Serviteur Joseph Levi Don" onerror="this.src='https://placehold.co/400x500?text=Photo+Joseph'">
-          </div>
-          <div class="bio-content">
-            <h2>Serviteur Joseph Levi Don</h2>
-            <p>
-              Joseph, responsable de la cellule Meta Intimacy implantée à Gatineau (Canada 🇨🇦) dans le cadre du mouvement Metamorphoo,
-              est un visionnaire engagé. Fondateur de la cellule, il désire rassembler les croyants autour de la prière, de la communion
-              fraternelle et de l’enseignement de la Parole de Dieu. Fils spirituel du Pasteur Paul André Don, il marche fidèlement dans
-              la vision transmise par son père spirituel et contribue à l’expansion de Metamorphoo ainsi qu’à l’édification des enfants de Dieu au Canada.
-            </p>
-            <a href="pages/a-propos/joseph.html" class="btn-outline-glow">En savoir plus</a>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <section class="section-padding suivre text-center">
-      <div class="container">
-        <h2 class="section-title">Nous suivre</h2>
-        <p>
-          Restez connecter avec nous sur les réseaux sociaux pour ne rien manquer de nos activités, 
-          événements et enseignements inspirants. Rejoins notre communauté en ligne et partage ta 
-          foi avec nous !
-        </p>
-        <div class="social-links-large">
-          <a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.tiktok.com/@meta_intimacy" target="_blank"><i class="fab fa-tiktok"></i></a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-  <section class="newsletter-section">
-  <div class="newsletter-overlay"></div>
-  <div class="newsletter-content">
-    <p class="newsletter-tagline">Ne ratez aucune information importante</p>
-    <h2>Inscrivez-vous à la newsletter</h2>
-    
-    <form id="newsletterForm" class="newsletter-form">
-      <input type="email" id="newsEmail" placeholder="Email" required>
-      <button type="submit">S'abonner</button>
-    </form>
-  </div>
-</section>
-<script type="module">
-    // 1. IMPORTS (C'est ici que l'erreur se trouvait, j'ai ajouté addDoc et collection)
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-    // 2. CONFIGURATION (Remettez vos codes ici)
-    const firebaseConfig = {
-      apiKey: "AIzaSyCrSo3K6b6TH97576gSk9nRuNL_jBr_jjI",
-      authDomain: "meta-intimacy.firebaseapp.com",
-      projectId: "meta-intimacy",
-      storageBucket: "meta-intimacy.firebasestorage.app",
-      messagingSenderId: "574049186555",
-      appId: "1:574049186555:web:1f7cbbd68426d55d4a365e"
-    };
-
-    // 3. INITIALISATION
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    // 4. LOGIQUE NEWSLETTER
-    const newsletterForm = document.getElementById('newsletterForm');
-    
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const emailInput = document.getElementById('newsEmail');
-            const btn = newsletterForm.querySelector('button');
-
-            // Animation du bouton
-            const originalText = btn.innerText;
-            btn.innerText = "Inscription...";
-            btn.disabled = true;
-
-            try {
-                // Enregistrement dans la collection "newsletter"
-                await addDoc(collection(db, "newsletter"), {
-                    email: emailInput.value,
-                    date_inscription: serverTimestamp()
-                });
-
-                alert("Merci ! Vous êtes bien inscrit à notre newsletter.");
-                emailInput.value = ""; // Vider le champ
-
-            } catch (error) {
-                console.error("Erreur:", error);
-                alert("Erreur lors de l'inscription. Vérifiez votre connexion.");
-            } finally {
-                btn.innerText = originalText;
-                btn.disabled = false;
-            }
-        });
-    }
-  </script>
-  <footer>
-    <div class="container footer-content">
-      <div class="footer-social">
-        <a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@meta_intimacy" target="_blank"><i class="fab fa-tiktok"></i></a>
-      </div>
-      <div class="footer-info">
-        <p>&copy; <span id="year"></span> Meta Intimacy — Tous droits réservés</p>
-        <address><i class="fas fa-map-marker-alt"></i> 22 rue de Stratus, Gatineau, QC</address>
-      </div>
+        <form id="newsletterForm" class="newsletter-form">
+        <input type="email" id="newsEmail" placeholder="Email" required>
+        <button type="submit">S'abonner</button>
+        </form>
     </div>
-  </footer>
+    </section>
+    <script type="module">
+        // 1. IMPORTS (C'est ici que l'erreur se trouvait, j'ai ajouté addDoc et collection)
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+        // 2. CONFIGURATION (Remettez vos codes ici)
+        const firebaseConfig = {
+        apiKey: "AIzaSyCrSo3K6b6TH97576gSk9nRuNL_jBr_jjI",
+        authDomain: "meta-intimacy.firebaseapp.com",
+        projectId: "meta-intimacy",
+        storageBucket: "meta-intimacy.firebasestorage.app",
+        messagingSenderId: "574049186555",
+        appId: "1:574049186555:web:1f7cbbd68426d55d4a365e"
+        };
 
-</body>
-</html>
+        // 3. INITIALISATION
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // 4. LOGIQUE NEWSLETTER
+        const newsletterForm = document.getElementById('newsletterForm');
+        
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const emailInput = document.getElementById('newsEmail');
+                const btn = newsletterForm.querySelector('button');
+
+                // Animation du bouton
+                const originalText = btn.innerText;
+                btn.innerText = "Inscription...";
+                btn.disabled = true;
+
+                try {
+                    // Enregistrement dans la collection "newsletter"
+                    await addDoc(collection(db, "newsletter"), {
+                        email: emailInput.value,
+                        date_inscription: serverTimestamp()
+                    });
+
+                    alert("Merci ! Vous êtes bien inscrit à notre newsletter.");
+                    emailInput.value = ""; // Vider le champ
+
+                } catch (error) {
+                    console.error("Erreur:", error);
+                    alert("Erreur lors de l'inscription. Vérifiez votre connexion.");
+                } finally {
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                }
+            });
+        }
+    </script>
+    <footer>
+        <div class="container footer-content">
+        <div class="footer-social">
+            <a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@meta_intimacy" target="_blank"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <div class="footer-info">
+            <p>&copy; <span id="year"></span> Meta Intimacy — Tous droits réservés</p>
+            <address><i class="fas fa-map-marker-alt"></i> 22 rue de Stratus, Gatineau, QC</address>
+        </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+    <script>
+    /* ==============================
+        CARROUSEL PHOTOS PAUL
+    ============================== */
+    (function() {
+        const slider   = document.getElementById('paulSlider');
+        if (!slider) return;
+
+        const slides   = slider.querySelectorAll('.paul-slide');
+        const dotsWrap = document.getElementById('paulDots');
+        const prevBtn  = slider.querySelector('.paul-prev');
+        const nextBtn  = slider.querySelector('.paul-next');
+
+        // Filtrer les slides dont l'image existe vraiment
+        let validSlides = [];
+        let loadChecks  = 0;
+
+        slides.forEach((img, i) => {
+        const tester = new Image();
+        tester.onload  = () => { validSlides.push(i); check(); };
+        tester.onerror = () => { img.style.display = 'none'; check(); };
+        tester.src = img.src;
+        });
+
+        function check() {
+        loadChecks++;
+        if (loadChecks === slides.length) init();
+        }
+
+        function init() {
+        if (validSlides.length === 0) return;
+        validSlides.sort((a,b) => a - b);
+
+        let current = 0;
+        let autoTimer;
+        const INTERVAL = 3500;
+
+        // Créer les dots
+        validSlides.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'paul-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', 'Photo ' + (i + 1));
+            dot.addEventListener('click', () => goTo(i));
+            dotsWrap.appendChild(dot);
+        });
+
+        const dots = dotsWrap.querySelectorAll('.paul-dot');
+
+        function goTo(index) {
+            // Masquer toutes les slides
+            validSlides.forEach(si => {
+            slides[si].style.cssText = 'opacity:0; position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; object-position:top center; transition: opacity 0.7s ease; border-radius:16px;';
+            });
+            dots.forEach(d => d.classList.remove('active'));
+
+            current = (index + validSlides.length) % validSlides.length;
+
+            // Afficher la slide active
+            slides[validSlides[current]].style.cssText = 'opacity:1; position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; object-position:top center; transition: opacity 0.7s ease; animation: kenBurnsSlide 4s ease-in-out forwards; border-radius:16px;';
+            dots[current].classList.add('active');
+
+            resetAuto();
+        }
+
+        function next() { goTo(current + 1); }
+        function prev() { goTo(current - 1); }
+
+        function resetAuto() {
+            clearInterval(autoTimer);
+            autoTimer = setInterval(next, INTERVAL);
+        }
+
+        // Init styles de base sur toutes les slides valides
+        validSlides.forEach((si, i) => {
+            slides[si].style.cssText = 'opacity:0; position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; object-position:top center; transition: opacity 0.7s ease; border-radius:16px;';
+        });
+
+        // Injecter l'animation ken burns dans le head
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes kenBurnsSlide {
+            0%   { transform: scale(1)    translateX(0); }
+            50%  { transform: scale(1.07) translateX(-1%); }
+            100% { transform: scale(1.04) translateX(0.5%); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Rendre le conteneur de slides relatif
+        const slidesWrap = slider.querySelector('.paul-slides');
+        slidesWrap.style.cssText = 'position:relative; width:100%; height:100%; min-height:480px;';
+
+        // Démarrer
+        goTo(0);
+
+        // Boutons
+        nextBtn.addEventListener('click', next);
+        prevBtn.addEventListener('click', prev);
+
+        // Pause au survol
+        slider.addEventListener('mouseenter', () => clearInterval(autoTimer));
+        slider.addEventListener('mouseleave', resetAuto);
+
+        // Swipe tactile
+        let touchStartX = 0;
+        slider.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+        slider.addEventListener('touchend', e => {
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(dx) > 40) dx < 0 ? next() : prev();
+        }, { passive: true });
+        }
+    })();
+    </script>
+
+    </body>
+    </html>

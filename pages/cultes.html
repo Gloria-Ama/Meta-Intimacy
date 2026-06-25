@@ -1,55 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Meta Intimacy — Cultes</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/cultes.css">
-    
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="icon" type="image/png" href="/img/logo.PNG">
 </head>
-<header class="site-header">
-  <a class="brand" href="index.html">
-    <img src="../img/logo.PNG" alt="Logo" height="40px">
-  </a>
-  <nav class="site-nav" aria-label="Navigation principale">
-    <a href="../index.html">Accueil</a>
-    <li class="has-dropdown">
-      <button class="menu-btn">À-propos <span class="caret">▾</span></button>
-      <ul class="dropdown">
-        <li><a href="a-propos.html">À propos</a></li>
-        <li><a href="../pages/a-propos/joseph.html">Responsable</a></li>
-        <li><a href="../pages/a-propos/paul.html">Fondateur</a></li>
-      </ul>
-    </li>
-    <a href="ministeres.html">Ministères</a>
-    <a href="cultes.html">Cultes</a>
-    <a href="predications.html">Prédications</a>
-    <a href="evenements.html">Événements</a>
-    <li class="has-dropdown">
-      <button class="menu-btn"> Contact <span class="caret">▾</span></button>
-      <ul class="dropdown">
-        <li><a href="../pages/contact/contact.html">Nous joindre</a></li>
-        <li><a href="../pages/contact/rendez-vous.html">Prendre un rendez-vous </a></li>
-        <li><a href="../pages/contact/Servir chez nous.html">Servir chez nous</a></li>
-        <li><a href="../pages/contact/temoignage.html">Temoignages</a></li>
-      </ul>
-    </li>
-    <a href="dons.html" class="btn">Dons</a>
-  </nav>
-</header>
 <body>
-  
+
+  <header class="site-header">
+    <div class="header-container">
+      <a class="brand" href="/index.html">
+        <img src="/img/logo.PNG" alt="Meta Intimacy" onerror="this.style.display='none'">
+      </a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="/index.html">Accueil</a></li>
+          <li class="has-dropdown">
+            <span class="menu-link">À-propos <i class="fas fa-chevron-down caret"></i></span>
+            <ul class="dropdown">
+              <li><a href="/pages/a-propos.html">À propos</a></li>
+              <li><a href="/pages/a-propos/joseph.html">Responsable</a></li>
+              <li><a href="/pages/a-propos/paul.html">Fondateur</a></li>
+            </ul>
+          </li>
+          <li><a href="/pages/predications.html">Prédications</a></li>
+          <li><a href="/pages/evenements.html">Événements</a></li>
+          <li class="has-dropdown">
+            <span class="menu-link">Contact <i class="fas fa-chevron-down caret"></i></span>
+            <ul class="dropdown">
+              <li><a href="/pages/contact/contact.html">Nous joindre</a></li>
+              <li><a href="/pages/contact/rendez-vous.html">Prendre RDV</a></li>
+              <li><a href="/pages/contact/servir.html">Servir</a></li>
+            </ul>
+          </li>
+          <li><a href="/pages/temoignage.html">Témoignages</a></li>
+          <li><a href="/pages/dons.html" class="btn-don">Dons</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main style="padding: 60px 8%; text-align:center;">
+    <h1 style="font-size:2rem; margin-bottom:20px; color: var(--blue-dark);">Cultes</h1>
+    <p style="color:#475569;">Contenu à venir…</p>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-social">
+        <a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@meta_intimacy" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+      <div class="footer-info">
+        <p>&copy; <span id="year"></span> Meta Intimacy — Tous droits réservés</p>
+        <address><i class="fas fa-map-marker-alt"></i> 22 rue de Stratus, Gatineau, QC</address>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
-<footer>
-  <div id="reseau-social">
-    <a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.tiktok.com/@meta_intimacy" target="_blank"><i class="fab fa-tiktok"></i></a>
-  </div>
-  <div id="contact">
-    <p>&copy; <span id="year"></span> Meta Intimacy — Tous droits réservés</p>
-    <address>22 rue de Stratus, Gatineau, QC</address>
-  </div>
-</footer>
 </html>

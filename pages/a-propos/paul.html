@@ -5,102 +5,250 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meta Intimacy — Pasteur Paul André Don</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="../assets/css/main.css">
-  <link rel="stylesheet" href="../assets/css/paul.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/paul.css">
+  <link rel="icon" type="image/png" href="/img/logo.PNG">
 </head>
 <body>
 
-  <!-- En-tête / Navigation -->
+  <!-- NAVIGATION -->
   <header class="site-header">
-    <a class="brand" href="../index.html">
-      <span>Meta Intimacy</span>
-    </a>
-    <nav class="site-nav" aria-label="Navigation principale">
-      <a href="a-propos.html">À propos</a>
-      <a href="ministeres.html">Ministères</a>
-      <a href="cultes.html">Cultes</a>
-      <a href="enseignements.html">Enseignements</a>
-      <a href="evenements.html">Événements</a>
-      <a href="dons.html" class="btn">Dons</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <div class="header-container">
+      <a class="brand" href="/index.html">
+        <img src="/img/logo.PNG" alt="Meta Intimacy" onerror="this.style.display='none'">
+      </a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="/index.html">Accueil</a></li>
+          <li class="has-dropdown">
+            <span class="menu-link">À-propos <i class="fas fa-chevron-down caret"></i></span>
+            <ul class="dropdown">
+              <li><a href="/pages/a-propos.html">À propos</a></li>
+              <li><a href="/pages/a-propos/joseph.html">Responsable</a></li>
+              <li><a href="/pages/a-propos/paul.html">Fondateur</a></li>
+            </ul>
+          </li>
+          <li><a href="/pages/predications.html">Prédications</a></li>
+          <li><a href="/pages/evenements.html">Événements</a></li>
+          <li class="has-dropdown">
+            <span class="menu-link">Contact <i class="fas fa-chevron-down caret"></i></span>
+            <ul class="dropdown">
+              <li><a href="/pages/contact/contact.html">Nous joindre</a></li>
+              <li><a href="/pages/contact/rendez-vous.html">Prendre RDV</a></li>
+              <li><a href="/pages/contact/servir.html">Servir</a></li>
+            </ul>
+          </li>
+          <li><a href="/pages/temoignage.html">Témoignages</a></li>
+          <li><a href="/pages/dons.html" class="btn-don">Dons</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <!-- Vidéo en arrière-plan plein écran -->
-  <div class="video-hero">
-    <video autoplay muted loop playsinline>
-      <source src="../video/background_paul.mp4" type="video/mp4">
-    </video>
-    <div class="video-hero__overlay">
-      <h1>Pasteur Paul André Don</h1>
+  <!-- ===========================
+       HERO PLEIN ÉCRAN
+  =========================== -->
+  <section class="paul-hero">
+    <div class="paul-hero__bg">
+      <img src="/img/paul2.JPG" alt="" class="paul-hero__img" aria-hidden="true">
+      <div class="paul-hero__overlay"></div>
     </div>
-  </div>
-
-  <!-- Biographie -->
-  <section class="section-paul">
-    <p>
-      Le Pasteur Paul André Don est le Pasteur principal du Metamorphoo International Ministry (MIM),
-      dont le siège est situé à Abatta, Cité BCEAO, en Côte d'Ivoire 🇨🇮. Serviteur de Dieu dévoué,
-      il est reconnu comme un homme de vision, de foi et d'intégrité, animé par le profond désir
-      de voir se lever une génération enracinée dans les principes éternels du Royaume de Dieu.
-    </p>
-    <p>
-      À travers son ministère, le Pasteur Paul André Don met un accent particulier sur la prière
-      fervente, la sanctification, la discipline spirituelle et l'intimité avec le Saint-Esprit.
-      Son message central est clair : le Royaume de Dieu n'est pas seulement une promesse pour
-      l'avenir, mais une réalité à expérimenter dès aujourd'hui.
-    </p>
-    <p>
-      De son obéissance à Dieu est née l'œuvre Metamorphoo, qui connaît aujourd'hui une expansion
-      remarquable à travers les nations : Côte d'Ivoire 🇨🇮, Cameroun 🇨🇲, Canada 🇨🇦,
-      Russie 🇷🇺 et France 🇫🇷, formant une grande famille spirituelle internationale.
-    </p>
-    <p>
-      Le Pasteur Paul André Don est non seulement un berger pour son assemblée, mais aussi un
-      père spirituel, un mentor et un formateur. Son leadership visionnaire inspire confiance
-      et espérance, et son obéissance à Dieu ouvre la voie à une expansion encore plus grande
-      de Metamorphoo dans les années à venir.
-    </p>
-  </section>
-
-  <!-- Réseaux sociaux -->
-  <section class="reseau-social">
-    <h2>Suivre le ministère</h2>
-    <div class="reseau-social__groupe">
-      <p>Metamorphoo International Ministry</p>
-      <div class="reseau-social__icones">
-        <a href="https://www.instagram.com/metainternationalministry/" target="_blank" rel="noopener" aria-label="Instagram du ministère">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=61574216488926" target="_blank" rel="noopener" aria-label="Facebook du ministère">
-          <i class="fab fa-facebook"></i>
-        </a>
-      </div>
+    <div class="paul-hero__content">
+      <p class="paul-hero__eyebrow">Fondateur &amp; Pasteur Principal</p>
+      <h1 class="paul-hero__title">Pasteur Paul<br>André Don</h1>
+      <p class="paul-hero__sub">Metamorphoo International Ministry</p>
+      <div class="paul-hero__flags">🇨🇮 🇨🇲 🇨🇦 🇷🇺 🇫🇷</div>
     </div>
-    <div class="reseau-social__groupe">
-      <p>Pasteur Paul André Don</p>
-      <div class="reseau-social__icones">
-        <a href="https://www.instagram.com/pad_officiel/" target="_blank" rel="noopener" aria-label="Instagram du pasteur">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.facebook.com/paulandre.assale" target="_blank" rel="noopener" aria-label="Facebook du pasteur">
-          <i class="fab fa-facebook"></i>
-        </a>
-        <a href="https://www.youtube.com/@Pad_ministries" target="_blank" rel="noopener" aria-label="YouTube du pasteur">
-          <i class="fab fa-youtube"></i>
-        </a>
-      </div>
+    <div class="paul-hero__scroll">
+      <span></span>
     </div>
   </section>
 
-  <!-- Pied de page -->
-  <footer class="site-footer">
-    <p>&copy; <span id="year"></span> Meta Intimacy — Tous droits réservés</p>
-    <address>Gatineau, QC</address>
+  <!-- ===========================
+       SECTION BIO + PHOTO PRINCIPALE
+  =========================== -->
+  <section class="paul-bio">
+    <div class="paul-bio__inner">
+
+      <!-- Photo principale avec effet -->
+      <div class="paul-bio__photo-wrap">
+        <div class="paul-bio__photo-frame">
+          <img src="/img/paul4.JPG" alt="Pasteur Paul André Don" class="paul-bio__photo">
+          <div class="paul-bio__photo-deco"></div>
+        </div>
+        <!-- Carte flottante stats -->
+        <div class="paul-bio__stat-card">
+          <div class="paul-stat">
+            <span class="paul-stat__num">5</span>
+            <span class="paul-stat__label">Nations</span>
+          </div>
+          <div class="paul-stat__divider"></div>
+          <div class="paul-stat">
+            <span class="paul-stat__num">+10</span>
+            <span class="paul-stat__label">Ans de ministère</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Texte biographie -->
+      <div class="paul-bio__text">
+        <span class="paul-bio__tag">Biographie</span>
+        <h2 class="paul-bio__name">Pasteur Paul André Don</h2>
+
+        <p>
+          Le Pasteur Paul André Don est le Pasteur principal du <strong>Metamorphoo International Ministry (MIM)</strong>,
+          dont le siège est situé à Abatta, Cité BCEAO, en Côte d'Ivoire 🇨🇮. Serviteur de Dieu dévoué,
+          il est reconnu comme un homme de vision, de foi et d'intégrité, animé par le profond désir
+          de voir se lever une génération enracinée dans les principes éternels du Royaume de Dieu.
+        </p>
+        <p>
+          À travers son ministère, il met un accent particulier sur la <strong>prière fervente</strong>,
+          la sanctification, la discipline spirituelle et l'intimité avec le Saint-Esprit.
+          Son message central : le Royaume de Dieu est une réalité à expérimenter dès aujourd'hui.
+        </p>
+        <p>
+          De son obéissance à Dieu est née l'œuvre Metamorphoo, qui connaît aujourd'hui une expansion
+          remarquable à travers les nations, formant une grande famille spirituelle internationale.
+        </p>
+
+        <!-- Réseaux sociaux du pasteur -->
+        <div class="paul-bio__socials">
+          <a href="https://www.instagram.com/pad_officiel/" target="_blank" rel="noopener" class="paul-social instagram" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/paulandre.assale" target="_blank" rel="noopener" class="paul-social facebook" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.youtube.com/@Pad_ministries" target="_blank" rel="noopener" class="paul-social youtube" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===========================
+       CITATION
+  =========================== -->
+  <section class="paul-quote">
+    <div class="paul-quote__inner">
+      <i class="fas fa-quote-left paul-quote__icon"></i>
+      <blockquote>
+        Le Royaume de Dieu n'est pas seulement une promesse pour l'avenir,<br>
+        mais une réalité à expérimenter dès aujourd'hui.
+      </blockquote>
+      <cite>— Pasteur Paul André Don</cite>
+    </div>
+  </section>
+
+  <!-- ===========================
+       GALERIE PHOTOS (MASONRY)
+  =========================== -->
+  <section class="paul-gallery">
+    <div class="paul-gallery__header">
+      <h2>Galerie</h2>
+      <p>Moments de ministère et de foi</p>
+    </div>
+
+    <div class="paul-gallery__grid">
+      <!-- paul1.JPG : costume jaune, prêche, plein corps -->
+      <div class="paul-gallery__item paul-gallery__item--tall">
+        <img src="/img/paul1.JPG" alt="Pasteur Paul André Don" loading="lazy">
+        <div class="paul-gallery__overlay"></div>
+      </div>
+      <!-- paul2.JPG : costume blanc, micro, "Temps de la Parole" -->
+      <div class="paul-gallery__item">
+        <img src="/img/paul2.JPG" alt="Pasteur Paul André Don" loading="lazy">
+        <div class="paul-gallery__overlay"></div>
+      </div>
+      <!-- paul3.JPG : noir et blanc, profil, micro -->
+      <div class="paul-gallery__item">
+        <img src="/img/paul3.JPG" alt="Pasteur Paul André Don" loading="lazy">
+        <div class="paul-gallery__overlay"></div>
+      </div>
+      <!-- paul4.JPG : costume orange, micro, close-up -->
+      <div class="paul-gallery__item paul-gallery__item--wide">
+        <img src="/img/paul4.JPG" alt="Pasteur Paul André Don" loading="lazy">
+        <div class="paul-gallery__overlay"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       SECTION NATIONS
+  =========================== -->
+  <section class="paul-nations">
+    <h2>Présence internationale</h2>
+    <p>Le ministère rayonne dans 5 nations</p>
+    <div class="paul-nations__grid">
+      <div class="paul-nation">
+        <span class="paul-nation__flag">🇨🇮</span>
+        <span class="paul-nation__name">Côte d'Ivoire</span>
+        <span class="paul-nation__role">Siège du ministère</span>
+      </div>
+      <div class="paul-nation">
+        <span class="paul-nation__flag">🇨🇲</span>
+        <span class="paul-nation__name">Cameroun</span>
+        <span class="paul-nation__role">Cellule active</span>
+      </div>
+      <div class="paul-nation">
+        <span class="paul-nation__flag">🇨🇦</span>
+        <span class="paul-nation__name">Canada</span>
+        <span class="paul-nation__role">Meta Intimacy</span>
+      </div>
+      <div class="paul-nation">
+        <span class="paul-nation__flag">🇷🇺</span>
+        <span class="paul-nation__name">Russie</span>
+        <span class="paul-nation__role">Cellule active</span>
+      </div>
+      <div class="paul-nation">
+        <span class="paul-nation__flag">🇫🇷</span>
+        <span class="paul-nation__name">France</span>
+        <span class="paul-nation__role">Cellule active</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-social">
+        <a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@meta_intimacy" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+      <div class="footer-info">
+        <p>&copy; <span id="year"></span> Meta Intimacy — Tous droits réservés</p>
+        <address><i class="fas fa-map-marker-alt"></i> 22 rue de Stratus, Gatineau, QC</address>
+      </div>
+    </div>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* Scroll indicator disparaît au scroll */
+    window.addEventListener('scroll', () => {
+      const s = document.querySelector('.paul-hero__scroll');
+      if (s) s.style.opacity = window.scrollY > 80 ? '0' : '1';
+    });
+
+    /* Révélation des éléments au scroll */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.paul-gallery__item, .paul-nation, .paul-bio__photo-wrap, .paul-bio__text').forEach(el => {
+      observer.observe(el);
+    });
   </script>
+
 </body>
 </html>

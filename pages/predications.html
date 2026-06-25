@@ -3,130 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meta Intimacy — Prédications</title>
+    <title>Meta Intimacy — Nos Événements</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/predications.css">
-    <link rel="icon" type="image/png" href="../img/logo.PNG">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/evenements.css">
+    <link rel="icon" type="image/png" href="/img/logo.PNG">
 </head>
 
 <body>
 
   <header class="site-header">
     <div class="header-container">
-      <a class="brand" href="../index.html">
-        <img src="../img/logo.PNG" alt="Meta Intimacy" onerror="this.style.display='none'">
+      <a class="brand" href="/index.html">
+        <img src="/img/logo.PNG" alt="Meta Intimacy" onerror="this.style.display='none'">
       </a>
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle">
-      <label for="nav-toggle" class="nav-toggle-label">
-        <span></span>
-      </label>
-
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
       <nav class="site-nav">
         <ul>
-          <li><a href="../index.html">Accueil</a></li>
-          
+          <li><a href="/index.html">Accueil</a></li>
           <li class="has-dropdown">
             <span class="menu-link">À-propos <i class="fas fa-chevron-down caret"></i></span>
             <ul class="dropdown">
-              <li><a href="a-propos.html">À propos</a></li>
-              <li><a href="a-propos/joseph.html">Responsable</a></li>
-              <li><a href="a-propos/paul.html">Fondateur</a></li>
+              <li><a href="/pages/a-propos.html">À propos</a></li>
+              <li><a href="/pages/a-propos/joseph.html">Responsable</a></li>
+              <li><a href="/pages/a-propos/paul.html">Fondateur</a></li>
             </ul>
           </li>
-
-          <!--<li><a href="ministeres.html">Ministères</a></li>
-          <li><a href="cultes.html">Cultes</a></li><-->
-          <li><a href="predications.html" class="active-link">Prédications</a></li>
-          <li><a href="evenements.html">Événements</a></li>
-
+          <li><a href="/pages/predications.html">Prédications</a></li>
+          <li><a href="/pages/evenements.html">Événements</a></li>
           <li class="has-dropdown">
             <span class="menu-link">Contact <i class="fas fa-chevron-down caret"></i></span>
             <ul class="dropdown">
-              <li><a href="contact/contact.html">Nous joindre</a></li>
-              <li><a href="contact/rendez-vous.html">Prendre RDV</a></li>
-              <li><a href="contact/servir.html">Servir</a></li>
+              <li><a href="/pages/contact/contact.html">Nous joindre</a></li>
+              <li><a href="/pages/contact/rendez-vous.html">Prendre RDV</a></li>
+              <li><a href="/pages/contact/servir.html">Servir</a></li>
             </ul>
           </li>
-          <li><a href="temoignage.html">Témoignages</a></li>
-          <li><a href="dons.html" class="btn-don">Dons</a></li>
+          <li><a href="/pages/temoignage.html">Témoignages</a></li>
+          <li><a href="/pages/dons.html" class="btn-don">Dons</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="predications-wrapper">
+  <main class="events-wrapper">
     
     <section class="page-intro">
-      <h1>🎙️ Prédications & Enseignements</h1>
-      <p>Plongez dans la Parole de Dieu. Écoutez les messages qui transforment, édifient et restaurent.</p>
+      <h1>Nos Événements</h1>
+      <p>Retrouvez les temps forts, conférences et moments de communion qui marquent la vie de notre communauté.</p>
     </section>
 
-    <section class="featured-sermon">
-      <div class="video-container main-video">
-        <iframe 
-            src="https://www.youtube.com/embed/VIDEO_ID_HERE" 
-            title="Dernière Prédication" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-        </iframe>
-      </div>
-      <div class="featured-info">
-        <span class="badge-new">Nouveau</span>
-        <h2>Le Thème de la Semaine</h2>
-        <p>Retrouvez ici le dernier message apporté par le Serviteur Joseph Levi Don ou nos orateurs invités.</p>
-      </div>
-    </section>
+    <section class="events-list-grid">
 
-    <section class="sermon-list">
-      <h2 class="section-title"><i class="fas fa-play-circle"></i> Messages Récents</h2>
-      
-      <div class="sermon-grid">
-
-        <article class="sermon-card">
-          <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
-          </div>
-          <div class="card-content">
-            <h3>Titre du Message 1</h3>
-            <p class="speaker"><i class="fas fa-user"></i> Serviteur Joseph Levi Don</p>
-            <p class="date"><i class="far fa-calendar-alt"></i> Dimanche dernier</p>
-          </div>
-        </article>
-
-        <article class="sermon-card">
-          <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe>
-          </div>
-          <div class="card-content">
-            <h3>La puissance de la Prière</h3>
-            <p class="speaker"><i class="fas fa-user"></i> Serviteur Joseph Levi Don</p>
-            <p class="date"><i class="far fa-calendar-alt"></i> Il y a 2 semaines</p>
-          </div>
-        </article>
-
-        <article class="sermon-card">
-          <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" allowfullscreen></iframe>
-          </div>
-          <div class="card-content">
-            <h3>Comprendre sa destinée</h3>
-            <p class="speaker"><i class="fas fa-user"></i> Pasteur invité</p>
-            <p class="date"><i class="far fa-calendar-alt"></i> Il y a 1 mois</p>
-          </div>
-        </article>
-        
+      <article class="event-summary-card">
+        <div class="card-thumb">
+            <img src="/img/gallery/1 (1).jpg" alt="1er Anniversaire" onerror="this.src='https://placehold.co/600x400?text=Anniversaire'">
         </div>
-      
-      <div class="btn-container">
-        <a href="https://www.youtube.com/@Pad_ministries" target="_blank" class="btn-youtube">
-            <i class="fab fa-youtube"></i> Voir toute la chaîne YouTube
-        </a>
-      </div>
+        <div class="card-info">
+            <h2>🎉 1er Anniversaire</h2>
+            <div class="card-date"><i class="far fa-calendar"></i> 10 Août 2025</div>
+            <p class="card-excerpt">
+                Une soirée mémorable de louange et de célébration pour fêter notre première année. Revivez ce moment clé avec notre album photo complet.
+            </p>
+            <a href="/pages/events/anniversaire.html" class="btn-card">Voir l'album</a>
+        </div>
+      </article>
+
+      <article class="event-summary-card">
+        <div class="card-thumb">
+            <img src="/img/gallery/noel_cover.jpg" alt="Noël 2025" onerror="this.src='https://placehold.co/600x400?text=Noel+2025'">
+        </div>
+        <div class="card-info">
+            <h2>🎄 Noël 2025</h2>
+            <div class="card-date"><i class="far fa-calendar"></i> 25 Décembre 2025</div>
+            <p class="card-excerpt">
+                Un temps glorieux pour célébrer la naissance de notre Sauveur. Spectacles, chants et partage fraternel au programme.
+            </p>
+            <a href="/pages/events/noel2025.html" class="btn-card">Voir l'album</a>
+        </div>
+      </article>
+
+      <article class="event-summary-card">
+        <div class="card-thumb">
+            <img src="/img/gallery/women_cover.jpg" alt="Women's Night" onerror="this.src='https://placehold.co/600x400?text=Womens+Night'">
+        </div>
+        <div class="card-info">
+            <h2>🌸 Women's Night</h2>
+            <div class="card-date"><i class="far fa-calendar"></i> Octobre 2025</div>
+            <p class="card-excerpt">
+                Une soirée dédiée aux femmes de valeur. Enseignements inspirants, prières et encouragement mutuel pour toutes les filles de Dieu.
+            </p>
+            <a href="/pages/evenements.html" class="btn-card">Voir l'album</a>
+        </div>
+      </article>
+
+      <article class="event-summary-card">
+        <div class="card-thumb">
+            <img src="/img/gallery/game_cover.jpg" alt="Game Night" onerror="this.src='https://placehold.co/600x400?text=Game+Night'">
+        </div>
+        <div class="card-info">
+            <h2>🎲 Game Night</h2>
+            <div class="card-date"><i class="far fa-calendar"></i> Juillet 2025</div>
+            <p class="card-excerpt">
+                Parce qu'être chrétien, c'est aussi savoir s'amuser ! Retour sur notre soirée jeux de société, rires et détente entre frères et sœurs.
+            </p>
+            <a href="/pages/evenements.html" class="btn-card">Voir l'album</a>
+        </div>
+      </article>
+
+      <article class="event-summary-card">
+        <div class="card-thumb">
+            <img src="/img/gallery/cinema_cover.jpg" alt="Sortie Cinéma" onerror="this.src='https://placehold.co/600x400?text=Sortie+Cinema'">
+        </div>
+        <div class="card-info">
+            <h2>🎬 Sortie Cinéma</h2>
+            <div class="card-date"><i class="far fa-calendar"></i> Juin 2025</div>
+            <p class="card-excerpt">
+                Une sortie communautaire pour visionner un film inspirant suivi d'un temps de débat et d'échange autour d'un repas.
+            </p>
+            <a href="/pages/evenements.html" class="btn-card">Voir l'album</a>
+        </div>
+      </article>
 
     </section>
 

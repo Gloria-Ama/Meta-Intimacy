@@ -7,9 +7,9 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
-    <link rel="stylesheet" href="../../assets/css/main.css">
-    <link rel="stylesheet" href="../../assets/css/temoignage.css">
-    <link rel="icon" type="image/png" href="../../img/logo.PNG">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/temoignage.css">
+    <link rel="icon" type="image/png" href="/img/logo.PNG">
 
 </head>
 
@@ -17,36 +17,36 @@
 
     <header class="site-header">
     <div class="header-container">
-        <a class="brand" href="../../index.html">
-            <img src="../../img/logo.PNG" alt="Meta Intimacy" onerror="this.style.display='none'">
+        <a class="brand" href="/index.html">
+            <img src="/img/logo.PNG" alt="Meta Intimacy" onerror="this.style.display='none'">
         </a>
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
-        <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
-        <nav class="site-nav">
+              <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+      <nav class="site-nav">
         <ul>
-            <li><a href="../../index.html">Accueil</a></li>
-            <li class="has-dropdown">
+          <li><a href="/index.html">Accueil</a></li>
+          <li class="has-dropdown">
             <span class="menu-link">À-propos <i class="fas fa-chevron-down caret"></i></span>
             <ul class="dropdown">
-                <li><a href="../a-propos.html">À propos</a></li>
-                <li><a href="../a-propos/joseph.html">Responsable</a></li>
-                <li><a href="../a-propos/paul.html">Fondateur</a></li>
+              <li><a href="/pages/a-propos.html">À propos</a></li>
+              <li><a href="/pages/a-propos/joseph.html">Responsable</a></li>
+              <li><a href="/pages/a-propos/paul.html">Fondateur</a></li>
             </ul>
-            </li>
-            <li><a href="../predications.html">Prédications</a></li>
-            <li><a href="../evenements.html">Événements</a></li>
-            <li class="has-dropdown">
+          </li>
+          <li><a href="/pages/predications.html">Prédications</a></li>
+          <li><a href="/pages/evenements.html">Événements</a></li>
+          <li class="has-dropdown">
             <span class="menu-link">Contact <i class="fas fa-chevron-down caret"></i></span>
             <ul class="dropdown">
-                <li><a href="/pages/contact/contact.html">Nous joindre</a></li>
-                <li><a href="rendez-vous.html">Prendre RDV</a></li>
-                <li><a href="servir.html">Servir</a></li>
+              <li><a href="/pages/contact/contact.html">Nous joindre</a></li>
+              <li><a href="/pages/contact/rendez-vous.html">Prendre RDV</a></li>
+              <li><a href="/pages/contact/servir.html">Servir</a></li>
             </ul>
-            </li>
-            <li><a href="temoignage.html">Témoignages</a></li>
-            <li><a href="../dons.html" class="btn-don">Dons</a></li>
+          </li>
+          <li><a href="/pages/temoignage.html">Témoignages</a></li>
+          <li><a href="/pages/dons.html" class="btn-don">Dons</a></li>
         </ul>
-    </nav>
+      </nav>
     </div>
     </header>
 
@@ -101,12 +101,10 @@
 
     </main>
 <script type="module">
-    // 1. IMPORTS (J'ai ajouté updateDoc)
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
     import { getFirestore, collection, addDoc, deleteDoc, updateDoc, doc, onSnapshot, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
     import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-    // 2. CONFIGURATION (Vos codes)
     const firebaseConfig = {
         apiKey: "AIzaSyCrSo3K6b6TH97576gSk9nRuNL_jBr_jjI",
         authDomain: "meta-intimacy.firebaseapp.com",
@@ -116,13 +114,11 @@
         appId: "1:574049186555:web:1f7cbbd68426d55d4a365e"
     };
 
-    // 3. INITIALISATION
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider();
 
-    // DOM Elements
     const loginSection = document.getElementById('loginSection');
     const formSection = document.getElementById('formSection');
     const btnLogin = document.getElementById('btnLogin');
@@ -131,21 +127,16 @@
     const userNameDisplay = document.getElementById('userName');
     const form = document.getElementById('temoignageForm');
     const container = document.getElementById('temoignages-grid');
-    const submitBtn = document.querySelector('.btn-submit'); // Le bouton du formulaire
+    const submitBtn = document.querySelector('.btn-submit');
 
-    // VARIABLE POUR SAVOIR SI ON MODIFIE
-    let editingId = null; // Si null = on crée, Sinon = contient l'ID du message à modifier
+    let editingId = null;
 
-    // --- GESTION CONNEXION ---
     btnLogin.addEventListener('click', () => {
         signInWithPopup(auth, provider).catch((error) => console.error("Erreur:", error));
     });
 
     btnLogout.addEventListener('click', () => {
-        signOut(auth).then(() => {
-            alert("Déconnecté.");
-            resetForm(); // On nettoie le formulaire si on part
-        });
+        signOut(auth).then(() => { alert("Déconnecté."); resetForm(); });
     });
 
     onAuthStateChanged(auth, (user) => {
@@ -160,7 +151,6 @@
         }
     });
 
-    // --- LECTURE DES MESSAGES ---
     const q = query(collection(db, "temoignages"), orderBy("timestamp", "desc"));
     
     onSnapshot(q, (snapshot) => {
@@ -171,7 +161,6 @@
         if(snapshot.empty) container.innerHTML = "<p style='text-align:center'>Soyez le premier à témoigner !</p>";
     });
 
-    // --- SOUMISSION DU FORMULAIRE (Création OU Modification) ---
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
         const user = auth.currentUser;
@@ -184,15 +173,10 @@
 
         try {
             if (editingId) {
-                // --- MODE MODIFICATION ---
                 const docRef = doc(db, "temoignages", editingId);
-                await updateDoc(docRef, {
-                    text: message,
-                    // On ne change pas le nom/date/uid, juste le texte
-                });
+                await updateDoc(docRef, { text: message });
                 alert("Témoignage mis à jour !");
             } else {
-                // --- MODE CRÉATION ---
                 await addDoc(collection(db, "temoignages"), {
                     text: message,
                     name: finalName,
@@ -203,9 +187,7 @@
                 });
                 alert("Témoignage publié !");
             }
-            
-            resetForm(); // Remettre le formulaire à zéro
-
+            resetForm();
         } catch (error) {
             console.error(error);
             alert("Erreur lors de l'enregistrement.");
@@ -225,23 +207,19 @@
 
     window.editTemoignage = function(docId, textActuel) {
         document.getElementById('messageUser').value = textActuel;
-        // On passe en "Mode Édition"
         editingId = docId;
         submitBtn.textContent = "Mettre à jour le témoignage";
         submitBtn.style.background = "#f7b709"; 
-        // On remonte vers le formulaire
         document.getElementById('formSection').scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Fonction pour remettre le formulaire à zéro
     function resetForm() {
         form.reset();
         editingId = null;
         submitBtn.textContent = "Publier le témoignage";
-        submitBtn.style.background = ""; // Remet la couleur bleue d'origine
+        submitBtn.style.background = "";
     }
 
-    // --- AFFICHAGE HTML ---
     function addReviewToPage(data, docId) {
         const card = document.createElement('article');
         card.className = 'review-card fade-in';
@@ -250,12 +228,8 @@
         let buttons = "";
         const user = auth.currentUser;
         
-        // Si c'est MON message, j'affiche Edit et Delete
         if (user && data.uid === user.uid) {
-            // Attention aux guillemets dans le texte pour le JS
-            // On utilise une astuce pour passer le texte proprement
             const safeText = data.text.replace(/'/g, "\\'").replace(/"/g, '&quot;');
-            
             buttons = `
                 <button class="btn-edit" onclick="window.editTemoignage('${docId}', '${safeText}')" title="Modifier">
                     <i class="fas fa-pen"></i>
@@ -287,7 +261,14 @@
 </script>
 <footer>
     <div class="container footer-content">
-        <p>&copy; <span id="year"></span> Meta Intimacy</p>
+        <div class="footer-social">
+            <a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@meta_intimacy" target="_blank"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <div class="footer-info">
+            <p>&copy; <span id="year"></span> Meta Intimacy — Tous droits réservés</p>
+            <address><i class="fas fa-map-marker-alt"></i> 22 rue de Stratus, Gatineau, QC</address>
+        </div>
     </div>
 </footer>
 

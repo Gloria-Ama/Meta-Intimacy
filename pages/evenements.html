@@ -7,57 +7,43 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/evenements.css">
-    <link rel="icon" type="image/png" href="../img/logo.PNG">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/evenements.css">
+    <link rel="icon" type="image/png" href="/img/logo.PNG">
 </head>
 
 <body>
 
-  <header class="site-header">
+    <header class="site-header">
     <div class="header-container">
-      <a class="brand" href="../index.html">
-        <img src="../img/logo.PNG" alt="Meta Intimacy" onerror="this.style.display='none'">
+      <a class="brand" href="/index.html">
+        <img src="/img/logo.PNG" alt="Meta Intimacy" onerror="this.style.display='none'">
       </a>
-
       <input type="checkbox" id="nav-toggle" class="nav-toggle">
-      <label for="nav-toggle" class="nav-toggle-label">
-        <span></span>
-      </label>
-
+      <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
       <nav class="site-nav">
         <ul>
-          <li><a href="../index.html">Accueil</a></li>
-          
+          <li><a href="/index.html">Accueil</a></li>
           <li class="has-dropdown">
-            <input type="checkbox" id="dd-apropos" class="dropdown-toggle">
-            <label for="dd-apropos" class="menu-link">
-              À-propos <i class="fas fa-chevron-down caret"></i>
-            </label>
+            <span class="menu-link">À-propos <i class="fas fa-chevron-down caret"></i></span>
             <ul class="dropdown">
-              <li><a href="a-propos.html">À propos</a></li>
-              <li><a href="a-propos/joseph.html">Responsable</a></li>
-              <li><a href="a-propos/paul.html">Fondateur</a></li>
+              <li><a href="/pages/a-propos.html">À propos</a></li>
+              <li><a href="/pages/a-propos/joseph.html">Responsable</a></li>
+              <li><a href="/pages/a-propos/paul.html">Fondateur</a></li>
             </ul>
           </li>
-
-          <li><a href="predications.html">Prédications</a></li>
-          <li><a href="evenements.html" class="active-link">Événements</a></li>
-
+          <li><a href="/pages/predications.html">Prédications</a></li>
+          <li><a href="/pages/evenements.html">Événements</a></li>
           <li class="has-dropdown">
-            <input type="checkbox" id="dd-contact" class="dropdown-toggle">
-            <label for="dd-contact" class="menu-link">
-              Contact <i class="fas fa-chevron-down caret"></i>
-            </label>
+            <span class="menu-link">Contact <i class="fas fa-chevron-down caret"></i></span>
             <ul class="dropdown">
-              <li><a href="contact/contact.html">Nous joindre</a></li>
-              <li><a href="contact/rendez-vous.html">Prendre RDV</a></li>
-              <li><a href="contact/servir.html">Servir</a></li>
-              <li><a href="contact/temoignage.html">Témoignages</a></li>
+              <li><a href="/pages/contact/contact.html">Nous joindre</a></li>
+              <li><a href="/pages/contact/rendez-vous.html">Prendre RDV</a></li>
+              <li><a href="/pages/contact/servir.html">Servir</a></li>
             </ul>
           </li>
-
-          <li><a href="dons.html" class="btn-don">Dons</a></li>
+          <li><a href="/pages/temoignage.html">Témoignages</a></li>
+          <li><a href="/pages/dons.html" class="btn-don">Dons</a></li>
         </ul>
       </nav>
     </div>
@@ -74,7 +60,22 @@
 
       <article class="event-summary-card">
         <div class="card-thumb">
-            <img src="../img/gallery/1 (1).jpg" alt="1er Anniversaire" onerror="this.src='https://placehold.co/600x400?text=Anniversaire'">
+            <img src="/img/gallery/retraite/1.jpg" alt="Retraite Spirituelle 2025" onerror="this.src='/img/paul2.JPG'">
+        </div>
+        <div class="card-info">
+            <h2>⛵ Retraite Spirituelle 2025</h2>
+            <div class="card-date"><i class="far fa-calendar"></i> 19 – 21 Juin 2025</div>
+            <p class="card-excerpt">
+                « En Eau Profonde » — Un weekend de jeûne, prière, adoration et délivrances. 
+                Revivez ces moments intenses de la première retraite de Meta Intimacy.
+            </p>
+            <a href="/pages/events/retraite2025.html" class="btn-card">Voir l'album</a>
+        </div>
+      </article>
+
+      <article class="event-summary-card">
+        <div class="card-thumb">
+            <img src="/img/gallery/1 (1).jpg" alt="1er Anniversaire" onerror="this.src='https://placehold.co/600x400?text=Anniversaire'">
         </div>
         <div class="card-info">
             <h2>🎉 1er Anniversaire</h2>
@@ -82,13 +83,13 @@
             <p class="card-excerpt">
                 Une soirée mémorable de louange et de célébration pour fêter notre première année. Revivez ce moment clé avec notre album photo complet.
             </p>
-            <a href="events/anniversaire.html" class="btn-card">Voir l'album</a>
+            <a href="/pages/events/anniversaire.html" class="btn-card">Voir l'album</a>
         </div>
       </article>
 
       <article class="event-summary-card">
         <div class="card-thumb">
-            <img src="../img/gallery/noel_cover.jpg" alt="Noël 2025" onerror="this.src='https://placehold.co/600x400?text=Noel+2025'">
+            <img src="/img/gallery/noel_cover.jpg" alt="Noël 2025" onerror="this.src='https://placehold.co/600x400?text=Noel+2025'">
         </div>
         <div class="card-info">
             <h2>🎄 Noël 2025</h2>
@@ -96,13 +97,13 @@
             <p class="card-excerpt">
                 Un temps glorieux pour célébrer la naissance de notre Sauveur. Spectacles, chants et partage fraternel au programme.
             </p>
-            <a href="events/noel2025.html" class="btn-card">Voir l'album</a>
+            <a href="/pages/events/noel2025.html" class="btn-card">Voir l'album</a>
         </div>
       </article>
 
       <article class="event-summary-card">
         <div class="card-thumb">
-            <img src="../img/gallery/women_cover.jpg" alt="Women's Night" onerror="this.src='https://placehold.co/600x400?text=Womens+Night'">
+            <img src="/img/gallery/women_cover.jpg" alt="Women's Night" onerror="this.src='https://placehold.co/600x400?text=Womens+Night'">
         </div>
         <div class="card-info">
             <h2>🌸 Women's Night</h2>
@@ -110,13 +111,13 @@
             <p class="card-excerpt">
                 Une soirée dédiée aux femmes de valeur. Enseignements inspirants, prières et encouragement mutuel pour toutes les filles de Dieu.
             </p>
-            <a href="events/womensnight.html" class="btn-card">Voir l'album</a>
+            <a href="/pages/evenements.html" class="btn-card">Voir l'album</a>
         </div>
       </article>
 
       <article class="event-summary-card">
         <div class="card-thumb">
-            <img src="../img/gallery/game_cover.jpg" alt="Game Night" onerror="this.src='https://placehold.co/600x400?text=Game+Night'">
+            <img src="/img/gallery/game_cover.jpg" alt="Game Night" onerror="this.src='https://placehold.co/600x400?text=Game+Night'">
         </div>
         <div class="card-info">
             <h2>🎲 Game Night</h2>
@@ -124,13 +125,13 @@
             <p class="card-excerpt">
                 Parce qu'être chrétien, c'est aussi savoir s'amuser ! Retour sur notre soirée jeux de société, rires et détente entre frères et sœurs.
             </p>
-            <a href="events/gamenight.html" class="btn-card">Voir l'album</a>
+            <a href="/pages/evenements.html" class="btn-card">Voir l'album</a>
         </div>
       </article>
 
       <article class="event-summary-card">
         <div class="card-thumb">
-            <img src="../img/gallery/cinema_cover.jpg" alt="Sortie Cinéma" onerror="this.src='https://placehold.co/600x400?text=Sortie+Cinema'">
+            <img src="/img/gallery/cinema_cover.jpg" alt="Sortie Cinéma" onerror="this.src='https://placehold.co/600x400?text=Sortie+Cinema'">
         </div>
         <div class="card-info">
             <h2>🎬 Sortie Cinéma</h2>
@@ -138,7 +139,7 @@
             <p class="card-excerpt">
                 Une sortie communautaire pour visionner un film inspirant suivi d'un temps de débat et d'échange autour d'un repas.
             </p>
-            <a href="events/cinema.html" class="btn-card">Voir l'album</a>
+            <a href="/pages/evenements.html" class="btn-card">Voir l'album</a>
         </div>
       </article>
 

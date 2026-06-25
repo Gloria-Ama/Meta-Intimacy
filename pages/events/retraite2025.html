@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retraite Spirituelle 2025 — En Eau Profonde</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/evenements.css">
+    <link rel="icon" type="image/png" href="/img/logo.PNG">
+</head>
+
+<body>
+
+    <header class="site-header">
+    <div class="header-container">
+      <a class="brand" href="/index.html">
+        <img src="/img/logo.PNG" alt="Meta Intimacy" onerror="this.style.display='none'">
+      </a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="/index.html">Accueil</a></li>
+          <li class="has-dropdown">
+            <span class="menu-link">À-propos <i class="fas fa-chevron-down caret"></i></span>
+            <ul class="dropdown">
+              <li><a href="/pages/a-propos.html">À propos</a></li>
+              <li><a href="/pages/a-propos/joseph.html">Responsable</a></li>
+              <li><a href="/pages/a-propos/paul.html">Fondateur</a></li>
+            </ul>
+          </li>
+          <li><a href="/pages/predications.html">Prédications</a></li>
+          <li><a href="/pages/evenements.html">Événements</a></li>
+          <li class="has-dropdown">
+            <span class="menu-link">Contact <i class="fas fa-chevron-down caret"></i></span>
+            <ul class="dropdown">
+              <li><a href="/pages/contact/contact.html">Nous joindre</a></li>
+              <li><a href="/pages/contact/rendez-vous.html">Prendre RDV</a></li>
+              <li><a href="/pages/contact/servir.html">Servir</a></li>
+            </ul>
+          </li>
+          <li><a href="/pages/temoignage.html">Témoignages</a></li>
+          <li><a href="/pages/dons.html" class="btn-don">Dons</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="events-wrapper">
+    
+    <section class="events-section">
+      
+      <div style="margin-bottom:20px;">
+          <a href="../evenements.html" style="color:#7aa2ff; text-decoration:none; font-weight:bold;">
+             <i class="fas fa-arrow-left"></i> Retour à la liste
+          </a>
+      </div>
+
+      <article class="event-card featured" style="margin-bottom:0;">
+        <div class="card-content">
+            <div class="badge">Retraite Spirituelle</div>
+            
+            <h1>⛵ En Eau Profonde — Pousser le Bouchon</h1>
+            <p class="event-theme">Thème : Luc 5 : 4 — « Avance en pleine eau »</p>
+
+            <div class="event-details">
+                <p><i class="far fa-calendar"></i> 19 – 21 Juin 2025</p>
+                <p><i class="fas fa-map-marker-alt"></i> Départ : 22 rue du Stratus, Gatineau</p>
+            </div>
+
+            <p class="description">
+                Du 19 au 21 juin 2025, Meta Intimacy a vécu sa toute première retraite spirituelle sous le thème
+                <strong>« En Eau Profonde »</strong>, inspiré de Luc 5:4. Un weekend intense de prière, de jeûne,
+                d'enseignements, d'adoration et de délivrances qui a marqué les cœurs.
+                <br><br>
+                Réveils à 3h du matin, méditations en groupe, cure d'âme, quiz biblique, nuit d'adoration…
+                chaque moment a été une invitation à aller plus loin avec Dieu. Revivez ces instants de grâce
+                à travers notre galerie ci-dessous.
+            </p>
+
+            <div class="gallery-section">
+                <h3>📸 Galerie Souvenirs</h3>
+                <p class="gallery-intro">Cliquez sur une image ou une vidéo pour l'agrandir.</p>
+                <div class="gallery-grid" id="gallery-container"></div>
+            </div>
+
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+    <span class="close-btn" onclick="closeLightbox(event)">&times;</span>
+    <button class="nav-btn prev" onclick="changeImage(-1, event)">&#10094;</button>
+    <button class="nav-btn next" onclick="changeImage(1, event)">&#10095;</button>
+    <div class="lightbox-content">
+        <img id="lightbox-img" src="" style="display:none;">
+    </div>
+  </div>
+
+  <div id="video-lightbox" class="lightbox" onclick="closeVideoLightbox(event)">
+    <span class="close-btn" onclick="closeVideoLightbox(event)">&times;</span>
+    <button class="nav-btn prev" onclick="changeVideo(-1, event)">&#10094;</button>
+    <button class="nav-btn next" onclick="changeVideo(1, event)">&#10095;</button>
+    <div class="lightbox-content">
+        <video id="lightbox-video-player" controls style="width:100%; max-height:85vh;"></video>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-social">
+        <a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@meta_intimacy" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+      <div class="footer-info">
+        <p>&copy; <span id="year"></span> Meta Intimacy</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const container = document.getElementById('gallery-container');
+
+    /* ============================================================
+       CONFIGURATION — RETRAITE 2025
+       Mettez vos photos dans img/gallery/retraite/
+       et vos vidéos dans video/retraite/
+    ============================================================ */
+    const PATH_IMG = '../../img/gallery/retraite/';
+    const NB_PHOTOS = 100;
+
+    const PATH_VID = '../../video/retraite/';
+    const NB_VIDEOS = 20;
+
+    let galleryImages = [];
+    let currentImageIndex = 0;
+    let galleryVideos = [];
+    let currentVideoIndex = 0;
+
+    // --- VIDÉOS ---
+    for (let j = 1; j <= NB_VIDEOS; j++) {
+        let div = document.createElement('div');
+        div.className = 'gallery-item video';
+        div.setAttribute('onclick', 'openVideoLightbox(this)');
+
+        let vid = document.createElement('video');
+        let videoName = `video (${j})`;
+        vid.src = `${PATH_VID}${videoName}.mp4`;
+        vid.muted = true;
+        vid.preload = "metadata";
+
+        let icon = document.createElement('div');
+        icon.className = 'play-icon';
+        icon.innerHTML = '<i class="fas fa-play"></i>';
+
+        vid.onerror = function() {
+            if (this.src.endsWith('.mp4')) this.src = `${PATH_VID}${videoName}.MOV`;
+            else { div.style.display = 'none'; div.classList.add('broken-link'); }
+        };
+
+        div.appendChild(vid);
+        div.appendChild(icon);
+        container.appendChild(div);
+    }
+
+    // --- PHOTOS ---
+    for (let i = 1; i <= NB_PHOTOS; i++) {
+        let div = document.createElement('div');
+        div.className = 'gallery-item photo';
+
+        let img = document.createElement('img');
+        let src = `${PATH_IMG}${i}.jpg`;
+
+        img.src = src;
+        img.loading = "lazy";
+
+        img.onload = function() {
+            galleryImages.push(src);
+            div.setAttribute('onclick', `openLightbox('${src}')`);
+        };
+        img.onerror = function() {
+            // Essayer d'autres nommages courants
+            if (this.src.endsWith('.jpg')) {
+                this.src = `${PATH_IMG}${i}.JPG`;
+            } else if (this.src.endsWith('.JPG')) {
+                this.src = `${PATH_IMG}${i}.jpeg`;
+            } else {
+                this.parentElement.style.display = 'none';
+            }
+        };
+
+        div.appendChild(img);
+        container.appendChild(div);
+    }
+
+    /* --- LIGHTBOX PHOTOS --- */
+    function openLightbox(src) {
+        const lightbox = document.getElementById('lightbox');
+        currentImageIndex = galleryImages.indexOf(src);
+        updateLightboxImage();
+        lightbox.classList.add('active');
+    }
+    function changeImage(dir, e) {
+        if(e) e.stopPropagation();
+        currentImageIndex += dir;
+        if (currentImageIndex >= galleryImages.length) currentImageIndex = 0;
+        if (currentImageIndex < 0) currentImageIndex = galleryImages.length - 1;
+        updateLightboxImage();
+    }
+    function updateLightboxImage() {
+        const img = document.getElementById('lightbox-img');
+        img.src = galleryImages[currentImageIndex];
+        img.style.display = 'block';
+    }
+    function closeLightbox(e) {
+        if (e.target.id === 'lightbox' || e.target.classList.contains('close-btn')) {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+    }
+
+    /* --- LIGHTBOX VIDÉOS --- */
+    function openVideoLightbox(el) {
+        const lightbox = document.getElementById('video-lightbox');
+        galleryVideos = [];
+        const allVids = document.querySelectorAll('.gallery-item.video:not(.broken-link) video');
+        const clickedSrc = el.querySelector('video').currentSrc;
+
+        allVids.forEach((v, idx) => {
+            galleryVideos.push(v.currentSrc);
+            if(v.currentSrc === clickedSrc) currentVideoIndex = idx;
+        });
+        updateLightboxVideo();
+        lightbox.classList.add('active');
+    }
+    function changeVideo(dir, e) {
+        if(e) e.stopPropagation();
+        currentVideoIndex += dir;
+        if (currentVideoIndex >= galleryVideos.length) currentVideoIndex = 0;
+        if (currentVideoIndex < 0) currentVideoIndex = galleryVideos.length - 1;
+        updateLightboxVideo();
+    }
+    function updateLightboxVideo() {
+        const player = document.getElementById('lightbox-video-player');
+        player.src = galleryVideos[currentVideoIndex];
+        player.play();
+    }
+    function closeVideoLightbox(e) {
+        if (e.target.id === 'video-lightbox' || e.target.classList.contains('close-btn')) {
+            const lb = document.getElementById('video-lightbox');
+            const pl = document.getElementById('lightbox-video-player');
+            lb.classList.remove('active');
+            pl.pause(); pl.src = "";
+        }
+    }
+  </script>
+
+</body>
+</html>

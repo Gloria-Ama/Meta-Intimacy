@@ -1,5 +1,12 @@
 {
-  "projects": {
-    "default": "meta-intimacy"
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "cleanUrls": false,
+    "trailingSlash": false
   }
 }

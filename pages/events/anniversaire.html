@@ -21,26 +21,30 @@
       </a>
       <input type="checkbox" id="nav-toggle" class="nav-toggle">
       <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
-      <nav class="site-nav">
+                        <nav class="site-nav">
         <ul>
           <li><a href="/index.html">Accueil</a></li>
           <li class="has-dropdown">
-            <span class="menu-link">À-propos <i class="fas fa-chevron-down caret"></i></span>
-            <ul class="dropdown">
-              <li><a href="/pages/a-propos.html">À propos</a></li>
-              <li><a href="/pages/a-propos/joseph.html">Responsable</a></li>
-              <li><a href="/pages/a-propos/paul.html">Fondateur</a></li>
-            </ul>
+            <details>
+              <summary class="menu-link">À-propos <i class="fas fa-chevron-down caret"></i></summary>
+              <ul class="dropdown">
+                <li><a href="/pages/a-propos.html">À propos</a></li>
+                <li><a href="/pages/a-propos/joseph.html">Responsable</a></li>
+                <li><a href="/pages/a-propos/paul.html">Fondateur</a></li>
+              </ul>
+            </details>
           </li>
           <li><a href="/pages/predications.html">Prédications</a></li>
           <li><a href="/pages/evenements.html">Événements</a></li>
           <li class="has-dropdown">
-            <span class="menu-link">Contact <i class="fas fa-chevron-down caret"></i></span>
-            <ul class="dropdown">
-              <li><a href="/pages/contact/contact.html">Nous joindre</a></li>
-              <li><a href="/pages/contact/rendez-vous.html">Prendre RDV</a></li>
-              <li><a href="/pages/contact/servir.html">Servir</a></li>
-            </ul>
+            <details>
+              <summary class="menu-link">Contact <i class="fas fa-chevron-down caret"></i></summary>
+              <ul class="dropdown">
+                <li><a href="/pages/contact/contact.html">Nous joindre</a></li>
+                <li><a href="/pages/contact/rendez-vous.html">Prendre RDV</a></li>
+                <li><a href="/pages/contact/servir.html">Servir</a></li>
+              </ul>
+            </details>
           </li>
           <li><a href="/pages/temoignage.html">Témoignages</a></li>
           <li><a href="/pages/dons.html" class="btn-don">Dons</a></li>
@@ -119,143 +123,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const container = document.getElementById('gallery-container');
-
-    /* ============================================================
-       CONFIGURATION SPÉCIFIQUE À CETTE PAGE (ANNIVERSAIRE)
-       Changez ces variables pour chaque fichier HTML d'événement !
-    ============================================================ */
-    // Chemin vers le dossier des images (Créez un dossier par événement !)
-    const PATH_IMG = '../../img/gallery/'; 
-    const NB_PHOTOS = 100; // Nombre de photos à charger (ex: 1.jpg à 100.jpg)
-    
-    const PATH_VID = '../../video/anniversaire_recap.mp4/'; 
-    const NB_VIDEOS = 100; // Nombre de vidéos
-
-    // Tableaux de navigation
-    let galleryImages = []; 
-    let currentImageIndex = 0;
-    let galleryVideos = [];
-    let currentVideoIndex = 0;
-
-    // --- 1. GÉNÉRATION DES VIDÉOS ---
-    for (let j = 1; j <= NB_VIDEOS; j++) {
-        let div = document.createElement('div');
-        div.className = 'gallery-item video';
-        div.setAttribute('onclick', 'openVideoLightbox(this)');
-        
-        let vid = document.createElement('video');
-        // Suppose que vos vidéos s'appellent video (1).mp4, video (2).mp4...
-        let videoName = `video (${j})`; 
-        vid.src = `${PATH_VID}${videoName}.mp4`; 
-        vid.muted = true; 
-        vid.preload = "metadata"; 
-
-        let icon = document.createElement('div');
-        icon.className = 'play-icon';
-        icon.innerHTML = '<i class="fas fa-play"></i>';
-
-        // Gestion Erreur extension (mp4/MOV)
-        vid.onerror = function() {
-            if (this.src.endsWith('.mp4')) this.src = `${PATH_VID}${videoName}.MOV`;
-            else { div.style.display = 'none'; div.classList.add('broken-link'); }
-        };
-
-        div.appendChild(vid);
-        div.appendChild(icon);
-        container.appendChild(div);
-    }
-
-    // --- 2. GÉNÉRATION DES PHOTOS ---
-    for (let i = 1; i <= NB_PHOTOS; i++) {
-        let div = document.createElement('div');
-        div.className = 'gallery-item photo';
-        
-        let img = document.createElement('img');
-        // Ls photos s'appellent : 1 (1).jpg, 1 (2).jpg ...
-        let src = `${PATH_IMG}1 (${i}).jpg`; 
-        
-        img.src = src;
-        img.loading = "lazy"; // Chargement différé pour la performance
-        
-        img.onload = function() {
-            galleryImages.push(src);
-            div.setAttribute('onclick', `openLightbox('${src}')`);
-        };
-        img.onerror = function() { 
-            // Si .jpg marche pas, essaye .JPG, sinon cache
-            if (this.src.endsWith('.jpg')) this.src = `${PATH_IMG}${i}.JPG`;
-            else this.parentElement.style.display = 'none'; 
-        };
-
-        div.appendChild(img);
-        container.appendChild(div);
-    }
-
-    /* --- FONCTIONS LIGHTBOX (Standard) --- */
-    function openLightbox(src) {
-        const lightbox = document.getElementById('lightbox');
-        currentImageIndex = galleryImages.indexOf(src);
-        updateLightboxImage();
-        lightbox.classList.add('active');
-    }
-    function changeImage(dir, e) {
-        if(e) e.stopPropagation();
-        currentImageIndex += dir;
-        if (currentImageIndex >= galleryImages.length) currentImageIndex = 0;
-        if (currentImageIndex < 0) currentImageIndex = galleryImages.length - 1;
-        updateLightboxImage();
-    }
-    function updateLightboxImage() {
-        const img = document.getElementById('lightbox-img');
-        img.src = galleryImages[currentImageIndex];
-        img.style.display = 'block';
-    }
-    function closeLightbox(e) {
-        if (e.target.id === 'lightbox' || e.target.classList.contains('close-btn')) {
-            document.getElementById('lightbox').classList.remove('active');
-        }
-    }
-
-    /* --- FONCTIONS VIDEO LIGHTBOX --- */
-    function openVideoLightbox(el) {
-        const lightbox = document.getElementById('video-lightbox');
-        galleryVideos = [];
-        // Récupère toutes les vidéos visibles
-        const allVids = document.querySelectorAll('.gallery-item.video:not(.broken-link) video');
-        const clickedSrc = el.querySelector('video').currentSrc;
-        
-        allVids.forEach((v, idx) => {
-            galleryVideos.push(v.currentSrc);
-            if(v.currentSrc === clickedSrc) currentVideoIndex = idx;
-        });
-        updateLightboxVideo();
-        lightbox.classList.add('active');
-    }
-    function changeVideo(dir, e) {
-        if(e) e.stopPropagation();
-        currentVideoIndex += dir;
-        if (currentVideoIndex >= galleryVideos.length) currentVideoIndex = 0;
-        if (currentVideoIndex < 0) currentVideoIndex = galleryVideos.length - 1;
-        updateLightboxVideo();
-    }
-    function updateLightboxVideo() {
-        const player = document.getElementById('lightbox-video-player');
-        player.src = galleryVideos[currentVideoIndex];
-        player.play();
-    }
-    function closeVideoLightbox(e) {
-        if (e.target.id === 'video-lightbox' || e.target.classList.contains('close-btn')) {
-            const lb = document.getElementById('video-lightbox');
-            const pl = document.getElementById('lightbox-video-player');
-            lb.classList.remove('active');
-            pl.pause(); pl.src = "";
-        }
-    }
-  </script>
-
+  <script src="/main.js"></script>
 </body>
 </html>

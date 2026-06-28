@@ -6,8 +6,536 @@
   <title>Meta Intimacy — Pasteur Paul André Don</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="stylesheet" href="/assets/css/paul.css">
   <link rel="icon" type="image/png" href="/img/logo.PNG">
+  <style>
+/* ============================================
+   PAUL.CSS — Page Pasteur Paul André Don
+   Thème : sombre, élégant, premium
+============================================ */
+
+:root {
+  --paul-dark:    #050118;
+  --paul-dark2:   #0a0628;
+  --paul-blue:    #2f66ff;
+  --paul-blue-lt: #7aa2ff;
+  --paul-gold:    #f7b709;
+  --paul-white:   #e6ebf5;
+  --paul-card:    rgba(13, 24, 60, 0.7);
+  --paul-border:  rgba(255,255,255,0.1);
+  --radius:       16px;
+}
+
+body {
+  background: var(--paul-dark);
+  color: var(--paul-white);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ============================================
+   HERO
+============================================ */
+.paul-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.paul-hero__bg {
+  position: absolute;
+  inset: 0;
+}
+
+.paul-hero__img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  animation: paulKenBurns 20s ease-in-out infinite alternate;
+}
+
+@keyframes paulKenBurns {
+  0%   { transform: scale(1)    translateX(0); }
+  50%  { transform: scale(1.08) translateX(-1.5%); }
+  100% { transform: scale(1.05) translateX(1%); }
+}
+
+.paul-hero__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(5,1,24,0.6) 0%,
+    rgba(5,1,24,0.3) 50%,
+    rgba(5,1,24,0.8) 100%
+  );
+}
+
+.paul-hero__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.paul-hero__eyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--paul-gold);
+  margin-bottom: 16px;
+  animation: fadeUp 0.8s ease 0.3s both;
+}
+
+.paul-hero__title {
+  font-size: clamp(3rem, 9vw, 7rem);
+  font-weight: 900;
+  line-height: 1.0;
+  color: #fff;
+  text-shadow: 0 4px 40px rgba(0,0,0,0.7);
+  margin-bottom: 20px;
+  animation: fadeUp 0.8s ease 0.6s both;
+}
+
+.paul-hero__sub {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  animation: fadeUp 0.8s ease 0.9s both;
+}
+
+.paul-hero__flags {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  animation: fadeUp 0.8s ease 1.1s both;
+}
+
+.paul-hero__flags img {
+  height: 24px;
+  width: auto;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+  animation: fadeUp 0.8s ease 1.1s both;
+
+
+/* Scroll indicator */
+.paul-hero__scroll {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  transition: opacity 0.4s;
+}
+
+.paul-hero__scroll span {
+  display: block;
+  width: 24px; height: 38px;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 12px;
+  position: relative;
+}
+.paul-hero__scroll span::after {
+  content: '';
+  position: absolute;
+  top: 6px; left: 50%;
+  transform: translateX(-50%);
+  width: 4px; height: 8px;
+  background: #fff;
+  border-radius: 2px;
+  animation: scrollDot 1.5s infinite;
+}
+@keyframes scrollDot {
+  0%   { opacity: 1; top: 6px; }
+  100% { opacity: 0; top: 20px; }
+}
+
+/* ============================================
+   SECTION BIO
+============================================ */
+.paul-bio {
+  padding: 100px 5% 80px;
+  background: var(--paul-dark);
+}
+
+.paul-bio__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 70px;
+  align-items: center;
+}
+
+/* Photo + cadre */
+.paul-bio__photo-wrap {
+  position: relative;
+  opacity: 1;
+  transform: none;
+}
+
+
+.paul-bio__photo-frame {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.paul-bio__photo {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  border-radius: var(--radius);
+  transition: transform 0.6s ease;
+}
+.paul-bio__photo:hover { transform: scale(1.03); }
+
+/* Décoration dorée derrière la photo */
+.paul-bio__photo-deco {
+  position: absolute;
+  top: -12px; left: -12px;
+  width: 100%; height: 100%;
+  border: 2px solid var(--paul-gold);
+  border-radius: var(--radius);
+  z-index: -1;
+  opacity: 0.4;
+}
+
+/* Carte stats flottante */
+.paul-bio__stat-card {
+  position: absolute;
+  bottom: -24px;
+  right: -24px;
+  background: var(--paul-blue);
+  border-radius: 14px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 8px 30px rgba(47,102,255,0.4);
+}
+
+.paul-stat {
+  text-align: center;
+}
+.paul-stat__num {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+}
+.paul-stat__label {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.8);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.paul-stat__divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255,255,255,0.3);
+}
+
+/* Texte bio */
+.paul-bio__text {
+  opacity: 1;
+  transform: none;
+}
+
+
+.paul-bio__tag {
+  display: inline-block;
+  background: rgba(247,183,9,0.15);
+  color: var(--paul-gold);
+  border: 1px solid rgba(247,183,9,0.3);
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.paul-bio__name {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.paul-bio__text p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: rgba(230,235,245,0.85);
+  margin-bottom: 18px;
+}
+
+.paul-bio__text strong {
+  color: var(--paul-blue-lt);
+}
+
+/* Icônes réseaux sociaux */
+.paul-bio__socials {
+  display: flex;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.paul-social {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  color: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+}
+.paul-social:hover { transform: translateY(-4px); }
+
+.paul-social.instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+.paul-social.facebook  { background: #1877F2; }
+.paul-social.youtube   { background: #FF0000; }
+.paul-social:hover     { box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
+
+/* ============================================
+   CITATION
+============================================ */
+.paul-quote {
+  padding: 80px 5%;
+  background: linear-gradient(135deg, #0d1f6b 0%, #050118 100%);
+  text-align: center;
+}
+
+.paul-quote__inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.paul-quote__icon {
+  font-size: 3rem;
+  color: var(--paul-gold);
+  margin-bottom: 24px;
+  display: block;
+}
+
+.paul-quote blockquote {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-style: italic;
+  color: #fff;
+  line-height: 1.7;
+  margin: 0 0 20px;
+  font-weight: 300;
+}
+
+.paul-quote cite {
+  color: var(--paul-gold);
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+}
+
+/* ============================================
+   GALERIE MASONRY
+============================================ */
+.paul-gallery {
+  padding: 80px 5%;
+  background: var(--paul-dark2);
+}
+
+.paul-gallery__header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.paul-gallery__header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.paul-gallery__header p {
+  color: rgba(230,235,245,0.6);
+  font-size: 1.05rem;
+}
+
+/* Grille masonry CSS */
+.paul-gallery__grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 340px 340px;
+  gap: 12px;
+}
+
+/* Layout exact des 4 photos :
+   [  paul1 tall  ] [ paul2 ] [ paul3 ]
+   [  paul1 tall  ] [   paul4 wide    ]
+*/
+.paul-gallery__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  opacity: 1;
+  transform: none;
+}
+
+
+
+.paul-gallery__item:nth-child(1) { transition-delay: 0s; }
+.paul-gallery__item:nth-child(2) { transition-delay: 0.1s; }
+.paul-gallery__item:nth-child(3) { transition-delay: 0.2s; }
+.paul-gallery__item:nth-child(4) { transition-delay: 0.3s; }
+
+.paul-gallery__item--tall { grid-row: span 2; }
+.paul-gallery__item--wide { grid-column: span 2; }
+
+.paul-gallery__item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* Cadrage précis par photo */
+.paul-gallery__item:nth-child(1) img { object-position: center 15%; } /* paul1 costume jaune : montrer visage + corps */
+.paul-gallery__item:nth-child(2) img { object-position: center 10%; } /* paul2 costume blanc : visage */
+.paul-gallery__item:nth-child(3) img { object-position: center 20%; } /* paul3 noir&blanc : visage profil */
+.paul-gallery__item:nth-child(4) img { object-position: center 25%; } /* paul4 orange : visage close */
+
+.paul-gallery__item:hover img {
+  transform: scale(1.06);
+}
+
+.paul-gallery__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(5,1,24,0.55) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.paul-gallery__item:hover .paul-gallery__overlay {
+  opacity: 1;
+}
+
+/* ============================================
+   NATIONS
+============================================ */
+.paul-nations {
+  padding: 80px 5%;
+  background: var(--paul-dark);
+  text-align: center;
+}
+
+.paul-nations h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.paul-nations > p {
+  color: rgba(230,235,245,0.6);
+  margin-bottom: 50px;
+  font-size: 1.05rem;
+}
+
+.paul-nations__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.paul-nation {
+  background: var(--paul-card);
+  border: 1px solid var(--paul-border);
+  border-radius: 14px;
+  padding: 28px 32px;
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  opacity: 1;
+  transform: none;
+}
+
+.paul-nation:nth-child(1) { transition-delay: 0s; }
+.paul-nation:nth-child(2) { transition-delay: 0.1s; }
+.paul-nation:nth-child(3) { transition-delay: 0.2s; }
+.paul-nation:nth-child(4) { transition-delay: 0.3s; }
+.paul-nation:nth-child(5) { transition-delay: 0.4s; }
+
+.paul-nation:hover {
+  transform: translateY(-6px);
+  border-color: var(--paul-gold);
+  box-shadow: 0 12px 30px rgba(247,183,9,0.15);
+}
+
+.paul-nation__flag  { font-size: 2.8rem; }
+.paul-nation__name  { font-size: 0.95rem; font-weight: 700; color: #fff; }
+.paul-nation__role  { font-size: 0.75rem; color: rgba(230,235,245,0.55); letter-spacing: 0.5px; }
+
+/* ============================================
+   ANIMATIONS GLOBALES
+============================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+@media (max-width: 900px) {
+  .paul-bio__inner {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .paul-bio__stat-card {
+    right: 10px;
+    bottom: -20px;
+  }
+
+  .paul-gallery__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-auto-rows: 220px;
+  }
+
+  .paul-gallery__item--tall  { grid-row: span 2; }
+  .paul-gallery__item--wide  { grid-column: span 2; }
+}
+
+@media (max-width: 500px) {
+  .paul-gallery__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 150px;
+  }
+
+  .paul-bio__photo-deco { display: none; }
+}
+
+  </style>
 </head>
 <body>
 
@@ -63,7 +591,13 @@
       <p class="paul-hero__eyebrow">Fondateur &amp; Pasteur Principal</p>
       <h1 class="paul-hero__title">Pasteur Paul<br>André Don</h1>
       <p class="paul-hero__sub">Metamorphoo International Ministry</p>
-      <div class="paul-hero__flags">🇨🇮 🇨🇲 🇨🇦 🇷🇺 🇫🇷</div>
+      <div class="paul-hero__flags">
+        <img src="https://flagcdn.com/32x24/ci.png" alt="Côte d'Ivoire">
+        <img src="https://flagcdn.com/32x24/cm.png" alt="Cameroun">
+        <img src="https://flagcdn.com/32x24/ca.png" alt="Canada">
+        <img src="https://flagcdn.com/32x24/ru.png" alt="Russie">
+        <img src="https://flagcdn.com/32x24/fr.png" alt="France">
+      </div>
     </div>
     <div class="paul-hero__scroll">
       <span></span>

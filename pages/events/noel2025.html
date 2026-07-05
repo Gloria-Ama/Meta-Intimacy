@@ -3,25 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noël 2025 — Galerie</title>
-    
+    <title>Noël 2025 — Meta Intimacy</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/evenements.css">
     <link rel="icon" type="image/png" href="/img/logo.PNG">
 </head>
-
 <body>
 
-    <header class="site-header">
+  <header class="site-header">
     <div class="header-container">
       <a class="brand" href="/index.html">
         <img src="/img/logo.PNG" alt="Meta Intimacy" onerror="this.style.display='none'">
       </a>
       <input type="checkbox" id="nav-toggle" class="nav-toggle">
       <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
-                        <nav class="site-nav">
+      <nav class="site-nav">
         <ul>
           <li><a href="/index.html">Accueil</a></li>
           <li class="has-dropdown">
@@ -54,41 +51,37 @@
   </header>
 
   <main class="events-wrapper">
-    
     <section class="events-section">
-      
+
       <div style="margin-bottom:20px;">
-          <a href="/pages/evenements.html" style="color:#7aa2ff; text-decoration:none; font-weight:bold;">
-             <i class="fas fa-arrow-left"></i> Retour à la liste
-          </a>
+        <a href="../evenements.html" style="color:#7aa2ff; text-decoration:none; font-weight:bold;">
+          <i class="fas fa-arrow-left"></i> Retour à la liste
+        </a>
       </div>
 
-      <article class="event-card featured" style="margin-bottom:0;">
+      <article class="event-card featured">
         <div class="card-content">
-            <div class="badge">Célébration</div>
-            
-            <h1>🎄 Noël 2025</h1>
-            <p class="event-theme">Thème : La Lumière du Monde</p>
+          <div class="badge">Célébration</div>
+          <h1>🎄 Noël 2025 — Meta Intimacy</h1>
+          <p class="event-theme">Méditation, repas et échange de cadeaux</p>
+          <div class="event-details">
+            <p><i class="far fa-calendar"></i> Décembre 2025</p>
+          </div>
+          <p class="description">
+            Pour Noël 2025, la famille Meta Intimacy s'est retrouvée pour un moment chaleureux et
+            convivial. Au programme : une petite méditation pour garder le cœur ancré dans la
+            vraie signification de Noël, un délicieux repas partagé ensemble, des rires, des
+            échanges et bien sûr… des cadeaux ! 🎁
+            <br><br>
+            Ces instants de communion fraternelle sont ce qui fait la beauté de notre famille.
+            Revivez ces moments de joie à travers notre galerie ci-dessous.
+          </p>
 
-            <div class="event-details">
-                <p><i class="far fa-calendar"></i> 25 Décembre 2025</p>
-                <p><i class="fas fa-map-marker-alt"></i> 22 rue de Stratus</p>
-            </div>
-
-            <p class="description">
-                En cette fin d'année 2025, nous nous sommes réunis pour célébrer la naissance de notre Sauveur Jésus-Christ. 
-                Ce fut un moment glorieux rempli de chaleur humaine et spirituelle. Au programme : chants de Noël, 
-                pièces de théâtre par la jeunesse, partage de la Parole et un grand repas communautaire.
-                <br><br>
-                Revivez la magie de cette soirée à travers nos photos et vidéos ci-dessous.
-            </p>
-
-            <div class="gallery-section">
-                <h3>📸 Galerie Souvenirs</h3>
-                <p class="gallery-intro">Cliquez sur une image ou une vidéo pour l'agrandir.</p>
-                <div class="gallery-grid" id="gallery-container"></div>
-            </div>
-
+          <div class="gallery-section">
+            <h3>📸 Galerie Souvenirs</h3>
+            <p class="gallery-intro">Cliquez sur une image ou une vidéo pour l'agrandir.</p>
+            <div class="gallery-grid" id="gallery-container"></div>
+          </div>
         </div>
       </article>
 
@@ -100,7 +93,7 @@
     <button class="nav-btn prev" onclick="changeImage(-1, event)">&#10094;</button>
     <button class="nav-btn next" onclick="changeImage(1, event)">&#10095;</button>
     <div class="lightbox-content">
-        <img id="lightbox-img" src="" style="display:none;">
+      <img id="lightbox-img" src="" style="display:none;">
     </div>
   </div>
 
@@ -109,7 +102,7 @@
     <button class="nav-btn prev" onclick="changeVideo(-1, event)">&#10094;</button>
     <button class="nav-btn next" onclick="changeVideo(1, event)">&#10095;</button>
     <div class="lightbox-content">
-        <video id="lightbox-video-player" controls style="width:100%; max-height:85vh;"></video>
+      <video id="lightbox-video-player" controls style="width:100%; max-height:85vh;"></video>
     </div>
   </div>
 
@@ -124,6 +117,94 @@
       </div>
     </div>
   </footer>
+
   <script src="/main.js"></script>
+  <script>
+    const container = document.getElementById('gallery-container');
+    const PATH_IMG = '/img/gallery/noel/';
+    const NB_PHOTOS = 8;
+    const PATH_VID = '/video/noel/';
+    const NB_VIDEOS = 1;
+
+    let galleryImages = [], currentImageIndex = 0;
+    let galleryVideos = [], currentVideoIndex = 0;
+
+    for (let j = 1; j <= NB_VIDEOS; j++) {
+      let div = document.createElement('div');
+      div.className = 'gallery-item video';
+      div.setAttribute('onclick', 'openVideoLightbox(this)');
+      let vid = document.createElement('video');
+      let name = 'video (' + j + ')';
+      vid.src = PATH_VID + name + '.mp4';
+      vid.muted = true; vid.preload = 'metadata';
+      let icon = document.createElement('div');
+      icon.className = 'play-icon';
+      icon.innerHTML = '<i class="fas fa-play"></i>';
+      vid.onerror = function() {
+        if (this.src.indexOf('.mp4') > -1) this.src = PATH_VID + name + '.MOV';
+        else { div.style.display = 'none'; div.classList.add('broken-link'); }
+      };
+      div.appendChild(vid); div.appendChild(icon);
+      container.appendChild(div);
+    }
+
+    for (let i = 1; i <= NB_PHOTOS; i++) {
+      let div = document.createElement('div');
+      div.className = 'gallery-item photo';
+      let img = document.createElement('img');
+      let src = PATH_IMG + '1 (' + i + ').jpg';
+      img.src = src; img.loading = 'lazy';
+      img.onload = function() {
+        galleryImages.push(src);
+        div.setAttribute('onclick', "openLightbox('" + src + "')");
+      };
+      img.onerror = function() { div.style.display = 'none'; };
+      div.appendChild(img); container.appendChild(div);
+    }
+
+    function openLightbox(src) {
+      currentImageIndex = galleryImages.indexOf(src);
+      updateLightboxImage();
+      document.getElementById('lightbox').classList.add('active');
+    }
+    function changeImage(dir, e) {
+      if(e) e.stopPropagation();
+      currentImageIndex = (currentImageIndex + dir + galleryImages.length) % galleryImages.length;
+      updateLightboxImage();
+    }
+    function updateLightboxImage() {
+      let img = document.getElementById('lightbox-img');
+      img.src = galleryImages[currentImageIndex]; img.style.display = 'block';
+    }
+    function closeLightbox(e) {
+      if (e.target.id === 'lightbox' || e.target.classList.contains('close-btn'))
+        document.getElementById('lightbox').classList.remove('active');
+    }
+    function openVideoLightbox(el) {
+      galleryVideos = [];
+      document.querySelectorAll('.gallery-item.video:not(.broken-link) video').forEach(function(v, idx) {
+        galleryVideos.push(v.currentSrc);
+        if (v.currentSrc === el.querySelector('video').currentSrc) currentVideoIndex = idx;
+      });
+      updateLightboxVideo();
+      document.getElementById('video-lightbox').classList.add('active');
+    }
+    function changeVideo(dir, e) {
+      if(e) e.stopPropagation();
+      currentVideoIndex = (currentVideoIndex + dir + galleryVideos.length) % galleryVideos.length;
+      updateLightboxVideo();
+    }
+    function updateLightboxVideo() {
+      let player = document.getElementById('lightbox-video-player');
+      player.src = galleryVideos[currentVideoIndex]; player.play();
+    }
+    function closeVideoLightbox(e) {
+      if (e.target.id === 'video-lightbox' || e.target.classList.contains('close-btn')) {
+        let lb = document.getElementById('video-lightbox');
+        let pl = document.getElementById('lightbox-video-player');
+        lb.classList.remove('active'); pl.pause(); pl.src = '';
+      }
+    }
+  </script>
 </body>
 </html>

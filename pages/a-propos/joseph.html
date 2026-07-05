@@ -1,32 +1,228 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meta Intimacy — Serviteur Joseph Levi Don</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/joseph.css">
-    <link rel="icon" type="image/png" href="/img/logo.PNG">
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meta Intimacy — Serviteur Joseph Levi Don</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/png" href="/img/logo.PNG">
+  <style>
+/* ============================================
+   JOSEPH PAGE — Style identique à Paul
+============================================ */
+:root {
+  --j-dark:    #050118;
+  --j-dark2:   #0a0628;
+  --j-blue:    #2f66ff;
+  --j-blue-lt: #7aa2ff;
+  --j-gold:    #f7b709;
+  --j-white:   #e6ebf5;
+  --j-card:    rgba(13, 24, 60, 0.7);
+  --j-border:  rgba(255,255,255,0.1);
+  --radius:    16px;
+}
 
+body {
+  background: var(--j-dark);
+  color: var(--j-white);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* HERO */
+.joseph-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.joseph-hero__bg {
+  position: absolute; inset: 0;
+}
+.joseph-hero__img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  animation: josephKenBurns 20s ease-in-out infinite alternate;
+}
+@keyframes josephKenBurns {
+  0%   { transform: scale(1) translateX(0); }
+  50%  { transform: scale(1.08) translateX(-1.5%); }
+  100% { transform: scale(1.05) translateX(1%); }
+}
+.joseph-hero__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(5,1,24,0.5) 0%, rgba(5,1,24,0.2) 50%, rgba(5,1,24,0.8) 100%);
+}
+.joseph-hero__content {
+  position: relative; z-index: 2;
+  width: 100%; padding: 60px 40px 80px;
+  text-align: center;
+}
+.joseph-hero__eyebrow {
+  font-size: 0.85rem; letter-spacing: 5px;
+  text-transform: uppercase; color: var(--j-gold);
+  margin-bottom: 16px; animation: fadeUp 0.8s ease 0.3s both;
+}
+.joseph-hero__title {
+  font-size: clamp(3rem, 9vw, 7rem);
+  font-weight: 900; line-height: 1.0; color: #fff;
+  text-shadow: 0 4px 40px rgba(0,0,0,0.7);
+  margin-bottom: 20px; animation: fadeUp 0.8s ease 0.6s both;
+}
+.joseph-hero__sub {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: rgba(255,255,255,0.75); letter-spacing: 2px;
+  margin-bottom: 20px; animation: fadeUp 0.8s ease 0.9s both;
+}
+.joseph-hero__flag {
+  font-size: 2.2rem; animation: fadeUp 0.8s ease 1.1s both;
+}
+.joseph-hero__scroll {
+  position: absolute; bottom: 30px; left: 50%;
+  transform: translateX(-50%); z-index: 2; transition: opacity 0.4s;
+}
+.joseph-hero__scroll span {
+  display: block; width: 24px; height: 38px;
+  border: 2px solid rgba(255,255,255,0.5); border-radius: 12px; position: relative;
+}
+.joseph-hero__scroll span::after {
+  content: ''; position: absolute; top: 6px; left: 50%;
+  transform: translateX(-50%); width: 4px; height: 8px;
+  background: #fff; border-radius: 2px; animation: scrollDot 1.5s infinite;
+}
+@keyframes scrollDot { 0% { opacity:1; top:6px; } 100% { opacity:0; top:20px; } }
+
+/* BIO */
+.joseph-bio {
+  padding: 100px 5% 80px;
+  background: var(--j-dark);
+}
+.joseph-bio__inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1.2fr;
+  gap: 70px; align-items: center;
+}
+.joseph-bio__photo-wrap { position: relative; }
+.joseph-bio__photo-frame { position: relative; border-radius: var(--radius); overflow: hidden; }
+.joseph-bio__photo {
+  width: 100%; aspect-ratio: 3/4;
+  object-fit: cover; object-position: top center;
+  display: block; border-radius: var(--radius);
+  transition: transform 0.6s ease;
+}
+.joseph-bio__photo:hover { transform: scale(1.03); }
+.joseph-bio__photo-deco {
+  position: absolute; top: -12px; left: -12px;
+  width: 100%; height: 100%;
+  border: 2px solid var(--j-gold); border-radius: var(--radius);
+  z-index: -1; opacity: 0.4;
+}
+.joseph-bio__stat-card {
+  position: absolute; bottom: -24px; right: -24px;
+  background: var(--j-blue); border-radius: 14px;
+  padding: 18px 24px; display: flex; align-items: center; gap: 16px;
+  box-shadow: 0 8px 30px rgba(47,102,255,0.4);
+}
+.j-stat { text-align: center; }
+.j-stat__num { display: block; font-size: 1.8rem; font-weight: 900; color: #fff; line-height: 1; }
+.j-stat__label { font-size: 0.72rem; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 1px; }
+.j-stat__divider { width: 1px; height: 40px; background: rgba(255,255,255,0.3); }
+
+.joseph-bio__text {}
+.joseph-bio__tag {
+  display: inline-block; background: rgba(247,183,9,0.15); color: var(--j-gold);
+  border: 1px solid rgba(247,183,9,0.3); padding: 4px 14px; border-radius: 20px;
+  font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;
+}
+.joseph-bio__name {
+  font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800; color: #fff;
+  margin-bottom: 24px; line-height: 1.2;
+}
+.joseph-bio__text p {
+  font-size: 1.05rem; line-height: 1.85;
+  color: rgba(230,235,245,0.85); margin-bottom: 18px;
+}
+.joseph-bio__text strong { color: var(--j-blue-lt); }
+.joseph-bio__socials { display: flex; gap: 14px; margin-top: 32px; }
+.joseph-social {
+  width: 46px; height: 46px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; color: #fff; transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+}
+.joseph-social:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
+.joseph-social.instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+.joseph-social.facebook { background: #1877F2; }
+.joseph-social.tiktok { background: #000; border: 1px solid rgba(255,255,255,0.2); }
+
+/* CITATION */
+.joseph-quote {
+  padding: 80px 5%;
+  background: linear-gradient(135deg, #0d1f6b 0%, #050118 100%);
+  text-align: center;
+}
+.joseph-quote__inner { max-width: 800px; margin: 0 auto; }
+.joseph-quote__icon { font-size: 3rem; color: var(--j-gold); margin-bottom: 24px; display: block; }
+.joseph-quote blockquote {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-style: italic;
+  color: #fff; line-height: 1.7; margin: 0 0 20px; font-weight: 300;
+}
+.joseph-quote cite { color: var(--j-gold); font-size: 0.95rem; letter-spacing: 2px; }
+
+/* NATIONS */
+.joseph-nation-section {
+  padding: 80px 5%; background: var(--j-dark); text-align: center;
+}
+.joseph-nation-section h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; color: #fff; margin-bottom: 12px;
+}
+.joseph-nation-section > p { color: rgba(230,235,245,0.6); margin-bottom: 50px; font-size: 1.05rem; }
+.joseph-nations-grid {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 600px; margin: 0 auto;
+}
+.joseph-nation {
+  background: var(--j-card); border: 1px solid var(--j-border); border-radius: 14px;
+  padding: 28px 32px; width: 160px; display: flex; flex-direction: column;
+  align-items: center; gap: 8px; backdrop-filter: blur(10px);
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+.joseph-nation:hover { transform: translateY(-6px); border-color: var(--j-gold); box-shadow: 0 12px 30px rgba(247,183,9,0.15); }
+.joseph-nation__flag { font-size: 2.8rem; }
+.joseph-nation__name { font-size: 0.95rem; font-weight: 700; color: #fff; }
+.joseph-nation__role { font-size: 0.75rem; color: rgba(230,235,245,0.55); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .joseph-bio__inner { grid-template-columns: 1fr; gap: 60px; }
+  .joseph-bio__stat-card { right: 10px; bottom: -20px; }
+  .joseph-bio__photo-deco { display: none; }
+}
+  </style>
+</head>
 <body>
 
-    <header class="site-header">
+  <header class="site-header">
     <div class="header-container">
       <a class="brand" href="/index.html">
         <img src="/img/logo.PNG" alt="Meta Intimacy" onerror="this.style.display='none'">
       </a>
       <input type="checkbox" id="nav-toggle" class="nav-toggle">
       <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
-                        <nav class="site-nav">
+      <nav class="site-nav">
         <ul>
           <li><a href="/index.html">Accueil</a></li>
           <li class="has-dropdown">
             <details>
-              <summary class="menu-link">À-propos <i class="fas fa-chevron-down caret"></i></summary>
+              <summary class="menu-link active-page">À-propos <i class="fas fa-chevron-down caret"></i></summary>
               <ul class="dropdown">
                 <li><a href="/pages/a-propos.html">À propos</a></li>
                 <li><a href="/pages/a-propos/joseph.html">Responsable</a></li>
@@ -34,7 +230,7 @@
               </ul>
             </details>
           </li>
-          <!--<li><a href="/pages/predications.html">Prédications</a></li>-->
+          <li><a href="/pages/predications.html">Prédications</a></li>
           <li><a href="/pages/evenements.html">Événements</a></li>
           <li class="has-dropdown">
             <details>
@@ -53,60 +249,108 @@
     </div>
   </header>
 
-  <main>
-      
-      <section class="video-intro">
-          <video autoplay muted loop playsinline>
-              <source src="../../video/joseph_background.MP4" type="video/mp4">
-          </video>
-          <div class="video-overlay"></div>
-      </section>
+  <!-- HERO -->
+  <section class="joseph-hero">
+    <div class="joseph-hero__bg">
+      <img src="/img/joseph2.JPG" alt="" class="joseph-hero__img" aria-hidden="true">
+      <div class="joseph-hero__overlay"></div>
+    </div>
+    <div class="joseph-hero__content">
+      <p class="joseph-hero__eyebrow">Responsable Meta Intimacy Canada</p>
+      <h1 class="joseph-hero__title">Serviteur Joseph<br>Levi Don</h1>
+      <p class="joseph-hero__sub">Meta Intimacy — Gatineau, Canada</p>
+      <div class="joseph-hero__flag">🇨🇦</div>
+    </div>
+    <div class="joseph-hero__scroll"><span></span></div>
+  </section>
 
-      <section class="section1">
-          <h1>Serviteur Joseph Levi Don</h1>
-          
-          <p>
-            Le Serviteur <strong>Joseph Levi Don</strong> est le responsable de la cellule Meta Intimacy, implantée à Gatineau, au Canada 🇨🇦, 
-            dans le cadre du ministère international Metamorphoo. Homme de foi et de consécration, il est reconnu comme un 
-            fils spirituel du Pasteur Paul André Don, qu’il considère comme son père et son mentor dans la marche avec Christ.
-            À travers son obéissance et son zèle, il contribue activement à l’expansion de la vision de Metamorphoo sur le territoire canadien.
-          </p>
-          <p>
-            L’aventure de Meta Intimacy est un témoignage vivant de la fidélité de Dieu. Le Serviteur Joseph Levi Don ne tourne pas en rond, il a un programme. Il a d’abord
-            commencé ce ministère en ligne, réunissant virtuellement quelques frères et sœurs animés du même désir de chercher
-            la face de Dieu. Peu à peu, ces rencontres spirituelles ont pris forme en présentiel, avec un petit groupe de 4 à 5
-            personnes. Dans ce cadre intime, la prière, l’adoration et la méditation de la Parole ont jeté les bases solides de
-            la cellule.
-          </p>
-          <p>
-            Aujourd’hui, par la grâce de Dieu, Meta Intimacy a connu une croissance remarquable. Ce qui était au départ une petite
-            réunion fraternelle est devenu une communauté florissante, un véritable lieu de transformation et d’édification spirituelle.
-            De nombreuses vies y sont impactées, des destinées restaurées, et une génération de croyants enracinés se lève pour manifester 
-            la gloire du Royaume.
-          </p>
-          <p>
-            Le Serviteur Joseph Levi Don incarne fidèlement la vision transmise par son père spirituel, le Pasteur Paul André Don : former 
-            une génération de croyants solides, consacrés et persévérants, capables de refléter Christ dans leur quotidien. Son leadership 
-            à Gatineau dépasse la simple responsabilité d’une cellule ; il est devenu un bâtisseur spirituel, un pionnier qui ouvre la voie 
-            à l’implantation et au rayonnement de Metamorphoo au Canada 🇨🇦.
-          </p>
-          <p>
-            Ainsi, Meta Intimacy est plus qu’une cellule : c’est un mouvement en pleine expansion, une flamme qui continue de brûler grâce à
-            l’engagement et à la fidélité du Serviteur Joseph Levi Don. Par son obéissance et sa persévérance, il démontre qu’un fils spirituel
-            peut être un véritable prolongement de la vision de son père spirituel, et un instrument puissant entre les mains de Dieu pour 
-            impacter sa génération.
-          </p>
-      </section>
+  <!-- BIO -->
+  <section class="joseph-bio">
+    <div class="joseph-bio__inner">
 
-      <section class="reseau-social">
-          <div id="pasteur-social">
-              <a href="https://www.instagram.com/pad_officiel/" target="_blank"><i class="fab fa-instagram"></i></a>
-              <a href="https://www.facebook.com/paulandre.assale" target="_blank"><i class="fab fa-facebook"></i></a>
-              <a href="https://www.youtube.com/@Pad_ministries" target="_blank"><i class="fab fa-youtube"></i></a>
+      <div class="joseph-bio__photo-wrap">
+        <div class="joseph-bio__photo-frame">
+          <img src="/img/joseph1.JPG" alt="Serviteur Joseph Levi Don" class="joseph-bio__photo">
+          <div class="joseph-bio__photo-deco"></div>
+        </div>
+        <div class="joseph-bio__stat-card">
+          <div class="j-stat">
+            <span class="j-stat__num">🇨🇦</span>
+            <span class="j-stat__label">Canada</span>
           </div>
-      </section>
+          <div class="j-stat__divider"></div>
+          <div class="j-stat">
+            <span class="j-stat__num">+2</span>
+            <span class="j-stat__label">Ans de ministère</span>
+          </div>
+        </div>
+      </div>
 
-  </main>
+      <div class="joseph-bio__text">
+        <span class="joseph-bio__tag">Biographie</span>
+        <h2 class="joseph-bio__name">Serviteur Joseph Levi Don</h2>
+
+        <p>
+          Le Serviteur <strong>Joseph Levi Don</strong> est le responsable de la cellule Meta Intimacy,
+          implantée à Gatineau, au Canada 🇨🇦, dans le cadre du ministère international Metamorphoo.
+          Homme de foi et de consécration, il est reconnu comme un fils spirituel du Pasteur Paul André Don,
+          qu'il considère comme son père et son mentor dans la marche avec Christ.
+        </p>
+        <p>
+          L'aventure de Meta Intimacy est un témoignage vivant de la fidélité de Dieu. Joseph a d'abord
+          commencé ce ministère <strong>en ligne</strong>, réunissant virtuellement quelques frères et sœurs
+          animés du même désir de chercher la face de Dieu. Peu à peu, ces rencontres ont pris forme en
+          présentiel, avec un petit groupe de 4 à 5 personnes.
+        </p>
+        <p>
+          Aujourd'hui, par la grâce de Dieu, Meta Intimacy a connu une <strong>croissance remarquable</strong>.
+          Ce qui était au départ une petite réunion fraternelle est devenu une communauté florissante,
+          un véritable lieu de transformation et d'édification spirituelle.
+        </p>
+
+        <div class="joseph-bio__socials">
+          <a href="https://www.instagram.com/metaintimacy/" target="_blank" rel="noopener"
+             class="joseph-social instagram" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com" target="_blank" rel="noopener"
+             class="joseph-social facebook" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.tiktok.com/@meta_intimacy" target="_blank" rel="noopener"
+             class="joseph-social tiktok" aria-label="TikTok">
+            <i class="fab fa-tiktok"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CITATION -->
+  <section class="joseph-quote">
+    <div class="joseph-quote__inner">
+      <i class="fas fa-quote-left joseph-quote__icon"></i>
+      <blockquote>
+        Meta Intimacy, c'est plus qu'une cellule :<br>
+        c'est un mouvement en pleine expansion, une flamme qui continue de brûler.
+      </blockquote>
+      <cite>— Serviteur Joseph Levi Don</cite>
+    </div>
+  </section>
+
+  <!-- PRÉSENCE -->
+  <section class="joseph-nation-section">
+    <h2>Présence</h2>
+    <p>Meta Intimacy rayonne depuis Gatineau</p>
+    <div class="joseph-nations-grid">
+      <div class="joseph-nation">
+        <span class="joseph-nation__flag">🇨🇦</span>
+        <span class="joseph-nation__name">Canada</span>
+        <span class="joseph-nation__role">Gatineau, QC</span>
+      </div>
+    </div>
+  </section>
 
   <footer>
     <div class="container footer-content">
@@ -116,10 +360,17 @@
       </div>
       <div class="footer-info">
         <p>&copy; <span id="year"></span> Meta Intimacy — Tous droits réservés</p>
-        <address><i class="fas fa-map-marker-alt"></i> 665 Boulevard saint-joseph, Gatineau, QC</address>
+        <address><i class="fas fa-map-marker-alt"></i> 22 rue de Stratus, Gatineau, QC</address>
       </div>
     </div>
   </footer>
+
   <script src="/main.js"></script>
+  <script>
+    window.addEventListener('scroll', () => {
+      const s = document.querySelector('.joseph-hero__scroll');
+      if (s) s.style.opacity = window.scrollY > 80 ? '0' : '1';
+    });
+  </script>
 </body>
 </html>

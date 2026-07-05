@@ -8,6 +8,22 @@
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/evenements.css">
     <link rel="icon" type="image/png" href="/img/logo.PNG">
+    <style>
+      /* Force 3 colonnes sur desktop */
+      .events-list-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      @media (max-width: 900px) {
+        .events-list-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (max-width: 580px) {
+        .events-list-grid { grid-template-columns: 1fr; }
+      }
+    </style>
 </head>
 <body>
 
@@ -21,28 +37,10 @@
       <nav class="site-nav">
         <ul>
           <li><a href="/index.html">Accueil</a></li>
-          <li class="has-dropdown">
-            <details>
-              <summary class="menu-link">À-propos <i class="fas fa-chevron-down caret"></i></summary>
-              <ul class="dropdown">
-                <li><a href="/pages/a-propos.html">À propos</a></li>
-                <li><a href="/pages/a-propos/joseph.html">Responsable</a></li>
-                <li><a href="/pages/a-propos/paul.html">Fondateur</a></li>
-              </ul>
-            </details>
-          </li>
-         <!-- <li><a href="/pages/predications.html">Prédications</a></li>-->
+          <li class="has-dropdown"><details><summary class="menu-link">À-propos <i class="fas fa-chevron-down caret"></i></summary><ul class="dropdown"><li><a href="/pages/a-propos.html">À propos</a></li><li><a href="/pages/a-propos/joseph.html">Responsable</a></li><li><a href="/pages/a-propos/paul.html">Fondateur</a></li></ul></details></li>
+          <li><a href="/pages/predications.html">Prédications</a></li>
           <li><a href="/pages/evenements.html">Événements</a></li>
-          <li class="has-dropdown">
-            <details>
-              <summary class="menu-link">Contact <i class="fas fa-chevron-down caret"></i></summary>
-              <ul class="dropdown">
-                <li><a href="/pages/contact/contact.html">Nous joindre</a></li>
-                <li><a href="/pages/contact/rendez-vous.html">Prendre RDV</a></li>
-                <li><a href="/pages/contact/servir.html">Servir</a></li>
-              </ul>
-            </details>
-          </li>
+          <li class="has-dropdown"><details><summary class="menu-link">Contact <i class="fas fa-chevron-down caret"></i></summary><ul class="dropdown"><li><a href="/pages/contact/contact.html">Nous joindre</a></li><li><a href="/pages/contact/rendez-vous.html">Prendre RDV</a></li><li><a href="/pages/contact/servir.html">Servir</a></li></ul></details></li>
           <li><a href="/pages/temoignage.html">Témoignages</a></li>
           <li><a href="/pages/dons.html" class="btn-don">Dons</a></li>
         </ul>
@@ -62,8 +60,8 @@
       <!-- RETRAITE SPIRITUELLE 2025 -->
       <article class="event-summary-card">
         <div class="card-thumb">
-          <img src="/img/gallery/retraite/1 (1).jpg" alt="Retraite Spirituelle 2025"
-            onerror="this.closest('.card-thumb').style.background='#1a2c4e'; this.style.display='none';">
+          <img src="\img\gallery\retraite\courveture.jpg" alt="Retraite Spirituelle 2025"
+            onerror="this.closest('.card-thumb').style.background='#0d3d45'; this.style.display='none';">
         </div>
         <div class="card-info">
           <h2>⛵ Retraite Spirituelle 2026</h2>
@@ -76,7 +74,7 @@
       <!-- 1ER ANNIVERSAIRE -->
       <article class="event-summary-card">
         <div class="card-thumb">
-          <img src="/img/gallery/1 (1).jpg" alt="1er Anniversaire"
+          <img src="/img/gallery/1 (6).jpg" alt="1er Anniversaire"
             onerror="this.src='/img/gallery/1 (2).jpg'">
         </div>
         <div class="card-info">
@@ -90,8 +88,8 @@
       <!-- NOËL 2025 -->
       <article class="event-summary-card">
         <div class="card-thumb">
-          <img src="/img/gallery/noel/1 (1).jpg" alt="Noël 2025"
-            onerror="this.src='/img/gallery/noel/1 (2).jpg'; this.onerror=function(){this.closest('.card-thumb').style.background='#1a2c4e'; this.style.display='none';}">
+          <img src="/img/gallery/noel/1 (1).jpg.jpeg" alt="Noël 2025"
+            onerror="this.src='/img/gallery/noel/1 (2).jpg.jpeg'; this.onerror=function(){this.closest('.card-thumb').style.background='#1a2c4e'; this.style.display='none';}">
         </div>
         <div class="card-info">
           <h2>🎄 Noël 2025</h2>
@@ -113,7 +111,7 @@
       </div>
       <div class="footer-info">
         <p>&copy; <span id="year"></span> Meta Intimacy — Tous droits réservés</p>
-        <address><i class="fas fa-map-marker-alt"></i> 665 Boulevard saint-joseph, Gatineau, QC</address>
+        <address><i class="fas fa-map-marker-alt"></i> 22 rue de Stratus, Gatineau, QC</address>
       </div>
     </div>
   </footer>

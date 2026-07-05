@@ -1,4 +1,4 @@
-    <!doctype html>
+<!doctype html>
     <html lang="fr">
     <head>
     <meta charset="utf-8">
@@ -100,7 +100,7 @@
             Ils sont une source de restauration, de foi et d’espérance pour tous ceux qui les reçoivent.
             Chaque rencontre est une expérience unique où le ciel touche la terre par la puissance de la Parole.
             </p>
-            <a href="/pages/contact/contact.html" class="btn-light">Nous contacter</a>
+            <a href="/pages/predications.html" class="btn-light">Découvrir</a>
         </div>
         </section>
 
@@ -130,7 +130,7 @@
                 <div class="icon-box"><i class="fas fa-church"></i></div>
                 <h3>Jeudi</h3>
                 <span class="heure">19h00 - 21h30</span>
-                <p>Temps de prière, d'enseignement et de communion fraternelle à <br><strong>665 Boulevard saint-joseph</strong> <br> Suivez-nous en direct sur Tiktok et instagram</p>
+                <p>Temps de prière, d'enseignement et de communion fraternelle à <br><strong>22 rue de Stratus</strong> <br> Suivez-nous en direct sur Tiktok et instagram</p>
                 <!--<a href="/pages/predications.html" class="btn-small">En savoir plus</a><!-->
                 <div class="footer-social">
                 <a href="https://www.instagram.com/metaintimacy/" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -149,10 +149,9 @@
             <div class="card-horaire">
                 <div class="icon-box"><i class="fas fa-child"></i></div>
                 <h3>Dimanche</h3>
-                <span class="heure">10h30 - 1h00</span>
+                <span class="heure">11h00 - 13h00</span>
                 <p>École de dimanche en présentiel</p>
-                <p>22 rue de Stratus, Gatineau, QC</p>
-                <a href="/pages/contact/contact.html" class="btn-small">En savoir plus</a>
+                <a href="/pages/predications.html" class="btn-small">En savoir plus</a>
             </div>
             </div>
         </div>
@@ -196,7 +195,20 @@
 
             <article class="bio-card reverse">
             <div class="bio-image">
-                <img src="img/joseph1.png" alt="Serviteur Joseph Levi Don" onerror="this.src='https://placehold.co/400x500?text=Photo+Joseph'">
+              <div class="paul-slider" id="josephSlider">
+                <div class="paul-slides">
+                  <img src="img/joseph1.JPG" alt="Serviteur Joseph Levi Don" class="paul-slide">
+                  <img src="img/joseph2.JPG" alt="Serviteur Joseph Levi Don" class="paul-slide">
+                  <img src="img/joseph3.JPG" alt="Serviteur Joseph Levi Don" class="paul-slide">
+                  <img src="img/joseph4.JPG" alt="Serviteur Joseph Levi Don" class="paul-slide">
+                  <img src="img/joseph5.JPG" alt="Serviteur Joseph Levi Don" class="paul-slide">
+                  <img src="img/joseph6.JPG" alt="Serviteur Joseph Levi Don" class="paul-slide">
+                  <img src="img/joseph7.JPG" alt="Serviteur Joseph Levi Don" class="paul-slide">
+                </div>
+                <div class="paul-dots" id="josephDots"></div>
+                <button class="paul-arrow paul-prev" aria-label="Précédent">&#8249;</button>
+                <button class="paul-arrow paul-next" aria-label="Suivant">&#8250;</button>
+              </div>
             </div>
             <div class="bio-content">
                 <h2>Serviteur Joseph Levi Don</h2>
@@ -302,7 +314,7 @@
         </div>
         <div class="footer-info">
             <p>&copy; <span id="year"></span> Meta Intimacy — Tous droits réservés</p>
-            <address><i class="fas fa-map-marker-alt"></i> 665 Boulevard saint-joseph, Gatineau, QC</address>
+            <address><i class="fas fa-map-marker-alt"></i> 22 rue de Stratus, Gatineau, QC</address>
         </div>
         </div>
     </footer>
@@ -397,7 +409,7 @@
 
         // Rendre le conteneur de slides relatif
         const slidesWrap = slider.querySelector('.paul-slides');
-        slidesWrap.style.cssText = 'position:relative; width:100%; height:100%; min-height:480px;';
+        slidesWrap.style.cssText = 'position:relative; width:100%; height:100%; min-height:320px;';
 
         // Démarrer
         goTo(0);
@@ -417,6 +429,70 @@
             const dx = e.changedTouches[0].clientX - touchStartX;
             if (Math.abs(dx) > 40) dx < 0 ? next() : prev();
         }, { passive: true });
+        }
+    })();
+
+    /* CARROUSEL PHOTOS JOSEPH */
+    (function() {
+        const slider = document.getElementById('josephSlider');
+        if (!slider) return;
+        const slides = slider.querySelectorAll('.paul-slide');
+        const dotsWrap = document.getElementById('josephDots');
+        const prevBtn = slider.querySelector('.paul-prev');
+        const nextBtn = slider.querySelector('.paul-next');
+        let validSlides = [], loadChecks = 0, current = 0, autoTimer;
+        const INTERVAL = 3500;
+
+        slides.forEach((img, i) => {
+            const t = new Image();
+            t.onload  = () => { validSlides.push(i); check(); };
+            t.onerror = () => { img.style.display='none'; check(); };
+            t.src = img.src;
+        });
+
+        function check() {
+            loadChecks++;
+            if (loadChecks === slides.length) init();
+        }
+
+        function init() {
+            if (validSlides.length === 0) return;
+            validSlides.sort((a,b) => a-b);
+
+            validSlides.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.className = 'paul-dot' + (i===0?' active':'');
+                dot.setAttribute('aria-label','Photo '+(i+1));
+                dot.addEventListener('click', () => goTo(i));
+                dotsWrap.appendChild(dot);
+            });
+
+            const dots = dotsWrap.querySelectorAll('.paul-dot');
+
+            function goTo(index) {
+                validSlides.forEach(si => {
+                    slides[si].style.cssText = 'opacity:0;position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:top center;transition:opacity 0.7s ease;border-radius:16px;';
+                });
+                dots.forEach(d => d.classList.remove('active'));
+                current = (index + validSlides.length) % validSlides.length;
+                slides[validSlides[current]].style.cssText = 'opacity:1;position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:top center;transition:opacity 0.7s ease;border-radius:16px;';
+                dots[current].classList.add('active');
+                clearInterval(autoTimer);
+                autoTimer = setInterval(() => goTo(current+1), INTERVAL);
+            }
+
+            validSlides.forEach(si => {
+                slides[si].style.cssText = 'opacity:0;position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:top center;transition:opacity 0.7s ease;border-radius:16px;';
+            });
+            slider.querySelector('.paul-slides').style.cssText = 'position:relative;width:100%;height:100%;min-height:320px;';
+            goTo(0);
+            nextBtn.addEventListener('click', () => goTo(current+1));
+            prevBtn.addEventListener('click', () => goTo(current-1));
+            slider.addEventListener('mouseenter', () => clearInterval(autoTimer));
+            slider.addEventListener('mouseleave', () => { clearInterval(autoTimer); autoTimer = setInterval(()=>goTo(current+1), INTERVAL); });
+            let tx=0;
+            slider.addEventListener('touchstart', e=>{tx=e.touches[0].clientX;},{passive:true});
+            slider.addEventListener('touchend', e=>{const dx=e.changedTouches[0].clientX-tx; if(Math.abs(dx)>40) dx<0?goTo(current+1):goTo(current-1);},{passive:true});
         }
     })();
     </script>
